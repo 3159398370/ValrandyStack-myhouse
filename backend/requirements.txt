@@ -1,0 +1,36 @@
+# Django和核心依赖
+Django==4.2.7
+django-cors-headers==4.3.0
+django-filter==23.3
+django-environ==0.11.2
+django-storages==1.14.2
+
+# REST API
+djangorestframework==3.14.0
+drf-yasg==1.21.7
+
+# 数据库
+mysqlclient==2.2.0
+
+# 认证与权限
+django-allauth==0.58.2
+djoser==2.2.0
+PyJWT==2.8.0
+
+# 图像处理
+Pillow==10.1.0
+
+# 部署相关
+gunicorn==21.2.0
+whitenoise==6.5.0
+
+# 开发工具
+python-dotenv==1.0.0
+black==23.10.1
+isort==5.12.0
+flake8==6.1.0
+
+# 测试工具
+pytest==7.4.3
+pytest-django==4.5.2
+coverage==7.3.2
