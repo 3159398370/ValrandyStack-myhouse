@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="400" height="300" fill="url(#bg)"/>
+  
+  <!-- 数据分析图表元素 -->
+  <g transform="translate(50, 50)">
+    <!-- 柱状图 -->
+    <rect x="20" y="120" width="30" height="80" fill="#fff" opacity="0.8"/>
+    <rect x="60" y="100" width="30" height="100" fill="#fff" opacity="0.9"/>
+    <rect x="100" y="80" width="30" height="120" fill="#fff" opacity="0.7"/>
+    <rect x="140" y="90" width="30" height="110" fill="#fff" opacity="0.8"/>
+    
+    <!-- 折线图 -->
+    <polyline points="200,150 230,120 260,100 290,80 320,60" 
+              stroke="#fff" stroke-width="3" fill="none" opacity="0.9"/>
+    
+    <!-- 数据点 -->
+    <circle cx="200" cy="150" r="4" fill="#fff"/>
+    <circle cx="230" cy="120" r="4" fill="#fff"/>
+    <circle cx="260" cy="100" r="4" fill="#fff"/>
+    <circle cx="290" cy="80" r="4" fill="#fff"/>
+    <circle cx="320" cy="60" r="4" fill="#fff"/>
+  </g>
+  
+  <!-- 标题 -->
+  <text x="200" y="40" text-anchor="middle" fill="#fff" font-size="24" font-weight="bold">
+    智能数据分析平台
+  </text>
+  
+  <!-- 副标题 -->
+  <text x="200" y="270" text-anchor="middle" fill="#fff" font-size="14" opacity="0.8">
+    Vue + Django + ECharts
+  </text>
+</svg>

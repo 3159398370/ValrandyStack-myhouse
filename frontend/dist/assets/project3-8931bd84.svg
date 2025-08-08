@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffa726;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="400" height="300" fill="url(#bg3)"/>
+  
+  <!-- 爬虫网络图 -->
+  <g transform="translate(200, 150)">
+    <!-- 中心节点 -->
+    <circle cx="0" cy="0" r="20" fill="#fff" opacity="0.9"/>
+    <text x="0" y="5" text-anchor="middle" fill="#333" font-size="12" font-weight="bold">爬虫</text>
+    
+    <!-- 连接线 -->
+    <line x1="0" y1="0" x2="-80" y2="-60" stroke="#fff" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="80" y2="-60" stroke="#fff" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="-80" y2="60" stroke="#fff" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="80" y2="60" stroke="#fff" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="0" y2="-80" stroke="#fff" stroke-width="2" opacity="0.7"/>
+    <line x1="0" y1="0" x2="0" y2="80" stroke="#fff" stroke-width="2" opacity="0.7"/>
+    
+    <!-- 网站节点 -->
+    <circle cx="-80" cy="-60" r="12" fill="#fff" opacity="0.8"/>
+    <text x="-80" y="-55" text-anchor="middle" fill="#333" font-size="8">淘宝</text>
+    
+    <circle cx="80" cy="-60" r="12" fill="#fff" opacity="0.8"/>
+    <text x="80" y="-55" text-anchor="middle" fill="#333" font-size="8">京东</text>
+    
+    <circle cx="-80" cy="60" r="12" fill="#fff" opacity="0.8"/>
+    <text x="-80" y="65" text-anchor="middle" fill="#333" font-size="8">天猫</text>
+    
+    <circle cx="80" cy="60" r="12" fill="#fff" opacity="0.8"/>
+    <text x="80" y="65" text-anchor="middle" fill="#333" font-size="8">拼多多</text>
+    
+    <circle cx="0" cy="-80" r="12" fill="#fff" opacity="0.8"/>
+    <text x="0" y="-75" text-anchor="middle" fill="#333" font-size="8">苏宁</text>
+    
+    <circle cx="0" cy="80" r="12" fill="#fff" opacity="0.8"/>
+    <text x="0" y="85" text-anchor="middle" fill="#333" font-size="8">唯品会</text>
+  </g>
+  
+  <!-- 数据流动效果 -->
+  <g>
+    <circle cx="100" cy="100" r="3" fill="#fff" opacity="0.6">
+      <animate attributeName="cx" values="100;300;100" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="300" cy="200" r="3" fill="#fff" opacity="0.6">
+      <animate attributeName="cx" values="300;100;300" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- 标题 -->
+  <text x="200" y="40" text-anchor="middle" fill="#fff" font-size="24" font-weight="bold">
+    电商数据爬虫
+  </text>
+  
+  <!-- 副标题 -->
+  <text x="200" y="270" text-anchor="middle" fill="#fff" font-size="14" opacity="0.8">
+    Scrapy + MongoDB + 多线程
+  </text>
+</svg>

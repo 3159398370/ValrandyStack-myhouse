@@ -167,7 +167,7 @@
             <h3 class="widget-title">关于博主</h3>
             <div class="author-info">
               <div class="author-avatar">
-                <img src="../assets/images/avatar.jpg" alt="博主头像" />
+                <img src="../assets/images/avatar.svg" alt="博主头像" />
               </div>
               <div class="author-bio">
                 <h4>Valrandy·Joseph</h4>
