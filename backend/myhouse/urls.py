@@ -31,7 +31,12 @@ urlpatterns = [
     # API端点
     path('api/v1/users/', include('users.urls')),
     path('api/v1/projects/', include('projects.urls')),
-    path('api/v1/blog/', include('blog.urls')),
+    path('api/v1/creative_lab/', include('creative_lab.urls')),
+    
+    # 兼容性API端点（不带版本号）
+    path('api/users/', include('users.urls')),
+    path('api/projects/', include('projects.urls')),
+    path('api/creative_lab/', include('creative_lab.urls')),
     
     # 认证
     path('api/v1/auth/', include('djoser.urls')),

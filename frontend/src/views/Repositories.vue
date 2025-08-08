@@ -2,28 +2,31 @@
   <div class="repositories-page">
     <div class="page-header">
       <div class="container">
-        <h1 class="page-title">代码仓库</h1>
+        <div class="header-content">
+          <h1 class="page-title">代码仓库</h1>
+          <img src="@/assets/images/GitHub.png" alt="GitHub" class="github-icon" />
+        </div>
         <p class="page-description">我的GitHub开源项目展示</p>
       </div>
     </div>
-    
+
     <div class="container">
       <!-- 过滤器 -->
       <div class="filters">
         <div class="filter-group">
           <label>编程语言：</label>
           <div class="filter-options">
-            <button 
-              class="filter-btn" 
+            <button
+              class="filter-btn"
               :class="{ active: selectedLanguage === null }"
               @click="filterByLanguage(null)"
             >
               全部
             </button>
-            <button 
-              v-for="language in languages" 
+            <button
+              v-for="language in languages"
               :key="language"
-              class="filter-btn" 
+              class="filter-btn"
               :class="{ active: selectedLanguage === language }"
               @click="filterByLanguage(language)"
             >
@@ -31,7 +34,7 @@
             </button>
           </div>
         </div>
-        
+
         <div class="sort-group">
           <label>排序：</label>
           <select v-model="sortBy" @change="sortRepositories">
@@ -42,30 +45,30 @@
           </select>
         </div>
       </div>
-      
+
       <!-- 仓库列表 -->
       <div v-if="loading" class="loading">
         <div class="spinner"></div>
         <p>正在从GitHub获取仓库数据...</p>
       </div>
-      
+
       <div v-else-if="error" class="error">
         <i class="fas fa-exclamation-circle"></i>
         <h3>获取仓库失败</h3>
         <p>{{ error }}</p>
         <button class="btn btn-primary" @click="fetchRepositories">重试</button>
       </div>
-      
+
       <div v-else-if="filteredRepositories.length === 0" class="no-results">
         <i class="fab fa-github"></i>
         <h3>未找到匹配的仓库</h3>
         <p>尝试选择不同的编程语言或排序方式</p>
         <button class="btn btn-primary" @click="resetFilters">重置筛选器</button>
       </div>
-      
+
       <div v-else class="repositories-grid">
-        <div 
-          v-for="repo in filteredRepositories" 
+        <div
+          v-for="repo in filteredRepositories"
           :key="repo.id"
           class="repository-card"
         >
@@ -79,36 +82,36 @@
               {{ repo.private ? '私有' : '公开' }}
             </div>
           </div>
-          
+
           <p class="repository-description" v-if="repo.description">
             {{ repo.description }}
           </p>
           <p class="repository-description no-description" v-else>
             暂无描述
           </p>
-          
+
           <div class="repository-meta">
             <div class="meta-item" v-if="repo.language">
               <span class="language-color" :style="{ backgroundColor: getLanguageColor(repo.language) }"></span>
               <span>{{ repo.language }}</span>
             </div>
-            
+
             <div class="meta-item" v-if="repo.stargazers_count > 0">
               <i class="fas fa-star"></i>
               <span>{{ repo.stargazers_count }}</span>
             </div>
-            
+
             <div class="meta-item" v-if="repo.forks_count > 0">
               <i class="fas fa-code-branch"></i>
               <span>{{ repo.forks_count }}</span>
             </div>
-            
+
             <div class="meta-item">
               <i class="far fa-clock"></i>
               <span>{{ formatDate(repo.updated_at) }}</span>
             </div>
           </div>
-          
+
           <div class="repository-footer">
             <a :href="repo.html_url" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
               <i class="fab fa-github"></i> 查看仓库
@@ -155,13 +158,13 @@ export default {
   },
   computed: {
     ...mapState('repositories', ['repositories', 'loading', 'error']),
-    
+
     languages() {
       // 获取所有仓库中使用的编程语言，去重
       const languages = this.repositories
-        .map(repo => repo.language)
-        .filter(lang => lang !== null && lang !== undefined);
-      
+        .map((repo) => repo.language)
+        .filter((lang) => lang !== null && lang !== undefined);
+
       return [...new Set(languages)].sort();
     },
   },
@@ -170,28 +173,28 @@ export default {
   },
   methods: {
     ...mapActions('repositories', ['fetchRepositories']),
-    
+
     filterByLanguage(language) {
       this.selectedLanguage = language;
       this.applyFilters();
     },
-    
+
     sortRepositories() {
       this.applyFilters();
     },
-    
+
     resetFilters() {
       this.selectedLanguage = null;
       this.sortBy = 'stars';
       this.applyFilters();
     },
-    
+
     applyFilters() {
       // 先按语言筛选
-      let filtered = this.selectedLanguage === null
+      const filtered = this.selectedLanguage === null
         ? [...this.repositories]
-        : this.repositories.filter(repo => repo.language === this.selectedLanguage);
-      
+        : this.repositories.filter((repo) => repo.language === this.selectedLanguage);
+
       // 再排序
       filtered.sort((a, b) => {
         switch (this.sortBy) {
@@ -207,52 +210,51 @@ export default {
             return 0;
         }
       });
-      
+
       this.filteredRepositories = filtered;
     },
-    
+
     getLanguageColor(language) {
       return this.languageColors[language] || '#6c757d';
     },
-    
+
     formatDate(dateString) {
       const date = new Date(dateString);
       const now = new Date();
       const diffTime = Math.abs(now - date);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      
+
       if (diffDays < 1) {
         return '今天';
-      } else if (diffDays < 2) {
+      } if (diffDays < 2) {
         return '昨天';
-      } else if (diffDays < 7) {
+      } if (diffDays < 7) {
         return `${diffDays}天前`;
-      } else if (diffDays < 30) {
+      } if (diffDays < 30) {
         const weeks = Math.floor(diffDays / 7);
         return `${weeks}周前`;
-      } else if (diffDays < 365) {
+      } if (diffDays < 365) {
         const months = Math.floor(diffDays / 30);
         return `${months}个月前`;
-      } else {
-        const years = Math.floor(diffDays / 365);
-        return `${years}年前`;
       }
+      const years = Math.floor(diffDays / 365);
+      return `${years}年前`;
     },
-    
+
     hasPages(repo) {
       return repo.has_pages || repo.homepage;
     },
-    
+
     getPageUrl(repo) {
       if (repo.homepage) {
         return repo.homepage;
       }
-      
+
       if (repo.has_pages) {
         const username = repo.owner.login;
         return `https://${username}.github.io/${repo.name}`;
       }
-      
+
       return null;
     },
   },
@@ -281,9 +283,29 @@ export default {
   margin-bottom: 40px;
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-right: 20px;
+}
+
 .page-title {
   font-size: 2.5rem;
-  margin-bottom: 15px;
+  margin: 0;
+}
+
+.github-icon {
+  width: 72px;
+  height: 72px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.github-icon:hover {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .page-description {
@@ -513,16 +535,16 @@ export default {
   .repositories-grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
-  
+
   .filters {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .sort-group {
     width: 100%;
   }
-  
+
   .sort-group select {
     width: 100%;
   }
@@ -532,19 +554,19 @@ export default {
   .page-title {
     font-size: 2rem;
   }
-  
+
   .page-description {
     font-size: 1rem;
   }
-  
+
   .repositories-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .repository-footer {
     flex-direction: column;
   }
-  
+
   .repository-footer a {
     width: 100%;
     text-align: center;

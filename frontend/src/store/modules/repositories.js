@@ -24,14 +24,14 @@ export default {
       try {
         // 直接调用GitHub API获取用户仓库
         const headers = {
-          'Accept': 'application/vnd.github.v3+json',
-          'User-Agent': 'ValrandyStack-Portfolio'
+          Accept: 'application/vnd.github.v3+json',
+          'User-Agent': 'ValrandyStack-Portfolio',
         };
-        
+
         const response = await fetch('https://api.github.com/users/3159398370/repos?sort=updated&per_page=100&type=public', {
-          headers
+          headers,
         });
-        
+
         if (!response.ok) {
           if (response.status === 403) {
             const resetTime = response.headers.get('X-RateLimit-Reset');
@@ -40,7 +40,7 @@ export default {
           }
           throw new Error(`GitHub API请求失败: ${response.status}`);
         }
-        
+
         const data = await response.json();
         commit('SET_REPOSITORIES', data);
         return data;
@@ -57,10 +57,8 @@ export default {
       if (!language) return state.repositories;
       return state.repositories.filter((repo) => repo.language === language);
     },
-    getTopRepositories: (state) => (count = 5) => {
-      return [...state.repositories]
-        .sort((a, b) => b.stargazers_count - a.stargazers_count)
-        .slice(0, count);
-    },
+    getTopRepositories: (state) => (count = 5) => [...state.repositories]
+      .sort((a, b) => b.stargazers_count - a.stargazers_count)
+      .slice(0, count),
   },
 };

@@ -4,21 +4,21 @@
       <div class="spinner"></div>
       <p>加载中...</p>
     </div>
-    
+
     <div v-else-if="error" class="error">
       <i class="fas fa-exclamation-circle"></i>
       <h3>加载失败</h3>
       <p>{{ error }}</p>
       <router-link to="/projects" class="btn btn-primary">返回项目列表</router-link>
     </div>
-    
+
     <div v-else-if="!project" class="not-found">
       <i class="fas fa-search"></i>
       <h3>项目未找到</h3>
       <p>您请求的项目不存在或已被删除</p>
       <router-link to="/projects" class="btn btn-primary">返回项目列表</router-link>
     </div>
-    
+
     <div v-else class="project-content">
       <!-- 项目头部 -->
       <div class="project-header" :style="{ backgroundImage: `url(${project.banner_image})` }">
@@ -30,7 +30,7 @@
             </div>
             <h1 class="project-title">{{ project.title }}</h1>
             <p class="project-description">{{ project.short_description }}</p>
-            
+
             <div class="project-meta">
               <div class="meta-item">
                 <i class="far fa-calendar-alt"></i>
@@ -45,7 +45,7 @@
                 <span>{{ project.duration }}</span>
               </div>
             </div>
-            
+
             <div class="project-actions">
               <a v-if="project.demo_url" :href="project.demo_url" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 <i class="fas fa-external-link-alt"></i> 在线演示
@@ -57,7 +57,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- 项目内容 -->
       <div class="container">
         <div class="project-body">
@@ -68,7 +68,7 @@
               <div class="overview-text">
                 <div v-html="project.description"></div>
               </div>
-              
+
               <div class="overview-details">
                 <div class="detail-card">
                   <h3>技术栈</h3>
@@ -76,7 +76,7 @@
                     <span v-for="(tag, index) in project.tags" :key="index" class="tag">{{ tag }}</span>
                   </div>
                 </div>
-                
+
                 <div class="detail-card" v-if="project.features && project.features.length > 0">
                   <h3>主要功能</h3>
                   <ul class="features-list">
@@ -85,7 +85,7 @@
                     </li>
                   </ul>
                 </div>
-                
+
                 <div class="detail-card" v-if="project.challenges && project.challenges.length > 0">
                   <h3>项目挑战</h3>
                   <ul class="challenges-list">
@@ -97,13 +97,13 @@
               </div>
             </div>
           </section>
-          
+
           <!-- 项目图片 -->
           <section class="project-section" v-if="project.images && project.images.length > 0">
             <h2 class="section-title">项目展示</h2>
             <div class="project-gallery">
-              <div 
-                v-for="(image, index) in project.images" 
+              <div
+                v-for="(image, index) in project.images"
                 :key="index"
                 class="gallery-item"
                 @click="openLightbox(index)"
@@ -113,28 +113,28 @@
               </div>
             </div>
           </section>
-          
+
           <!-- 项目视频 -->
           <section class="project-section" v-if="project.video_url">
             <h2 class="section-title">项目演示</h2>
             <div class="project-video">
               <div class="video-container">
-                <iframe 
-                  :src="getEmbedUrl(project.video_url)" 
-                  frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                <iframe
+                  :src="getEmbedUrl(project.video_url)"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></iframe>
               </div>
             </div>
           </section>
-          
+
           <!-- 相关项目 -->
           <section class="project-section" v-if="relatedProjects.length > 0">
             <h2 class="section-title">相关项目</h2>
             <div class="related-projects">
-              <div 
-                v-for="relatedProject in relatedProjects" 
+              <div
+                v-for="relatedProject in relatedProjects"
                 :key="relatedProject.id"
                 class="related-project-card"
               >
@@ -152,12 +152,12 @@
             </div>
           </section>
         </div>
-        
+
         <!-- 项目导航 -->
         <div class="project-navigation">
-          <router-link 
-            v-if="prevProject" 
-            :to="`/projects/${prevProject.id}`" 
+          <router-link
+            v-if="prevProject"
+            :to="`/projects/${prevProject.id}`"
             class="nav-link prev-link"
           >
             <i class="fas fa-arrow-left"></i>
@@ -166,15 +166,15 @@
               <h4>{{ prevProject.title }}</h4>
             </div>
           </router-link>
-          
+
           <router-link to="/projects" class="nav-link all-link">
             <i class="fas fa-th-large"></i>
             <span>所有项目</span>
           </router-link>
-          
-          <router-link 
-            v-if="nextProject" 
-            :to="`/projects/${nextProject.id}`" 
+
+          <router-link
+            v-if="nextProject"
+            :to="`/projects/${nextProject.id}`"
             class="nav-link next-link"
           >
             <div class="nav-content">
@@ -186,7 +186,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- 图片灯箱 -->
     <div class="lightbox" v-if="lightboxOpen" @click="closeLightbox">
       <div class="lightbox-content" @click.stop>
@@ -230,35 +230,35 @@ export default {
   },
   computed: {
     ...mapState('projects', ['project', 'projects', 'categories', 'loading', 'error']),
-    
+
     projectId() {
       return parseInt(this.$route.params.id, 10);
     },
-    
+
     relatedProjects() {
       if (!this.project || !this.projects.length) return [];
-      
+
       // 获取同类别的项目，排除当前项目
       return this.projects
-        .filter(p => p.category === this.project.category && p.id !== this.project.id)
+        .filter((p) => p.category === this.project.category && p.id !== this.project.id)
         .slice(0, 3); // 最多显示3个相关项目
     },
-    
+
     prevProject() {
       if (!this.project || !this.projects.length) return null;
-      
-      const currentIndex = this.projects.findIndex(p => p.id === this.project.id);
+
+      const currentIndex = this.projects.findIndex((p) => p.id === this.project.id);
       if (currentIndex <= 0) return null;
-      
+
       return this.projects[currentIndex - 1];
     },
-    
+
     nextProject() {
       if (!this.project || !this.projects.length) return null;
-      
-      const currentIndex = this.projects.findIndex(p => p.id === this.project.id);
+
+      const currentIndex = this.projects.findIndex((p) => p.id === this.project.id);
       if (currentIndex === -1 || currentIndex === this.projects.length - 1) return null;
-      
+
       return this.projects[currentIndex + 1];
     },
   },
@@ -267,35 +267,35 @@ export default {
   },
   methods: {
     ...mapActions('projects', ['fetchProject', 'fetchProjects', 'fetchCategories']),
-    
+
     async loadProjectData() {
       try {
         // 确保有项目列表数据
         if (this.projects.length === 0) {
           await this.fetchProjects();
         }
-        
+
         // 确保有分类数据
         if (this.categories.length === 0) {
           await this.fetchCategories();
         }
-        
+
         // 获取当前项目详情
         await this.fetchProject(this.projectId);
       } catch (error) {
         console.error('Failed to load project data:', error);
       }
     },
-    
+
     getCategoryName(categoryId) {
-      const category = this.categories.find(cat => cat.id === categoryId);
+      const category = this.categories.find((cat) => cat.id === categoryId);
       return category ? category.name : '未分类';
     },
-    
+
     getCategoryColor(categoryId) {
       return this.categoryColors[categoryId] || '#6c757d';
     },
-    
+
     formatDate(dateString) {
       const date = new Date(dateString);
       return date.toLocaleDateString('zh-CN', {
@@ -304,24 +304,24 @@ export default {
         day: 'numeric',
       });
     },
-    
+
     getEmbedUrl(url) {
       // 处理YouTube链接
       if (url.includes('youtube.com') || url.includes('youtu.be')) {
         let videoId = '';
-        
+
         if (url.includes('youtube.com/watch')) {
           const urlParams = new URLSearchParams(new URL(url).search);
           videoId = urlParams.get('v');
         } else if (url.includes('youtu.be/')) {
           videoId = url.split('youtu.be/')[1].split('?')[0];
         }
-        
+
         if (videoId) {
           return `https://www.youtube.com/embed/${videoId}`;
         }
       }
-      
+
       // 处理Vimeo链接
       if (url.includes('vimeo.com')) {
         const vimeoId = url.split('vimeo.com/')[1].split('?')[0];
@@ -329,32 +329,32 @@ export default {
           return `https://player.vimeo.com/video/${vimeoId}`;
         }
       }
-      
+
       // 处理Bilibili链接
       if (url.includes('bilibili.com')) {
         let bvid = '';
-        
+
         if (url.includes('video/')) {
           bvid = url.split('video/')[1].split('?')[0];
           return `https://player.bilibili.com/player.html?bvid=${bvid}&high_quality=1&danmaku=0`;
         }
       }
-      
+
       // 默认返回原始URL
       return url;
     },
-    
+
     openLightbox(index) {
       this.currentImageIndex = index;
       this.lightboxOpen = true;
       document.body.style.overflow = 'hidden'; // 防止背景滚动
     },
-    
+
     closeLightbox() {
       this.lightboxOpen = false;
       document.body.style.overflow = ''; // 恢复背景滚动
     },
-    
+
     prevImage() {
       if (this.currentImageIndex > 0) {
         this.currentImageIndex--;
@@ -362,7 +362,7 @@ export default {
         this.currentImageIndex = this.project.images.length - 1; // 循环到最后一张
       }
     },
-    
+
     nextImage() {
       if (this.currentImageIndex < this.project.images.length - 1) {
         this.currentImageIndex++;
@@ -372,7 +372,7 @@ export default {
     },
   },
   watch: {
-    '$route.params.id'() {
+    '$route.params.id': function () {
       // 路由参数变化时重新加载数据
       this.loadProjectData();
       // 滚动到页面顶部
@@ -932,31 +932,31 @@ export default {
   .project-overview {
     grid-template-columns: 1fr;
   }
-  
+
   .project-title {
     font-size: 2.5rem;
   }
-  
+
   .project-navigation {
     flex-wrap: wrap;
     gap: 10px;
   }
-  
+
   .nav-link {
     flex: 1 1 100%;
     max-width: none;
     margin: 0;
   }
-  
+
   .all-link {
     order: -1;
     margin-bottom: 10px;
   }
-  
+
   .lightbox-prev {
     left: 10px;
   }
-  
+
   .lightbox-next {
     right: 10px;
   }
@@ -967,19 +967,19 @@ export default {
     height: auto;
     padding: 60px 0;
   }
-  
+
   .project-title {
     font-size: 2rem;
   }
-  
+
   .project-meta {
     gap: 15px;
   }
-  
+
   .section-title {
     font-size: 1.8rem;
   }
-  
+
   .related-projects {
     grid-template-columns: 1fr;
   }
@@ -989,12 +989,12 @@ export default {
   .project-gallery {
     grid-template-columns: 1fr;
   }
-  
+
   .project-actions {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .project-actions a {
     width: 100%;
     text-align: center;

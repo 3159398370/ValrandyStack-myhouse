@@ -83,12 +83,12 @@ export default {
   data() {
     return {
       // 组件数据
-    }
+    };
   },
   mounted() {
     // 组件挂载后的逻辑
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -313,17 +313,17 @@ export default {
   .post-title {
     font-size: 2rem;
   }
-  
+
   .post-meta {
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .author-box {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .post-actions {
     justify-content: center;
   }

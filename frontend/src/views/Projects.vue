@@ -6,24 +6,24 @@
         <p class="page-description">探索我的项目作品，包括Web应用、数据分析和可视化项目</p>
       </div>
     </div>
-    
+
     <div class="container">
       <!-- 过滤器 -->
       <div class="filters">
         <div class="filter-group">
           <label>分类：</label>
           <div class="filter-options">
-            <button 
-              class="filter-btn" 
+            <button
+              class="filter-btn"
               :class="{ active: selectedCategory === null }"
               @click="selectCategory(null)"
             >
               全部
             </button>
-            <button 
-              v-for="category in categories" 
+            <button
+              v-for="category in categories"
               :key="category.id"
-              class="filter-btn" 
+              class="filter-btn"
               :class="{ active: selectedCategory === category.id }"
               @click="selectCategory(category.id)"
             >
@@ -31,34 +31,34 @@
             </button>
           </div>
         </div>
-        
+
         <div class="search-box">
-          <input 
-            type="text" 
-            v-model="searchQuery" 
+          <input
+            type="text"
+            v-model="searchQuery"
             placeholder="搜索项目..."
             @input="filterProjects"
           />
           <i class="fas fa-search"></i>
         </div>
       </div>
-      
+
       <!-- 项目列表 -->
       <div v-if="loading" class="loading">
         <div class="spinner"></div>
         <p>加载中...</p>
       </div>
-      
+
       <div v-else-if="filteredProjects.length === 0" class="no-results">
         <i class="fas fa-search"></i>
         <h3>未找到匹配的项目</h3>
         <p>尝试使用不同的搜索词或筛选条件</p>
         <button class="btn btn-primary" @click="resetFilters">重置筛选器</button>
       </div>
-      
+
       <div v-else class="projects-grid">
-        <div 
-          v-for="project in filteredProjects" 
+        <div
+          v-for="project in filteredProjects"
           :key="project.id"
           class="project-card"
         >
@@ -73,14 +73,14 @@
               </a>
             </div>
           </div>
-          
+
           <div class="project-info">
             <div class="project-category" :style="{ backgroundColor: getCategoryColor(project.category) }">
               {{ getCategoryName(project.category) }}
             </div>
             <h3 class="project-title">{{ project.title }}</h3>
             <p class="project-description">{{ project.short_description }}</p>
-            
+
             <div class="project-meta">
               <div class="project-date">
                 <i class="far fa-calendar-alt"></i> {{ formatDate(project.created_at) }}
@@ -131,13 +131,13 @@ export default {
         },
         {
           id: 2,
-          title: '个人博客系统',
-          short_description: '一个功能完善的博客系统，支持Markdown编辑、标签分类和评论功能。',
+          title: '个人网站开发',
+          short_description: '基于Vue.js和Django的全栈个人网站，包含作品展示、博客系统、代码仓库和联系功能的完整解决方案。',
           thumbnail: project2Image,
-          tags: ['Vue', 'Django REST', 'MySQL', 'Markdown'],
+          tags: ['Vue.js', 'Django', 'MySQL', 'Vite', 'ECharts'],
           category: 1,
           created_at: '2024-01-10',
-          demo_url: '#',
+          demo_url: 'https://learningtree.fun/',
         },
         {
           id: 3,
@@ -187,48 +187,46 @@ export default {
   },
   methods: {
     ...mapActions('projects', ['fetchProjects', 'fetchCategories']),
-    
+
     selectCategory(categoryId) {
       this.selectedCategory = categoryId;
       this.filterProjects();
     },
-    
+
     filterProjects() {
       // 先按分类筛选
       let filtered = this.selectedCategory === null
         ? [...this.projects]
-        : this.projects.filter(project => project.category === this.selectedCategory);
-      
+        : this.projects.filter((project) => project.category === this.selectedCategory);
+
       // 再按搜索词筛选
       if (this.searchQuery.trim() !== '') {
         const query = this.searchQuery.toLowerCase();
-        filtered = filtered.filter(project => {
-          return (
-            project.title.toLowerCase().includes(query) ||
-            project.short_description.toLowerCase().includes(query) ||
-            project.tags.some(tag => tag.toLowerCase().includes(query))
-          );
-        });
+        filtered = filtered.filter((project) => (
+          project.title.toLowerCase().includes(query)
+            || project.short_description.toLowerCase().includes(query)
+            || project.tags.some((tag) => tag.toLowerCase().includes(query))
+        ));
       }
-      
+
       this.filteredProjects = filtered;
     },
-    
+
     resetFilters() {
       this.selectedCategory = null;
       this.searchQuery = '';
       this.filterProjects();
     },
-    
+
     getCategoryName(categoryId) {
-      const category = this.categories.find(cat => cat.id === categoryId);
+      const category = this.categories.find((cat) => cat.id === categoryId);
       return category ? category.name : '未分类';
     },
-    
+
     getCategoryColor(categoryId) {
       return this.categoryColors[categoryId] || '#6c757d';
     },
-    
+
     formatDate(dateString) {
       const date = new Date(dateString);
       return date.toLocaleDateString('zh-CN', {
@@ -541,12 +539,12 @@ export default {
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
-  
+
   .filters {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .search-box {
     max-width: 100%;
   }
@@ -556,11 +554,11 @@ export default {
   .page-title {
     font-size: 2rem;
   }
-  
+
   .page-description {
     font-size: 1rem;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
   }

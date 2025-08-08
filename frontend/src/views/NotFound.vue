@@ -12,14 +12,14 @@
           <i class="fas fa-arrow-left"></i> 返回上一页
         </button>
       </div>
-      
+
       <div class="search-section">
         <p>或者您可以尝试搜索：</p>
         <div class="search-form">
-          <input 
-            type="text" 
-            v-model="searchQuery" 
-            placeholder="搜索内容..." 
+          <input
+            type="text"
+            v-model="searchQuery"
+            placeholder="搜索内容..."
             @keyup.enter="searchSite"
           />
           <button @click="searchSite" class="search-btn">
@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="suggestions">
       <h2>您可能感兴趣的内容</h2>
       <div class="suggestion-links">
@@ -40,9 +40,9 @@
           <i class="fas fa-code-branch"></i>
           <span>查看代码仓库</span>
         </router-link>
-        <router-link to="/blog" class="suggestion-link">
-          <i class="fas fa-blog"></i>
-          <span>阅读博客文章</span>
+        <router-link to="/creative-lab" class="suggestion-link">
+          <i class="fas fa-flask"></i>
+          <span>探索创意实验室</span>
         </router-link>
         <router-link to="/contact" class="suggestion-link">
           <i class="fas fa-envelope"></i>
@@ -58,7 +58,7 @@ export default {
   name: 'NotFound',
   data() {
     return {
-      searchQuery: ''
+      searchQuery: '',
     };
   },
   methods: {
@@ -70,17 +70,17 @@ export default {
         // 这里可以实现站内搜索功能
         // 暂时重定向到博客页面并带上搜索参数
         this.$router.push({
-          path: '/blog',
-          query: { search: this.searchQuery }
+          path: '/creative-lab',
+          query: { search: this.searchQuery },
         });
       }
-    }
+    },
   },
   metaInfo() {
     return {
-      title: '404 - 页面未找到 | ValrandyStack个人网站'
+      title: '404 - 页面未找到 | ValrandyStack个人网站',
     };
-  }
+  },
 };
 </script>
 
@@ -279,21 +279,21 @@ export default {
   .error-code {
     font-size: 6rem;
   }
-  
+
   .error-title {
     font-size: 1.8rem;
   }
-  
+
   .action-buttons {
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .btn {
     width: 100%;
     justify-content: center;
   }
-  
+
   .suggestion-links {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
@@ -303,11 +303,11 @@ export default {
   .not-found-container {
     padding: 30px 20px;
   }
-  
+
   .error-code {
     font-size: 5rem;
   }
-  
+
   .suggestion-links {
     grid-template-columns: 1fr 1fr;
   }

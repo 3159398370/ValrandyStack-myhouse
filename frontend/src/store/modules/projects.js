@@ -65,9 +65,7 @@ export default {
     },
   },
   getters: {
-    getProjectById: (state) => (id) => {
-      return state.projects.find((project) => project.id === parseInt(id, 10));
-    },
+    getProjectById: (state) => (id) => state.projects.find((project) => project.id === parseInt(id, 10)),
     getProjectsByCategory: (state) => (categoryId) => {
       if (!categoryId) return state.projects;
       return state.projects.filter((project) => project.category === parseInt(categoryId, 10));

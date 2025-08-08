@@ -32,12 +32,12 @@
       <div class="container">
         <h2 class="section-title">我的技能</h2>
         <p class="section-description">我擅长的技术栈和专业领域</p>
-        
+
         <div class="skills-content">
           <div class="skills-radar">
             <div ref="radarChart" class="radar-chart"></div>
           </div>
-          
+
           <div class="skills-details">
             <div v-for="(skill, index) in skills" :key="index" class="skill-card">
               <div class="skill-icon" :style="{ backgroundColor: skill.color }">
@@ -70,7 +70,7 @@
       <div class="container">
         <h2 class="section-title">精选项目</h2>
         <p class="section-description">我最近完成的一些项目</p>
-        
+
         <div class="projects-grid">
           <div v-for="(project, index) in featuredProjects" :key="index" class="project-card">
             <div class="project-image">
@@ -86,7 +86,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="text-center mt-4">
           <router-link to="/projects" class="btn btn-primary">查看所有项目</router-link>
         </div>
@@ -178,10 +178,10 @@ export default {
         },
         {
           id: 2,
-          title: '个人博客系统',
-          description: '一个功能完善的博客系统，支持Markdown编辑、标签分类和评论功能。',
+          title: '个人网站开发',
+          description: '基于Vue.js和Django的全栈个人网站，包含作品展示、博客系统、代码仓库和联系功能的完整解决方案。',
           image: project2Image,
-          tags: ['Vue', 'Django REST', 'MySQL', 'Markdown'],
+          tags: ['Vue.js', 'Django', 'MySQL', 'Vite', 'ECharts'],
         },
         {
           id: 3,
@@ -225,23 +225,23 @@ export default {
         }, this.typewriterSpeed);
       }
     },
-    
+
     startCursorBlink() {
       setInterval(() => {
         this.showCursor = !this.showCursor;
       }, 500);
     },
-    
+
     initRadarChart() {
       this.radarChart = echarts.init(this.$refs.radarChart);
-      
+
       const option = {
         backgroundColor: 'transparent',
         tooltip: {
           trigger: 'item',
         },
         radar: {
-          indicator: this.skills.map(skill => ({
+          indicator: this.skills.map((skill) => ({
             name: skill.name,
             max: 100,
           })),
@@ -273,7 +273,7 @@ export default {
           name: '技能水平',
           type: 'radar',
           data: [{
-            value: this.skills.map(skill => skill.value),
+            value: this.skills.map((skill) => skill.value),
             name: '技能水平',
             areaStyle: {
               color: 'rgba(66, 185, 131, 0.6)',
@@ -288,7 +288,7 @@ export default {
           }],
         }],
       };
-      
+
       this.radarChart.setOption(option);
     },
     resizeRadarChart() {
@@ -300,7 +300,7 @@ export default {
       const colors = ['#42b983', '#2c3e50', '#e74c3c', '#3498db', '#9b59b6', '#f39c12', '#1abc9c'];
       const sizes = ['1rem', '1.1rem', '1.2rem'];
       const rotations = ['-1deg', '0deg', '1deg'];
-      
+
       return {
         backgroundColor: colors[index % colors.length],
         fontSize: sizes[index % sizes.length],
@@ -653,26 +653,26 @@ export default {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .hero-content {
     max-width: 100%;
     margin-bottom: 40px;
   }
-  
+
   .title-container {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .hero-buttons {
     justify-content: center;
   }
-  
+
   .skills-content {
     flex-direction: column;
   }
-  
+
   .projects-grid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
@@ -682,20 +682,20 @@ export default {
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hello-world-container {
     font-size: 1rem;
     padding: 0.4rem 0.8rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.2rem;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
   }

@@ -7,7 +7,7 @@
             <h1>ValrandyStack</h1>
           </router-link>
         </div>
-        
+
         <nav class="nav-desktop" :class="{ 'active': isMenuActive }">
           <ul>
             <li v-for="item in navItems" :key="item.path">
@@ -17,7 +17,7 @@
             </li>
           </ul>
         </nav>
-        
+
         <div class="menu-toggle" @click="toggleMenu">
           <div class="bar" :class="{ 'animate': isMenuActive }"></div>
           <div class="bar" :class="{ 'animate': isMenuActive }"></div>
@@ -38,7 +38,7 @@ export default {
         { name: '首页', path: '/' },
         { name: '作品集', path: '/projects' },
         { name: '代码仓库', path: '/repositories' },
-        { name: '博客', path: '/blog' },
+        { name: '创意实验室', path: '/creative-lab' },
         { name: '关于我', path: '/about' },
       ],
     };
@@ -170,7 +170,7 @@ export default {
   .menu-toggle {
     display: flex;
   }
-  
+
   .nav-desktop {
     position: fixed;
     top: 70px;
@@ -182,17 +182,17 @@ export default {
     transition: height 0.3s ease;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   .nav-desktop.active {
     height: calc(100vh - 70px);
   }
-  
+
   .nav-desktop ul {
     flex-direction: column;
     padding: 20px;
     gap: 20px;
   }
-  
+
   .nav-desktop a {
     display: block;
     padding: 10px 0;

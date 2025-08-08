@@ -92,3 +92,15 @@ git push -f gitee main:main
 # 拉取服务器文件
 git fetch
 git pull
+
+# 重新加载配置
+sudo nginx -s reload
+
+# 停止nginx
+sudo nginx -s stop
+
+# 启动nginx
+sudo nginx
+
+# 测试配置文件
+sudo nginx -t

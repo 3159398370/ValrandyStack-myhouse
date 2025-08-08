@@ -19,19 +19,15 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  },
+  (error) => Promise.reject(error),
 );
 
 // 响应拦截器
 api.interceptors.response.use(
-  (response) => {
-    return response;
-  },
+  (response) => response,
   (error) => {
     const { response } = error;
-    
+
     // 处理常见错误
     if (response) {
       switch (response.status) {
@@ -56,7 +52,7 @@ api.interceptors.response.use(
       // 网络错误或请求被取消
       console.error('Network error or request cancelled');
     }
-    
+
     return Promise.reject(error);
   },
 );

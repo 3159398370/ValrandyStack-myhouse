@@ -37,7 +37,7 @@ urlpatterns = [
     # 应用API
     path('api/users/', include('users.urls')),
     path('api/projects/', include('projects.urls')),
-    path('api/blog/', include('blog.urls')),
+    path('api/creative_lab/', include('creative_lab.urls')),
     path('api/contact/', include('contact.urls')),
 ]
 

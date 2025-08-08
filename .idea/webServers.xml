@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ed88bbd1-61e2-4ed8-802b-df226766d937" name="阿里云" url="learningtree.fun">
+        <fileTransfer rootFolder="/www/wwwroot" accessType="SFTP" host="39.105.10.216" port="22" sshConfigId="655502b7-a9b7-4cf5-97aa-116fd8b662bb" sshConfig="root@39.105.10.216:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" isUseSudo="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

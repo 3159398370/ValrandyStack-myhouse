@@ -39,8 +39,10 @@
           <span class="copyright">&copy; {{ currentYear }} Valrandy·Joseph. 保留所有权利。</span>
           <span class="separator">|</span>
           <span class="icp-info">
-            <i class="fas fa-certificate icp-icon"></i>
+            <img src="/备案图标.png" alt="备案图标" class="icp-icon" />
             <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">陕ICP备2024055572号-1</a>
+            <span class="separator">|</span>
+            <a href="https://beian.mps.gov.cn/#/query/webSearch?code=61043102610496" rel="noreferrer" target="_blank">陕公网安备61043102610496号</a>
           </span>
         </div>
       </div>
@@ -54,11 +56,11 @@ export default {
   data() {
     return {
       navItems: [
-        {name: '首页', path: '/'},
-        {name: '作品集', path: '/projects'},
-        {name: '代码仓库', path: '/repositories'},
-        {name: '博客', path: '/blog'},
-        {name: '关于我', path: '/about'},
+        { name: '首页', path: '/' },
+        { name: '作品集', path: '/projects' },
+        { name: '代码仓库', path: '/repositories' },
+        { name: '创意实验室', path: '/creative-lab' },
+        { name: '关于我', path: '/about' },
       ],
     };
   },
@@ -213,9 +215,10 @@ export default {
 }
 
 .icp-icon {
-  color: #ffd700;
-  font-size: 1em;
+  width: 16px;
+  height: 16px;
   filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.3));
+  vertical-align: middle;
 }
 
 .icp-info a {

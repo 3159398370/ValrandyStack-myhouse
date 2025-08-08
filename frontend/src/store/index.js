@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import projects from './modules/projects';
-import blog from './modules/blog';
+import creativeLab from './modules/creativeLab';
 import repositories from './modules/repositories';
 
 Vue.use(Vuex);
@@ -35,7 +35,7 @@ export default new Vuex.Store({
   },
   modules: {
     projects,
-    blog,
+    creativeLab,
     repositories,
   },
 });

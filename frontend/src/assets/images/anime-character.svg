@@ -1,0 +1,108 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hairGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#c44569;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8b500;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="skinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffeaa7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fdcb6e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="clothesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="eyeGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#74b9ff;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#0984e3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d3436;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- 背景光环 -->
+  <circle cx="200" cy="200" r="180" fill="none" stroke="url(#hairGradient)" stroke-width="2" opacity="0.3">
+    <animate attributeName="r" values="180;190;180" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- 头发背景 -->
+  <ellipse cx="200" cy="160" rx="85" ry="95" fill="url(#hairGradient)" transform="rotate(-5 200 160)"/>
+  
+  <!-- 头发细节 -->
+  <path d="M120 140 Q140 120 160 130 Q180 110 200 125 Q220 105 240 120 Q260 100 280 115" 
+        stroke="url(#hairGradient)" stroke-width="8" fill="none" opacity="0.8"/>
+  <path d="M130 170 Q150 150 170 160 Q190 140 210 155 Q230 135 250 150" 
+        stroke="url(#hairGradient)" stroke-width="6" fill="none" opacity="0.6"/>
+  
+  <!-- 脸部 -->
+  <ellipse cx="200" cy="180" rx="65" ry="75" fill="url(#skinGradient)"/>
+  
+  <!-- 眼睛 -->
+  <ellipse cx="180" cy="170" rx="12" ry="18" fill="white"/>
+  <ellipse cx="220" cy="170" rx="12" ry="18" fill="white"/>
+  <ellipse cx="180" cy="172" rx="8" ry="12" fill="url(#eyeGradient)"/>
+  <ellipse cx="220" cy="172" rx="8" ry="12" fill="url(#eyeGradient)"/>
+  <ellipse cx="182" cy="168" rx="3" ry="4" fill="white" opacity="0.8"/>
+  <ellipse cx="222" cy="168" rx="3" ry="4" fill="white" opacity="0.8"/>
+  
+  <!-- 眉毛 -->
+  <path d="M170 155 Q180 150 190 155" stroke="#c44569" stroke-width="3" fill="none"/>
+  <path d="M210 155 Q220 150 230 155" stroke="#c44569" stroke-width="3" fill="none"/>
+  
+  <!-- 鼻子 -->
+  <ellipse cx="200" cy="185" rx="2" ry="3" fill="#fdcb6e" opacity="0.6"/>
+  
+  <!-- 嘴巴 -->
+  <path d="M190 200 Q200 210 210 200" stroke="#e17055" stroke-width="2" fill="none"/>
+  
+  <!-- 腮红 -->
+  <ellipse cx="160" cy="190" rx="8" ry="6" fill="#ff7675" opacity="0.4"/>
+  <ellipse cx="240" cy="190" rx="8" ry="6" fill="#ff7675" opacity="0.4"/>
+  
+  <!-- 身体 -->
+  <ellipse cx="200" cy="280" rx="50" ry="70" fill="url(#clothesGradient)"/>
+  
+  <!-- 衣服装饰 -->
+  <rect x="185" y="250" width="30" height="4" fill="white" opacity="0.8" rx="2"/>
+  <rect x="185" y="260" width="30" height="4" fill="white" opacity="0.8" rx="2"/>
+  <rect x="185" y="270" width="30" height="4" fill="white" opacity="0.8" rx="2"/>
+  
+  <!-- 手臂 -->
+  <ellipse cx="150" cy="290" rx="15" ry="40" fill="url(#clothesGradient)" transform="rotate(-20 150 290)"/>
+  <ellipse cx="250" cy="290" rx="15" ry="40" fill="url(#clothesGradient)" transform="rotate(20 250 290)"/>
+  
+  <!-- 手 -->
+  <circle cx="140" cy="320" r="12" fill="url(#skinGradient)"/>
+  <circle cx="260" cy="320" r="12" fill="url(#skinGradient)"/>
+  
+  <!-- 魔法粒子效果 -->
+  <circle cx="120" cy="150" r="3" fill="#ff6b9d" opacity="0.8">
+    <animate attributeName="cy" values="150;130;150" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="280" cy="180" r="2" fill="#74b9ff" opacity="0.6">
+    <animate attributeName="cy" values="180;160;180" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="320" cy="200" r="4" fill="#f8b500" opacity="0.7">
+    <animate attributeName="cy" values="200;180;200" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;0.3;0.7" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="80" cy="220" r="2.5" fill="#e17055" opacity="0.5">
+    <animate attributeName="cy" values="220;200;220" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- 星星装饰 -->
+  <g transform="translate(100,100)">
+    <path d="M0,-8 L2,-2 L8,-2 L3,1 L5,7 L0,4 L-5,7 L-3,1 L-8,-2 L-2,-2 Z" fill="#ff6b9d" opacity="0.6">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <g transform="translate(300,120)">
+    <path d="M0,-6 L1.5,-1.5 L6,-1.5 L2.25,0.75 L3.75,5.25 L0,3 L-3.75,5.25 L-2.25,0.75 L-6,-1.5 L-1.5,-1.5 Z" fill="#74b9ff" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" values="360;0" dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>

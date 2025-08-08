@@ -1,0 +1,272 @@
+INFO 2025-08-08 21:42:31,115 autoreload 9108 41672 Watching for file changes with StatReloader
+INFO 2025-08-08 21:58:29,928 autoreload 27224 15364 Watching for file changes with StatReloader
+WARNING 2025-08-08 21:58:36,796 log 27224 37712 Not Found: /
+WARNING 2025-08-08 21:58:36,797 basehttp 27224 37712 "GET /?ide_webview_request_time=1754661516769 HTTP/1.1" 404 179
+WARNING 2025-08-08 21:58:36,950 log 27224 37712 Not Found: /@vite/client
+WARNING 2025-08-08 21:58:36,951 basehttp 27224 37712 "GET /@vite/client HTTP/1.1" 404 179
+WARNING 2025-08-08 22:22:20,272 log 27224 27180 Not Found: /
+WARNING 2025-08-08 22:22:20,272 basehttp 27224 27180 "GET / HTTP/1.1" 404 179
+WARNING 2025-08-08 22:22:20,910 log 27224 27180 Not Found: /favicon.ico
+WARNING 2025-08-08 22:22:20,912 basehttp 27224 27180 "GET /favicon.ico HTTP/1.1" 404 179
+WARNING 2025-08-08 22:22:25,494 log 27224 19096 Not Found: /
+WARNING 2025-08-08 22:22:25,495 basehttp 27224 19096 "GET / HTTP/1.1" 404 179
+WARNING 2025-08-08 22:27:10,161 log 27224 39932 Not Found: /api/blog/posts/
+WARNING 2025-08-08 22:27:10,162 log 27224 41536 Not Found: /api/blog/tags/
+WARNING 2025-08-08 22:27:10,163 basehttp 27224 41536 "GET /api/blog/tags/ HTTP/1.1" 404 179
+WARNING 2025-08-08 22:27:10,163 basehttp 27224 39932 "GET /api/blog/posts/ HTTP/1.1" 404 179
+INFO 2025-08-09 22:47:20,198 autoreload 51924 54992 Watching for file changes with StatReloader
+WARNING 2025-08-09 22:47:39,308 log 51924 56276 Not Found: /api/projects/
+WARNING 2025-08-09 22:47:39,309 basehttp 51924 56276 "GET /api/projects/ HTTP/1.1" 404 179
+WARNING 2025-08-09 22:50:19,628 log 51924 51404 Not Found: /api/projects/
+WARNING 2025-08-09 22:50:19,629 basehttp 51924 51404 "GET /api/projects/ HTTP/1.1" 404 179
+INFO 2025-08-09 22:51:10,819 autoreload 51924 54992 G:\git²Ö¿â\ValrandyStack-myhouse\backend\myhouse\urls.py changed, reloading.
+INFO 2025-08-09 22:51:11,452 autoreload 55760 19752 Watching for file changes with StatReloader
+ERROR 2025-08-09 22:51:22,478 log 55760 50588 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: projects_project
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 72, in page
+    number = self.validate_number(number)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 53, in validate_number
+    if number > self.num_pages:
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 99, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 93, in count
+    return c()
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: projects_project
+ERROR 2025-08-09 22:51:22,488 basehttp 55760 50588 "GET /api/projects/ HTTP/1.1" 500 145
+ERROR 2025-08-09 23:06:16,416 log 55760 53472 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: projects_project
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 72, in page
+    number = self.validate_number(number)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 53, in validate_number
+    if number > self.num_pages:
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 99, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 93, in count
+    return c()
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: projects_project
+ERROR 2025-08-09 23:06:16,421 basehttp 55760 53472 "GET /api/projects/ HTTP/1.1" 500 145
+WARNING 2025-08-09 23:07:40,430 log 55760 43028 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:07:40,431 basehttp 55760 43028 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:07:40,727 log 55760 32640 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:07:40,727 basehttp 55760 32640 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:08:05,779 log 55760 54392 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:08:05,780 log 55760 47860 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:08:05,781 basehttp 55760 54392 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:08:05,781 basehttp 55760 47860 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:08:14,400 log 55760 48932 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:08:14,401 basehttp 55760 48932 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:08:42,198 log 55760 52648 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:08:42,198 basehttp 55760 52648 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:10:30,107 log 55760 40880 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:10:30,107 basehttp 55760 40880 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:10:39,706 log 55760 33724 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:10:39,707 basehttp 55760 33724 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:10:49,251 log 55760 56432 Not Found: /api/placeholder/400/300
+WARNING 2025-08-09 23:10:49,252 basehttp 55760 56432 "GET /api/placeholder/400/300 HTTP/1.1" 404 179
+INFO 2025-08-09 23:13:19,057 autoreload 55760 19752 G:\git²Ö¿â\ValrandyStack-myhouse\backend\myhouse\settings.py changed, reloading.
+INFO 2025-08-09 23:13:19,678 autoreload 53412 49604 Watching for file changes with StatReloader
+INFO 2025-08-09 23:13:50,401 autoreload 53412 49604 G:\git²Ö¿â\ValrandyStack-myhouse\backend\creative_lab\apps.py changed, reloading.
+INFO 2025-08-09 23:13:50,964 autoreload 37520 34076 Watching for file changes with StatReloader
+INFO 2025-08-09 23:14:03,787 autoreload 37520 34076 G:\git²Ö¿â\ValrandyStack-myhouse\backend\creative_lab\models.py changed, reloading.
+INFO 2025-08-09 23:14:04,517 autoreload 48824 33980 Watching for file changes with StatReloader
+INFO 2025-08-09 23:14:19,377 autoreload 48824 33980 G:\git²Ö¿â\ValrandyStack-myhouse\backend\creative_lab\models.py changed, reloading.
+INFO 2025-08-09 23:14:20,056 autoreload 56680 36996 Watching for file changes with StatReloader
+INFO 2025-08-09 23:14:30,538 autoreload 56680 36996 G:\git²Ö¿â\ValrandyStack-myhouse\backend\creative_lab\admin.py changed, reloading.
+INFO 2025-08-09 23:14:31,157 autoreload 56704 52024 Watching for file changes with StatReloader
+INFO 2025-08-09 23:14:41,537 autoreload 56704 52024 G:\git²Ö¿â\ValrandyStack-myhouse\backend\creative_lab\views.py changed, reloading.
+INFO 2025-08-09 23:14:42,128 autoreload 32588 55048 Watching for file changes with StatReloader
+INFO 2025-08-09 23:14:54,695 autoreload 32588 55048 G:\git²Ö¿â\ValrandyStack-myhouse\backend\creative_lab\views.py changed, reloading.
+INFO 2025-08-09 23:14:55,359 autoreload 48520 34132 Watching for file changes with StatReloader
+INFO 2025-08-09 23:15:04,524 autoreload 48520 34132 G:\git²Ö¿â\ValrandyStack-myhouse\backend\creative_lab\filters.py changed, reloading.
+INFO 2025-08-09 23:15:05,271 autoreload 30056 54016 Watching for file changes with StatReloader
+WARNING 2025-08-09 23:19:10,426 log 30056 54692 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:19:10,427 basehttp 30056 54692 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:19:20,150 log 30056 46408 Not Found: /api/placeholder/400/300
+WARNING 2025-08-09 23:19:20,150 basehttp 30056 46408 "GET /api/placeholder/400/300 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:19:21,722 log 30056 49400 Not Found: /api/placeholder/400/300
+WARNING 2025-08-09 23:19:21,722 basehttp 30056 49400 "GET /api/placeholder/400/300 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:19:24,272 log 30056 47840 Not Found: /api/placeholder/400/225
+WARNING 2025-08-09 23:19:24,272 basehttp 30056 47840 "GET /api/placeholder/400/225 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:23:56,545 log 30056 50228 Not Found: /api/placeholder/400/300
+WARNING 2025-08-09 23:23:56,545 basehttp 30056 50228 "GET /api/placeholder/400/300 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:24:02,706 log 30056 57044 Not Found: /api/placeholder/400/300
+WARNING 2025-08-09 23:24:02,707 basehttp 30056 57044 "GET /api/placeholder/400/300 HTTP/1.1" 404 179
+WARNING 2025-08-09 23:24:03,869 log 30056 55260 Not Found: /api/placeholder/400/300
+WARNING 2025-08-09 23:24:03,870 basehttp 30056 55260 "GET /api/placeholder/400/300 HTTP/1.1" 404 179
+ERROR 2025-08-09 23:37:37,523 log 30056 53352 Internal Server Error: /api/projects/
+Traceback (most recent call last):
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such table: projects_project
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\generics.py", line 175, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\rest_framework\pagination.py", line 211, in paginate_queryset
+    self.page = paginator.page(page_number)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 72, in page
+    number = self.validate_number(number)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 53, in validate_number
+    if number > self.num_pages:
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 99, in num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\paginator.py", line 93, in count
+    return c()
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 608, in count
+    return self.query.get_count(using=self.db)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\query.py", line 568, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\query.py", line 554, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\a3159\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such table: projects_project
+ERROR 2025-08-09 23:37:37,530 basehttp 30056 53352 "GET /api/projects/ HTTP/1.1" 500 145

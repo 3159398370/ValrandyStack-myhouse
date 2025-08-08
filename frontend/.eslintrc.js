@@ -17,7 +17,16 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
-    'max-len': ['error', { code: 120 }],
+    'max-len': ['warn', { code: 120, ignoreUrls: true, ignoreStrings: true, ignoreTemplateLiterals: true }],
+    'vue/multi-word-component-names': 'off',
+    'vue/no-reserved-component-names': 'off',
+    'import/no-unresolved': 'off',
+    'no-param-reassign': 'off',
+    'no-plusplus': 'off',
+    'no-alert': 'off',
+    'prefer-destructuring': 'off',
+    'func-names': 'off',
+    'no-unused-vars': 'warn',
   },
   settings: {
     'import/resolver': {

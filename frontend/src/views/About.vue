@@ -11,7 +11,7 @@
                      <span class="adobe-text">Adobe</span>
                    </div>
                  </div>
-            
+
             <div class="corner-logo top-right jetbrains-brand">
                 <svg class="jetbrains-logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                   <!-- JetBrains 2017 Logo Design -->
@@ -35,11 +35,11 @@
                 </svg>
               </div>
           </div>
-        
+
         <!-- Content at Bottom -->
         <div class="hero-content">
           <div class="title-container">
-            <h1 class="hero-title animated-title">关于我</h1>
+            <h1 class="hero-title">关于我</h1>
             <div class="hello-world-container">
               <span class="hello-world-text">{{ displayedText }}</span>
               <span class="cursor" :class="{ 'blink': showCursor }">|</span>
@@ -71,7 +71,7 @@
             <h3>前端开发</h3>
             <div class="skill-items">
               <div class="skill-item">
-                <i class="fab fa-vue"></i>
+                <i class="fab fa-vuejs"></i>
                 <span>Vue.js</span>
               </div>
               <div class="skill-item">
@@ -92,13 +92,17 @@
               </div>
             </div>
           </div>
-          
+
           <div class="skill-category">
             <h3>后端开发</h3>
             <div class="skill-items">
               <div class="skill-item">
                 <i class="fab fa-python"></i>
                 <span>Python</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-server"></i>
+                <span>Django</span>
               </div>
               <div class="skill-item">
                 <i class="fab fa-node-js"></i>
@@ -114,7 +118,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="skill-category">
             <h3>视觉设计</h3>
             <div class="skill-items">
@@ -132,12 +136,20 @@
                 <span>矢量插画</span>
               </div>
               <div class="skill-item">
-                <i class="fas fa-photo-video"></i>
-                <span>视频剪辑</span>
-              </div>
+              <i class="fas fa-photo-video"></i>
+              <span>视频剪辑</span>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-magic"></i>
+              <span>特效制作</span>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-adjust"></i>
+              <span>后期调色</span>
+            </div>
             </div>
           </div>
-          
+
           <div class="skill-category">
             <h3>3D建模</h3>
             <div class="skill-items">
@@ -145,13 +157,18 @@
                 <i class="fas fa-cube"></i>
                 <span>3D建模</span>
               </div>
-
-
               <div class="skill-item">
                 <i class="fas fa-running"></i>
                 <span>角色动画</span>
               </div>
-
+              <div class="skill-item">
+                <i class="fab fa-unity"></i>
+                <span>Unity</span>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-gamepad"></i>
+                <span>虚幻引擎</span>
+              </div>
             </div>
           </div>
         </div>
@@ -161,277 +178,148 @@
     <!-- Tools Section -->
     <section class="tools-section">
       <div class="container">
-        <h2 class="section-title">常用工具</h2>
-        <p class="section-subtitle">这些是我日常开发中使用的专业工具</p>
-        
+        <h2 class="section-title animated-title">工欲善其事必先利其器</h2>
+        <p class="section-subtitle">运用行业顶尖工具链，构建高效开发生态系统</p>
+
         <!-- Scrolling Tools Display -->
         <div class="tools-showcase">
           <div class="tools-track">
             <!-- Adobe Suite -->
             <div class="tool-item">
               <div class="tool-logo adobe-pr">
-                <!-- Adobe Premiere Pro icon from Flaticon -->
-                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="256" height="256" rx="60" fill="#9999FF"/>
-                  <path d="M90 70h40c30 0 50 20 50 50s-20 50-50 50h-20v36h-20V70zm20 20v60h20c20 0 30-10 30-30s-10-30-30-30h-20z" fill="white"/>
-                  <path d="M170 130h20v76h-20v-10c-5 8-15 12-25 12-20 0-35-15-35-35s15-35 35-35c10 0 20 4 25 12v-20zm0 41c0-10-8-18-18-18s-18 8-18 18 8 18 18 18 18-8 18-18z" fill="white"/>
-                </svg>
+                <img src="@/assets/images/adobe premiere.png" alt="Adobe Premiere Pro" />
               </div>
               <div class="tool-info">
                 <h4>Adobe Premiere Pro</h4>
                 <p>视频编辑</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo adobe-au">
-                <!-- Adobe Audition icon from Flaticon -->
-                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="256" height="256" rx="60" fill="#00E4FF"/>
-                  <path d="M128 70l-8 20h-32l-8-20h-20l35 116h18l35-116h-20zm-20 40h24l-12-30-12 30z" fill="white"/>
-                  <path d="M170 130v56h-20v-8c-5 6-12 10-20 10-15 0-25-10-25-25v-33h20v28c0 5 3 8 8 8s8-3 8-8v-28h29z" fill="white"/>
-                </svg>
+                <img src="@/assets/images/adobe audition.png" alt="Adobe Audition" />
               </div>
               <div class="tool-info">
                 <h4>Adobe Audition</h4>
                 <p>音频处理</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo adobe-an">
-                <!-- Adobe Animate icon from Flaticon -->
-                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="256" height="256" rx="60" fill="#FF9A00"/>
-                  <path d="M128 70l-8 20h-32l-8-20h-20l35 116h18l35-116h-20zm-20 40h24l-12-30-12 30z" fill="white"/>
-                  <path d="M170 130v56h-20v-8c-5 6-12 10-20 10-15 0-25-10-25-25v-33h20v28c0 5 3 8 8 8s8-3 8-8v-28h29z" fill="white"/>
-                  <circle cx="190" cy="140" r="8" fill="white"/>
-                  <circle cx="190" cy="165" r="6" fill="white" opacity="0.7"/>
-                </svg>
+                <img src="@/assets/images/adobe animate.png" alt="Adobe Animate" />
               </div>
               <div class="tool-info">
                 <h4>Adobe Animate</h4>
                 <p>动画制作</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo adobe-ae">
-                <!-- Adobe After Effects icon from Flaticon -->
-                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="256" height="256" rx="60" fill="#9999FF"/>
-                  <path d="M128 70l-8 20h-32l-8-20h-20l35 116h18l35-116h-20zm-20 40h24l-12-30-12 30z" fill="white"/>
-                  <path d="M170 130h30v15h-30v20h35v15h-55v-76h55v15h-35v11z" fill="white"/>
-                </svg>
+                <img src="@/assets/images/adobe after-effects.png" alt="Adobe After Effects" />
               </div>
               <div class="tool-info">
                 <h4>Adobe After Effects</h4>
                 <p>视觉特效</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo adobe-ps">
-                <!-- Adobe Photoshop icon from Flaticon -->
-                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="256" height="256" rx="60" fill="#31A8FF"/>
-                  <path d="M70 70h40c25 0 45 20 45 45s-20 45-45 45h-20v26h-20V70zm20 20v50h20c15 0 25-10 25-25s-10-25-25-25h-20z" fill="white"/>
-                  <path d="M170 130c-15 0-25 10-25 25s10 25 25 25c8 0 15-3 20-8l10 12c-8 8-20 12-30 12-25 0-45-20-45-45s20-45 45-45c10 0 22 4 30 12l-10 12c-5-5-12-8-20-8z" fill="white"/>
-                </svg>
+                <img src="@/assets/images/adobe photoshop.png" alt="Adobe Photoshop" />
               </div>
               <div class="tool-info">
                 <h4>Adobe Photoshop</h4>
                 <p>图像处理</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo adobe-ai">
-                <!-- Adobe Illustrator icon from Flaticon -->
-                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="256" height="256" rx="60" fill="#FF9A00"/>
-                  <path d="M128 70l-8 20h-32l-8-20h-20l35 116h18l35-116h-20zm-20 40h24l-12-30-12 30z" fill="white"/>
-                  <path d="M170 130v76h-20v-76h20zm-10-20c-6 0-10-4-10-10s4-10 10-10 10 4 10 10-4 10-10 10z" fill="white"/>
-                </svg>
+                <img src="@/assets/images/adobe illustrator.png" alt="Adobe Illustrator" />
               </div>
               <div class="tool-info">
                 <h4>Adobe Illustrator</h4>
                 <p>矢量设计</p>
               </div>
             </div>
-            
+
             <!-- JetBrains Suite -->
             <div class="tool-item">
               <div class="tool-logo jetbrains-idea">
-                <!-- IntelliJ IDEA icon from JetBrains official -->
-                <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="ideaGradient" x1="14.5%" y1="14.5%" x2="85.5%" y2="85.5%">
-                      <stop offset="0%" stop-color="#087CFA"/>
-                      <stop offset="8.5%" stop-color="#087CFA"/>
-                      <stop offset="19.1%" stop-color="#B85EFF"/>
-                      <stop offset="30.6%" stop-color="#FE315D"/>
-                      <stop offset="100%" stop-color="#FE315D"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="70" height="70" rx="6" fill="url(#ideaGradient)"/>
-                  <rect x="8" y="50" width="54" height="12" rx="2" fill="#000"/>
-                  <text x="35" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">IntelliJ IDEA</text>
-                </svg>
+                <img src="@/assets/images/IntelliJ_IDEA_icon.png" alt="IntelliJ IDEA" />
               </div>
               <div class="tool-info">
                 <h4>IntelliJ IDEA</h4>
                 <p>Java开发</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo jetbrains-pycharm">
-                <!-- PyCharm icon from JetBrains official -->
-                <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="pycharmGradient" x1="14.5%" y1="14.5%" x2="85.5%" y2="85.5%">
-                      <stop offset="0%" stop-color="#21D789"/>
-                      <stop offset="8.5%" stop-color="#21D789"/>
-                      <stop offset="19.1%" stop-color="#07C3F2"/>
-                      <stop offset="30.6%" stop-color="#07C3F2"/>
-                      <stop offset="100%" stop-color="#07C3F2"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="70" height="70" rx="6" fill="url(#pycharmGradient)"/>
-                  <rect x="8" y="50" width="54" height="12" rx="2" fill="#000"/>
-                  <text x="35" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">PyCharm</text>
-                </svg>
+                <img src="@/assets/images/PyCharm_icon.png" alt="PyCharm" />
               </div>
               <div class="tool-info">
                 <h4>PyCharm</h4>
                 <p>Python开发</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo jetbrains-clion">
-                <!-- CLion icon from JetBrains official -->
-                <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="clionGradient" x1="14.5%" y1="14.5%" x2="85.5%" y2="85.5%">
-                      <stop offset="0%" stop-color="#ED358C"/>
-                      <stop offset="8.5%" stop-color="#ED358C"/>
-                      <stop offset="19.1%" stop-color="#F9C23C"/>
-                      <stop offset="30.6%" stop-color="#F9C23C"/>
-                      <stop offset="100%" stop-color="#F9C23C"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="70" height="70" rx="6" fill="url(#clionGradient)"/>
-                  <rect x="8" y="50" width="54" height="12" rx="2" fill="#000"/>
-                  <text x="35" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">CLion</text>
-                </svg>
+                <img src="@/assets/images/CLion_icon.png" alt="CLion" />
               </div>
               <div class="tool-info">
                 <h4>CLion</h4>
                 <p>C/C++开发</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo jetbrains-datagrip">
-                <!-- DataGrip icon from JetBrains official -->
-                <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="datagripGradient" x1="14.5%" y1="14.5%" x2="85.5%" y2="85.5%">
-                      <stop offset="0%" stop-color="#9775FA"/>
-                      <stop offset="8.5%" stop-color="#9775FA"/>
-                      <stop offset="19.1%" stop-color="#22D3EE"/>
-                      <stop offset="30.6%" stop-color="#22D3EE"/>
-                      <stop offset="100%" stop-color="#22D3EE"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="70" height="70" rx="6" fill="url(#datagripGradient)"/>
-                  <rect x="8" y="50" width="54" height="12" rx="2" fill="#000"/>
-                  <text x="35" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">DataGrip</text>
-                </svg>
+                <img src="@/assets/images/DataGrip_icon.png" alt="DataGrip" />
               </div>
               <div class="tool-info">
                 <h4>DataGrip</h4>
                 <p>数据库管理</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo jetbrains-webstorm">
-                <!-- WebStorm icon from JetBrains official -->
-                <svg viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="webstormGradient" x1="14.5%" y1="14.5%" x2="85.5%" y2="85.5%">
-                      <stop offset="0%" stop-color="#07C3F2"/>
-                      <stop offset="8.5%" stop-color="#07C3F2"/>
-                      <stop offset="19.1%" stop-color="#087CFA"/>
-                      <stop offset="30.6%" stop-color="#087CFA"/>
-                      <stop offset="100%" stop-color="#087CFA"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="70" height="70" rx="6" fill="url(#webstormGradient)"/>
-                  <rect x="8" y="50" width="54" height="12" rx="2" fill="#000"/>
-                  <text x="35" y="59" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">WebStorm</text>
-                </svg>
+                <img src="@/assets/images/WebStorm_icon.png" alt="WebStorm" />
               </div>
               <div class="tool-info">
                 <h4>WebStorm</h4>
                 <p>Web开发</p>
               </div>
             </div>
-            
+
             <!-- Other Tools -->
             <div class="tool-item">
               <div class="tool-logo substance">
-                <!-- Substance 3D Painter icon from Adobe/Flaticon -->
-                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="substanceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#FF6B35"/>
-                      <stop offset="50%" stop-color="#F7931E"/>
-                      <stop offset="100%" stop-color="#FFD23F"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="256" height="256" rx="60" fill="url(#substanceGradient)"/>
-                  <path d="M128 50c-43 0-78 35-78 78s35 78 78 78 78-35 78-78-35-78-78-78zm0 20c32 0 58 26 58 58s-26 58-58 58-58-26-58-58 26-58 58-58z" fill="white"/>
-                  <circle cx="128" cy="128" r="25" fill="white"/>
-                  <path d="M90 90l76 76M166 90l-76 76" stroke="white" stroke-width="8" stroke-linecap="round"/>
-                </svg>
+                <img src="@/assets/images/substance-3d-painter.png" alt="Substance 3D Painter" />
               </div>
               <div class="tool-info">
                 <h4>Substance 3D Painter</h4>
                 <p>3D纹理绘制</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo blender">
-                <i class="fab fa-blender"></i>
+                <img src="@/assets/images/Blender.png" alt="Blender" />
               </div>
               <div class="tool-info">
                 <h4>Blender</h4>
                 <p>3D建模动画</p>
               </div>
             </div>
-            
+
             <div class="tool-item">
               <div class="tool-logo marvelous">
-                <!-- Marvelous Designer icon from design resources -->
-                <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="marvelousGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#E91E63"/>
-                      <stop offset="50%" stop-color="#9C27B0"/>
-                      <stop offset="100%" stop-color="#673AB7"/>
-                    </linearGradient>
-                  </defs>
-                  <rect width="256" height="256" rx="60" fill="url(#marvelousGradient)"/>
-                  <path d="M128 50l-30 40h60l-30-40z" fill="white" opacity="0.9"/>
-                  <path d="M80 100h96l-20 60H100l-20-60z" fill="white" opacity="0.8"/>
-                  <path d="M100 160h56l-8 30h-40l-8-30z" fill="white" opacity="0.7"/>
-                  <text x="128" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">MD</text>
-                </svg>
+                <img src="@/assets/images/marvelous-designer-128.png" alt="Marvelous Designer" />
               </div>
               <div class="tool-info">
                 <h4>Marvelous Designer</h4>
@@ -457,7 +345,7 @@
             <span>陕西，西安</span>
           </div>
         </div>
-        
+
         <div class="social-links">
           <a href="https://github.com/3159398370" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="fab fa-github"></i>
@@ -483,7 +371,7 @@ export default {
       fullText: 'Hello, World!',
       typewriterIndex: 0,
       showCursor: true,
-      typewriterSpeed: 150
+      typewriterSpeed: 150,
     };
   },
   mounted() {
@@ -504,32 +392,32 @@ export default {
         }, this.typewriterSpeed);
       }
     },
-    
+
     startCursorBlink() {
       setInterval(() => {
         this.showCursor = !this.showCursor;
       }, 500);
     },
-    
+
     initScrollAnimations() {
       const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '0px 0px -50px 0px',
       };
-      
+
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-in');
           }
         });
       }, observerOptions);
-      
+
       // 观察所有需要动画的元素
       const animateElements = this.$el.querySelectorAll('.skill-category, .tool-item, .contact-item');
-      animateElements.forEach(el => observer.observe(el));
-    }
-  }
+      animateElements.forEach((el) => observer.observe(el));
+    },
+  },
 };
 </script>
 
@@ -786,6 +674,57 @@ export default {
   color: #2c3e50;
 }
 
+.animated-title {
+  background: linear-gradient(45deg, #42b983, #2c3e50, #42b983);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite, fadeInUp 1s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .section-subtitle {
   text-align: center;
   font-size: 1.2rem;
@@ -880,7 +819,7 @@ export default {
 .tools-track {
   display: flex;
   gap: 2rem;
-  animation: scroll 30s linear infinite;
+  animation: scroll 20s linear infinite;
   width: calc(300px * 14 + 2rem * 13); /* 14个工具项 */
 }
 
@@ -940,15 +879,19 @@ export default {
   border-radius: 12px;
 }
 
-/* Tool logo containers - no background needed for SVG icons */
-.adobe-pr, .adobe-au, .adobe-an, .adobe-ae, .adobe-ps, .adobe-ai,
-.jetbrains-idea, .jetbrains-pycharm, .jetbrains-clion, .jetbrains-datagrip, .jetbrains-webstorm,
-.substance, .marvelous {
-  background: transparent;
+.tool-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
-/* Keep background for tools that still use FontAwesome icons */
-.blender { background: linear-gradient(45deg, #ff6b35, #f7931e); }
+/* Tool logo containers - no background needed for PNG/SVG icons */
+.adobe-pr, .adobe-au, .adobe-an, .adobe-ae, .adobe-ps, .adobe-ai,
+.jetbrains-idea, .jetbrains-pycharm, .jetbrains-clion, .jetbrains-datagrip, .jetbrains-webstorm,
+.substance, .marvelous, .blender {
+  background: transparent;
+}
 
 .tool-logo i {
   font-size: 1.8rem;
@@ -1046,93 +989,93 @@ export default {
     min-height: 100vh;
     padding: 40px 0;
   }
-  
+
   .hero-section .container {
     min-height: 90vh;
   }
-  
+
   .corner-logo {
     width: 90px;
     height: 90px;
   }
-  
+
   .corner-logo.top-left {
     top: 1rem;
     left: 1rem;
   }
-  
+
   .corner-logo.top-right {
     top: 1rem;
     right: 1rem;
   }
-  
+
   .adobe-logo-img {
     width: 45px;
     height: 45px;
   }
-  
+
   .adobe-text {
     font-size: 14px;
   }
-  
+
   .jetbrains-logo-svg {
     width: 70px;
     height: 70px;
   }
-  
+
   .title-container {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hello-world-container {
     font-size: 1.2rem;
     padding: 0.4rem 0.8rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1.3rem;
   }
-  
+
   .hero-description {
     font-size: 1rem;
   }
-  
+
   .hero-tags {
     gap: 0.5rem;
   }
-  
+
   .tag {
     font-size: 0.8rem;
     padding: 0.4rem 1rem;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .skills-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-info {
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .tools-track {
     gap: 1rem;
   }
-  
+
   .tool-item {
     flex: 0 0 250px;
   }
-  
+
   .container {
     padding: 0 1rem;
   }
@@ -1142,19 +1085,19 @@ export default {
   .hero-section {
     padding: 100px 0 60px;
   }
-  
+
   .skills-section,
   .tools-section,
   .contact-section {
     padding: 60px 0;
   }
-  
+
   .tool-item {
     flex-direction: column;
     text-align: center;
     flex: 0 0 200px;
   }
-  
+
   .tool-logo {
     margin-bottom: 1rem;
   }
