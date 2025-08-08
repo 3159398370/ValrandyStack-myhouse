@@ -82,11 +82,26 @@ export default {
   padding: 15px 0;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .logo h1 {
   font-size: 1.8rem;
   font-weight: 700;
   color: #42b983;
   margin: 0;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover h1 {
+  color: #369970;
 }
 
 .nav-desktop ul {
