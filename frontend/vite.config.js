@@ -19,4 +19,18 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          // 确保favicon.ico保持原名
+          if (assetInfo.name === 'favicon.ico') {
+            return 'favicon.ico';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
+      },
+    },
+  },
 });

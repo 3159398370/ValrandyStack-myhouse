@@ -42,7 +42,3 @@
 - 组件化开发
 - RESTful API 设计
 - 响应式布局
-
-cd frontend
-npm install
-npm run dev
