@@ -124,3 +124,6 @@ git checkout -b main-stable
 
 # 推送分支到远程并设置上游
 git push -u origin main-stable
+
+将远程的 main-stable 分支合并到当前的 main 分支
+git merge origin/main-stable
