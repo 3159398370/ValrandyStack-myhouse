@@ -190,7 +190,7 @@ npm run build
 ## 联系方式
 
 - **项目维护者**：Valrandy·Joses
-- **邮箱**：valrandy.joses@example.com
+- **邮箱**：user_wrjc5857@foxmail.com
 - **GitHub**：[ValrandyStack](https://github.com/ValrandyStack)
 
 ---
