@@ -47,7 +47,7 @@
             </div>
 
             <div class="project-actions">
-              <a v-if="project.demo_url" :href="project.demo_url" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <a v-if="project.demo_url && project.demo_url !== '#'" :href="project.demo_url" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 <i class="fas fa-external-link-alt"></i> 在线演示
               </a>
               <a v-if="project.github_url" :href="project.github_url" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
@@ -212,6 +212,10 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import project1Image from '@/assets/images/project1.svg';
+import project2Image from '@/assets/images/project2.svg';
+import project3Image from '@/assets/images/project3.svg';
+import project4Image from '@/assets/images/project4.svg';
 
 export default {
   name: 'ProjectDetail',
@@ -226,13 +230,104 @@ export default {
       },
       lightboxOpen: false,
       currentImageIndex: 0,
+      // 本地项目数据
+      localProjects: [
+        {
+          id: 1,
+          title: '智能数据分析平台',
+          short_description: '基于Vue和Django的数据分析平台，支持多种数据源和可视化方式。',
+          description: '<p>这是一个功能强大的数据分析平台，集成了多种数据源和可视化工具。</p><p>主要功能包括：</p><ul><li>多数据源连接</li><li>实时数据处理</li><li>交互式图表</li><li>报告生成</li></ul>',
+          thumbnail: project1Image,
+          banner_image: project1Image,
+          tags: ['Vue', 'Django', 'ECharts', 'Pandas'],
+          category: 1,
+          created_at: '',
+          demo_url: '#',
+          github_url: 'https://github.com/3159398370/bug-free-couscous',
+          images: [],
+          video_url: null,
+          client: '',
+          duration: ''
+        },
+        {
+          id: 2,
+          title: '个人网站开发',
+          short_description: '基于Vue.js和Django的全栈个人网站，包含作品展示、博客系统、代码仓库和联系功能的完整解决方案。',
+          description: '<p>这是一个现代化的个人网站项目，采用前后端分离架构。</p><p>技术特点：</p><ul><li>响应式设计</li><li>SEO优化</li><li>后台管理系统</li><li>API接口设计</li></ul>',
+          thumbnail: project2Image,
+          banner_image: project2Image,
+          tags: ['Vue.js', 'Django', 'MySQL', 'Vite', 'ECharts'],
+          category: 1,
+          created_at: '',
+          demo_url: 'https://learningtree.fun/',
+          github_url: 'https://github.com/3159398370/ValrandyStack-myhouse',
+          images: [],
+          video_url: null,
+          client: '',
+          duration: ''
+        },
+        {
+          id: 3,
+          title: '电商数据爬虫',
+          short_description: '使用Scrapy开发的电商网站数据采集工具，支持多线程和代理IP。',
+          description: '<p>高效的电商数据采集系统，支持多个电商平台的数据抓取。</p><p>核心功能：</p><ul><li>分布式爬取</li><li>反反爬机制</li><li>数据清洗</li><li>实时监控</li></ul>',
+          thumbnail: project3Image,
+          banner_image: project3Image,
+          tags: ['Python', 'Scrapy', 'MongoDB', 'Data Mining'],
+          category: 2,
+          created_at: '',
+          demo_url: '#',
+          github_url: 'https://github.com/example/ecommerce-spider',
+          images: [],
+          video_url: null,
+          client: '',
+          duration: ''
+        },
+        {
+          id: 4,
+          title: '小米家具官网复刻',
+          short_description: '高度还原小米家具官网的设计和交互，实现响应式布局和现代化UI。',
+          description: '<p>精确复刻小米家具官网的设计和用户体验。</p><p>实现特色：</p><ul><li>像素级还原</li><li>流畅动画</li><li>移动端适配</li><li>性能优化</li></ul>',
+          thumbnail: project4Image,
+          banner_image: project4Image,
+          tags: ['Vue', 'Element UI', '响应式设计', 'CSS3'],
+          category: 1,
+          created_at: '',
+          demo_url: '#',
+          github_url: 'https://github.com/3159398370/Xiaomi-kitchen-furniture',
+          images: [],
+          video_url: null,
+          client: '',
+          duration: ''
+        },
+      ],
+      localCategories: [
+        { id: 1, name: 'Web开发' },
+        { id: 2, name: '数据分析' },
+        { id: 3, name: '机器学习' },
+        { id: 4, name: '移动应用' },
+        { id: 5, name: '其他' },
+      ],
+      currentProject: null,
+      loading: false,
+      error: null,
     };
   },
   computed: {
-    ...mapState('projects', ['project', 'projects', 'categories', 'loading', 'error']),
-
     projectId() {
       return parseInt(this.$route.params.id, 10);
+    },
+
+    project() {
+      return this.currentProject;
+    },
+
+    projects() {
+      return this.localProjects;
+    },
+
+    categories() {
+      return this.localCategories;
     },
 
     relatedProjects() {
@@ -266,24 +361,24 @@ export default {
     this.loadProjectData();
   },
   methods: {
-    ...mapActions('projects', ['fetchProject', 'fetchProjects', 'fetchCategories']),
-
     async loadProjectData() {
       try {
-        // 确保有项目列表数据
-        if (this.projects.length === 0) {
-          await this.fetchProjects();
-        }
+        this.loading = true;
+        this.error = null;
 
-        // 确保有分类数据
-        if (this.categories.length === 0) {
-          await this.fetchCategories();
+        // 从本地数据中查找项目
+        const project = this.localProjects.find(p => p.id === this.projectId);
+        
+        if (project) {
+          this.currentProject = project;
+        } else {
+          this.error = '项目不存在';
         }
-
-        // 获取当前项目详情
-        await this.fetchProject(this.projectId);
       } catch (error) {
-        console.error('Failed to load project data:', error);
+        console.error('加载项目数据失败:', error);
+        this.error = '加载项目数据失败，请稍后重试';
+      } finally {
+        this.loading = false;
       }
     },
 

@@ -1,6 +1,10 @@
 import os
 from pathlib import Path
 import environ
+import pymysql
+
+# 使用PyMySQL替代mysqlclient
+pymysql.install_as_MySQLdb()
 
 # 初始化环境变量
 env = environ.Env(
@@ -92,8 +96,15 @@ WSGI_APPLICATION = 'myhouse.wsgi.application'
 # 数据库配置
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DB_NAME', default='myhouse_production'),
+        'USER': env('DB_USER', default='myhouse_user'),
+        'PASSWORD': env('DB_PASSWORD', default='MyH0use@2024!Secure'),
+        'HOST': env('DB_HOST', default='localhost'),
+        'PORT': env('DB_PORT', default='3306'),
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
     }
 }
 
@@ -121,9 +132,14 @@ USE_L10N = True
 USE_TZ = True
 
 # 静态文件设置
+# 静态文件设置
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# 生产环境静态文件配置
+if not DEBUG:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # 媒体文件设置
 MEDIA_URL = '/media/'
@@ -177,7 +193,7 @@ SWAGGER_SETTINGS = {
 }
 
 # 邮件设置
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = env('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = env('EMAIL_HOST', default='smtp.example.com')
 EMAIL_PORT = env('EMAIL_PORT', default=587)
 EMAIL_USE_TLS = env('EMAIL_USE_TLS', default=True)

@@ -10,7 +10,7 @@ djangorestframework==3.14.0
 drf-yasg==1.21.7
 
 # 数据库
-mysqlclient==2.2.0
+PyMySQL==1.1.0
 
 # 认证与权限
 django-allauth==0.58.2

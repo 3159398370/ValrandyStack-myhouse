@@ -18,7 +18,7 @@
           </p>
           <div class="hero-buttons">
             <router-link to="/projects" class="btn btn-primary">查看作品集</router-link>
-            <router-link to="/about" class="btn btn-outline ml-3">联系我</router-link>
+            <router-link to="/about" class="btn btn-outline ml-3">关于我</router-link>
           </div>
         </div>
         <div class="hero-image">

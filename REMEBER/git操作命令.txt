@@ -113,7 +113,7 @@ sudo systemctl restart nginx
 
 sudo systemctl status nginx
 
-
+cd /www/wwwroot/learningtree.fun/frontend
 cd frontend
 npm install
 npm run dev
@@ -127,3 +127,9 @@ git push -u origin main-stable
 
 将远程的 main-stable 分支合并到当前的 main 分支
 git merge origin/main-stable
+
+现在安装前端依赖。
+npm install
+依赖已安装完成，现在执行生产构建。
+
+npm run build

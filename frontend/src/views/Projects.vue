@@ -68,7 +68,7 @@
               <router-link :to="`/projects/${project.id}`" class="view-project">
                 <i class="fas fa-eye"></i> 查看详情
               </router-link>
-              <a v-if="project.demo_url" :href="project.demo_url" target="_blank" rel="noopener noreferrer" class="demo-link">
+              <a v-if="project.demo_url && project.demo_url !== '#'" :href="project.demo_url" target="_blank" rel="noopener noreferrer" class="demo-link">
                 <i class="fas fa-external-link-alt"></i> 在线演示
               </a>
             </div>
@@ -82,9 +82,7 @@
             <p class="project-description">{{ project.short_description }}</p>
 
             <div class="project-meta">
-              <div class="project-date">
-                <i class="far fa-calendar-alt"></i> {{ formatDate(project.created_at) }}
-              </div>
+
               <div class="project-tags">
                 <span v-for="(tag, index) in project.tags" :key="index" class="tag">{{ tag }}</span>
               </div>
@@ -126,7 +124,7 @@ export default {
           thumbnail: project1Image,
           tags: ['Vue', 'Django', 'ECharts', 'Pandas'],
           category: 1,
-          created_at: '2024-01-15',
+          created_at: '',
           demo_url: '#',
         },
         {
@@ -136,7 +134,7 @@ export default {
           thumbnail: project2Image,
           tags: ['Vue.js', 'Django', 'MySQL', 'Vite', 'ECharts'],
           category: 1,
-          created_at: '2024-01-10',
+          created_at: '',
           demo_url: 'https://learningtree.fun/',
         },
         {
@@ -146,7 +144,7 @@ export default {
           thumbnail: project3Image,
           tags: ['Python', 'Scrapy', 'MongoDB', 'Data Mining'],
           category: 2,
-          created_at: '2024-01-05',
+          created_at: '',
           demo_url: '#',
         },
         {
@@ -156,7 +154,7 @@ export default {
           thumbnail: project4Image,
           tags: ['Vue', 'Element UI', '响应式设计', 'CSS3'],
           category: 1,
-          created_at: '2024-01-01',
+          created_at: '',
           demo_url: '#',
         },
       ],

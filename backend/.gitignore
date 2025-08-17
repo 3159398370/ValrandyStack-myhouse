@@ -1,0 +1,19 @@
+# 后端特定忽略规则 - 已整合到根目录.gitignore
+# 如需添加后端特定忽略项，请在此文件中添加
+# 通用规则已在根目录.gitignore中定义
+
+# 后端特定文件
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# 媒体文件（相对路径）
+media/
+static/
+staticfiles/
+
+# 缓存和临时文件
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

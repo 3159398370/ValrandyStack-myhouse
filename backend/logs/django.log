@@ -270,3 +270,295 @@ Traceback (most recent call last):
     return super().execute(query, params)
 django.db.utils.OperationalError: no such table: projects_project
 ERROR 2025-08-09 23:37:37,530 basehttp 30056 53352 "GET /api/projects/ HTTP/1.1" 500 145
+INFO 2025-08-12 16:43:55,285 autoreload 35400 6780 Watching for file changes with StatReloader
+INFO 2025-08-12 16:46:04,813 autoreload 38308 39684 Watching for file changes with StatReloader
+WARNING 2025-08-12 16:46:10,668 log 38308 24488 Not Found: /
+WARNING 2025-08-12 16:46:10,669 basehttp 38308 24488 "GET /?ide_webview_request_time=1754988370228 HTTP/1.1" 404 3526
+WARNING 2025-08-12 16:46:11,111 log 38308 24488 Not Found: /@vite/client
+WARNING 2025-08-12 16:46:11,111 basehttp 38308 24488 "GET /@vite/client HTTP/1.1" 404 3541
+INFO 2025-08-12 16:47:09,373 autoreload 38308 39684 G:\git²Ö¿â\ValrandyStack-myhouse\backend\myhouse\urls.py changed, reloading.
+INFO 2025-08-12 16:47:10,515 autoreload 44416 7280 Watching for file changes with StatReloader
+INFO 2025-08-12 16:47:16,006 basehttp 44416 34820 "GET /?ide_webview_request_time=1754988435690 HTTP/1.1" 200 2995
+WARNING 2025-08-12 16:47:16,241 log 44416 34820 Not Found: /@vite/client
+WARNING 2025-08-12 16:47:16,242 basehttp 44416 34820 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:47:57,550 basehttp 44416 34820 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-12 16:47:57,606 basehttp 44416 34820 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4195
+INFO 2025-08-12 16:47:58,847 basehttp 44416 544 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-08-12 16:47:58,850 basehttp 44416 34820 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+INFO 2025-08-12 16:47:58,860 basehttp 44416 544 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-08-12 16:47:59,225 basehttp 44416 43788 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-08-12 16:47:59,227 basehttp 44416 43148 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+INFO 2025-08-12 16:47:59,229 basehttp 44416 44468 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-08-12 16:47:59,229 basehttp 44416 44132 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+WARNING 2025-08-12 16:47:59,397 log 44416 44132 Not Found: /@vite/client
+WARNING 2025-08-12 16:47:59,397 basehttp 44416 44132 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:50:21,455 basehttp 44416 38932 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-12 16:50:21,474 basehttp 44416 38932 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4195
+INFO 2025-08-12 16:50:21,568 basehttp 44416 38932 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+INFO 2025-08-12 16:50:21,575 basehttp 44416 38932 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-08-12 16:50:21,582 basehttp 44416 38932 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-08-12 16:50:21,587 basehttp 44416 38932 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2025-08-12 16:50:21,594 basehttp 44416 38932 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+INFO 2025-08-12 16:50:21,878 basehttp 44416 38932 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-08-12 16:50:21,879 basehttp 44416 27436 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+WARNING 2025-08-12 16:50:22,193 log 44416 27436 Not Found: /favicon.ico
+WARNING 2025-08-12 16:50:22,194 basehttp 44416 27436 "GET /favicon.ico HTTP/1.1" 404 3651
+INFO 2025-08-12 16:53:30,593 autoreload 45844 36828 Watching for file changes with StatReloader
+INFO 2025-08-12 16:54:22,123 basehttp 45844 19884 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-08-12 16:54:22,214 basehttp 45844 19884 "GET /admin/ HTTP/1.1" 200 14557
+INFO 2025-08-12 16:54:22,620 basehttp 45844 19884 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-08-12 16:54:22,630 basehttp 45844 19884 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-08-12 16:54:22,630 basehttp 45844 528 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+WARNING 2025-08-12 16:54:22,714 log 45844 528 Not Found: /@vite/client
+WARNING 2025-08-12 16:54:22,714 basehttp 45844 528 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:54:45,703 basehttp 45844 528 "GET /admin/sites/site/add/ HTTP/1.1" 200 15161
+INFO 2025-08-12 16:54:45,726 basehttp 45844 528 "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+INFO 2025-08-12 16:54:45,731 basehttp 45844 19884 "GET /admin/jsi18n/ HTTP/1.1" 200 8560
+INFO 2025-08-12 16:54:45,737 basehttp 45844 19884 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-08-12 16:54:45,740 basehttp 45844 528 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO 2025-08-12 16:54:45,747 basehttp 45844 19884 "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO 2025-08-12 16:54:45,748 basehttp 45844 528 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+INFO 2025-08-12 16:54:45,756 basehttp 45844 19884 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO 2025-08-12 16:54:45,756 basehttp 45844 528 "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO 2025-08-12 16:54:45,761 basehttp 45844 528 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-08-12 16:54:45,762 basehttp 45844 19884 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-08-12 16:54:45,765 basehttp 45844 528 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-08-12 16:54:45,770 basehttp 45844 19884 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO 2025-08-12 16:54:45,782 basehttp 45844 19884 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+WARNING 2025-08-12 16:54:45,864 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:54:45,865 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:54:49,997 basehttp 45844 19884 "GET /admin/sites/site/ HTTP/1.1" 200 15648
+INFO 2025-08-12 16:54:50,027 basehttp 45844 528 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-08-12 16:54:50,029 basehttp 45844 19884 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+INFO 2025-08-12 16:54:50,030 basehttp 45844 39096 "GET /admin/jsi18n/ HTTP/1.1" 200 8560
+INFO 2025-08-12 16:54:50,047 basehttp 45844 39096 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-08-12 16:54:50,058 basehttp 45844 39096 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-08-12 16:54:50,058 basehttp 45844 19884 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+WARNING 2025-08-12 16:54:50,107 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:54:50,107 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:54:51,697 basehttp 45844 19884 "GET /admin/sites/ HTTP/1.1" 200 5048
+WARNING 2025-08-12 16:54:51,772 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:54:51,773 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:54:53,309 basehttp 45844 19884 "GET /admin/ HTTP/1.1" 200 14557
+WARNING 2025-08-12 16:54:53,387 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:54:53,388 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:55:01,776 basehttp 45844 19884 "GET /admin/projects/project/ HTTP/1.1" 200 16365
+INFO 2025-08-12 16:55:01,806 basehttp 45844 19884 "GET /admin/jsi18n/ HTTP/1.1" 200 8560
+WARNING 2025-08-12 16:55:01,891 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:55:01,891 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:55:07,239 basehttp 45844 19884 "GET /admin/ HTTP/1.1" 200 14557
+WARNING 2025-08-12 16:55:07,332 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:55:07,333 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:55:57,292 basehttp 45844 19884 "GET /admin/account/emailaddress/ HTTP/1.1" 200 14863
+INFO 2025-08-12 16:55:57,312 basehttp 45844 19884 "GET /admin/jsi18n/ HTTP/1.1" 200 8560
+WARNING 2025-08-12 16:55:57,397 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:55:57,398 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:56:01,637 basehttp 45844 19884 "GET /admin/ HTTP/1.1" 200 14557
+WARNING 2025-08-12 16:56:01,739 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:56:01,740 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:56:05,940 basehttp 45844 19884 "GET /admin/projects/category/ HTTP/1.1" 200 14123
+INFO 2025-08-12 16:56:05,957 basehttp 45844 19884 "GET /admin/jsi18n/ HTTP/1.1" 200 8560
+WARNING 2025-08-12 16:56:06,031 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:56:06,032 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:56:09,094 basehttp 45844 19884 "GET /admin/ HTTP/1.1" 200 14557
+WARNING 2025-08-12 16:56:09,186 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:56:09,187 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:56:15,070 basehttp 45844 19884 "GET / HTTP/1.1" 200 2995
+WARNING 2025-08-12 16:56:15,133 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:56:15,134 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:56:17,421 basehttp 45844 19884 "GET /admin/ HTTP/1.1" 200 14557
+WARNING 2025-08-12 16:56:17,497 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:56:17,498 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:57:40,707 basehttp 45844 19884 "GET /admin/contact/contact/ HTTP/1.1" 200 15400
+INFO 2025-08-12 16:57:40,733 basehttp 45844 19884 "GET /admin/jsi18n/ HTTP/1.1" 200 8560
+WARNING 2025-08-12 16:57:40,802 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:57:40,802 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:57:53,562 basehttp 45844 19884 "GET /admin/ HTTP/1.1" 200 14557
+WARNING 2025-08-12 16:57:53,690 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:57:53,690 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:59:39,463 basehttp 45844 19884 "GET /admin/projects/project/ HTTP/1.1" 200 16365
+INFO 2025-08-12 16:59:39,497 basehttp 45844 19884 "GET /admin/jsi18n/ HTTP/1.1" 200 8560
+WARNING 2025-08-12 16:59:39,588 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:59:39,589 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 16:59:43,779 basehttp 45844 19884 "GET /admin/ HTTP/1.1" 200 14557
+WARNING 2025-08-12 16:59:43,877 log 45844 19884 Not Found: /@vite/client
+WARNING 2025-08-12 16:59:43,878 basehttp 45844 19884 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 17:06:43,274 basehttp 45844 33512 "GET /api/projects/ HTTP/1.1" 200 52
+INFO 2025-08-12 17:06:43,293 basehttp 45844 3164 "GET /api/projects/categories/ HTTP/1.1" 200 52
+WARNING 2025-08-12 17:06:43,309 log 45844 3700 Not Found: /api/projects/4/
+WARNING 2025-08-12 17:06:43,309 basehttp 45844 3700 "GET /api/projects/4/ HTTP/1.1" 404 48
+WARNING 2025-08-12 17:06:49,257 log 45844 8044 Not Found: /api/projects/1/
+WARNING 2025-08-12 17:06:49,258 basehttp 45844 8044 "GET /api/projects/1/ HTTP/1.1" 404 48
+INFO 2025-08-12 17:22:42,478 basehttp 45844 17992 "GET /admin/ HTTP/1.1" 200 14557
+WARNING 2025-08-12 17:22:42,813 log 45844 17992 Not Found: /@vite/client
+WARNING 2025-08-12 17:22:42,813 basehttp 45844 17992 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-12 17:27:28,362 basehttp 45844 17992 - Broken pipe from ('127.0.0.1', 5661)
+INFO 2025-08-12 18:01:20,218 basehttp 45844 41968 "GET /admin/ HTTP/1.1" 200 14557
+WARNING 2025-08-12 18:01:20,467 log 45844 41968 Not Found: /@vite/client
+WARNING 2025-08-12 18:01:20,467 basehttp 45844 41968 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-15 15:26:47,564 autoreload 43308 45660 Watching for file changes with StatReloader
+INFO 2025-08-15 15:34:29,413 basehttp 43308 49200 "GET /?ide_webview_request_time=1755243269400 HTTP/1.1" 200 2995
+WARNING 2025-08-15 15:34:29,643 log 43308 49200 Not Found: /@vite/client
+WARNING 2025-08-15 15:34:29,644 basehttp 43308 49200 "GET /@vite/client HTTP/1.1" 404 179
+INFO 2025-08-15 15:34:57,118 basehttp 43308 49200 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-15 15:34:57,161 basehttp 43308 49200 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4195
+WARNING 2025-08-15 15:34:57,168 log 43308 49200 Not Found: /static/admin/css/base.css
+WARNING 2025-08-15 15:34:57,169 log 43308 44884 Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-08-15 15:34:57,170 log 43308 41244 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-15 15:34:57,172 basehttp 43308 49200 "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:34:57,173 log 43308 28740 Not Found: /static/admin/css/login.css
+WARNING 2025-08-15 15:34:57,173 basehttp 43308 44884 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:34:57,174 log 43308 3788 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-15 15:34:57,175 basehttp 43308 41244 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:34:57,175 log 43308 44884 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-08-15 15:34:57,176 log 43308 44120 Not Found: /static/admin/js/theme.js
+WARNING 2025-08-15 15:34:57,177 basehttp 43308 28740 "GET /static/admin/css/login.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:34:57,177 basehttp 43308 3788 "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:34:57,178 basehttp 43308 44884 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:34:57,178 basehttp 43308 44120 "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:34:57,228 log 43308 44120 Not Found: /@vite/client
+WARNING 2025-08-15 15:34:57,229 basehttp 43308 44120 "GET /@vite/client HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:11,072 log 43308 44120 Not Found: /@vite/client
+WARNING 2025-08-15 15:35:11,073 basehttp 43308 44120 "GET /@vite/client HTTP/1.1" 404 179
+INFO 2025-08-15 15:35:14,547 basehttp 43308 44120 "GET /swagger/ HTTP/1.1" 200 2231
+WARNING 2025-08-15 15:35:14,554 log 43308 44120 Not Found: /static/drf-yasg/style.css
+WARNING 2025-08-15 15:35:14,556 log 43308 3788 Not Found: /static/drf-yasg/swagger-ui-dist/swagger-ui-bundle.js
+WARNING 2025-08-15 15:35:14,557 log 43308 28740 Not Found: /static/drf-yasg/swagger-ui-dist/swagger-ui-standalone-preset.js
+WARNING 2025-08-15 15:35:14,558 log 43308 41244 Not Found: /static/drf-yasg/insQ.min.js
+WARNING 2025-08-15 15:35:14,559 log 43308 49200 Not Found: /static/drf-yasg/immutable.min.js
+WARNING 2025-08-15 15:35:14,560 log 43308 44884 Not Found: /static/drf-yasg/swagger-ui-dist/swagger-ui.css
+WARNING 2025-08-15 15:35:14,561 basehttp 43308 44120 "GET /static/drf-yasg/style.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:14,561 basehttp 43308 3788 "GET /static/drf-yasg/swagger-ui-dist/swagger-ui-bundle.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:14,562 basehttp 43308 28740 "GET /static/drf-yasg/swagger-ui-dist/swagger-ui-standalone-preset.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:14,562 basehttp 43308 41244 "GET /static/drf-yasg/insQ.min.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:14,563 log 43308 44120 Not Found: /static/drf-yasg/swagger-ui-init.js
+WARNING 2025-08-15 15:35:14,563 basehttp 43308 49200 "GET /static/drf-yasg/immutable.min.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:14,564 basehttp 43308 44884 "GET /static/drf-yasg/swagger-ui-dist/swagger-ui.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:14,565 basehttp 43308 44120 "GET /static/drf-yasg/swagger-ui-init.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:14,623 log 43308 44120 Not Found: /@vite/client
+WARNING 2025-08-15 15:35:14,624 basehttp 43308 44120 "GET /@vite/client HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:16,551 log 43308 44120 Not Found: /accounts/login/
+WARNING 2025-08-15 15:35:16,551 basehttp 43308 44120 "GET /accounts/login/?next=/swagger/ HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:16,578 log 43308 44120 Not Found: /@vite/client
+WARNING 2025-08-15 15:35:16,578 basehttp 43308 44120 "GET /@vite/client HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:17,767 log 43308 44120 Not Found: /@vite/client
+WARNING 2025-08-15 15:35:17,769 basehttp 43308 44120 "GET /@vite/client HTTP/1.1" 404 179
+WARNING 2025-08-15 15:35:18,248 log 43308 44120 Not Found: /@vite/client
+WARNING 2025-08-15 15:35:18,248 basehttp 43308 44120 "GET /@vite/client HTTP/1.1" 404 179
+INFO 2025-08-15 15:36:40,394 basehttp 43308 44120 "GET /?ide_webview_request_time=1755243400391 HTTP/1.1" 200 2995
+WARNING 2025-08-15 15:36:40,415 log 43308 44120 Not Found: /@vite/client
+WARNING 2025-08-15 15:36:40,416 basehttp 43308 44120 "GET /@vite/client HTTP/1.1" 404 179
+INFO 2025-08-15 15:36:46,576 basehttp 43308 44120 "GET /?ide_webview_request_time=1755243400391 HTTP/1.1" 200 2995
+WARNING 2025-08-15 15:36:46,601 log 43308 44120 Not Found: /@vite/client
+WARNING 2025-08-15 15:36:46,601 basehttp 43308 44120 "GET /@vite/client HTTP/1.1" 404 179
+INFO 2025-08-15 15:36:50,841 basehttp 43308 44120 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-15 15:36:50,848 basehttp 43308 44120 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4195
+WARNING 2025-08-15 15:36:50,853 log 43308 44120 Not Found: /static/admin/css/base.css
+WARNING 2025-08-15 15:36:50,854 log 43308 44884 Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-08-15 15:36:50,855 log 43308 41244 Not Found: /static/admin/css/login.css
+WARNING 2025-08-15 15:36:50,856 log 43308 28740 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-15 15:36:50,857 log 43308 49200 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-15 15:36:50,858 log 43308 3788 Not Found: /static/admin/js/theme.js
+WARNING 2025-08-15 15:36:50,859 basehttp 43308 44120 "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:50,859 basehttp 43308 44884 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:50,860 basehttp 43308 41244 "GET /static/admin/css/login.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:50,860 basehttp 43308 28740 "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:50,860 basehttp 43308 49200 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:50,860 basehttp 43308 3788 "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:50,863 log 43308 3788 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-08-15 15:36:50,863 basehttp 43308 3788 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:50,939 log 43308 3788 Not Found: /@vite/client
+WARNING 2025-08-15 15:36:50,939 basehttp 43308 3788 "GET /@vite/client HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:57,266 log 43308 3788 Not Found: /@vite/client
+WARNING 2025-08-15 15:36:57,267 basehttp 43308 3788 "GET /@vite/client HTTP/1.1" 404 179
+INFO 2025-08-15 15:36:58,521 basehttp 43308 3788 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-08-15 15:36:58,526 basehttp 43308 3788 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4195
+WARNING 2025-08-15 15:36:58,534 log 43308 3788 Not Found: /static/admin/css/base.css
+WARNING 2025-08-15 15:36:58,534 log 43308 49200 Not Found: /static/admin/css/dark_mode.css
+WARNING 2025-08-15 15:36:58,535 log 43308 44884 Not Found: /static/admin/css/login.css
+WARNING 2025-08-15 15:36:58,537 log 43308 41244 Not Found: /static/admin/css/responsive.css
+WARNING 2025-08-15 15:36:58,537 log 43308 28740 Not Found: /static/admin/css/nav_sidebar.css
+WARNING 2025-08-15 15:36:58,539 basehttp 43308 49200 "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:58,539 basehttp 43308 3788 "GET /static/admin/css/base.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:58,539 basehttp 43308 44884 "GET /static/admin/css/login.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:58,540 basehttp 43308 41244 "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:58,541 log 43308 44120 Not Found: /static/admin/js/theme.js
+WARNING 2025-08-15 15:36:58,541 basehttp 43308 28740 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:58,542 basehttp 43308 44120 "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:58,545 log 43308 28740 Not Found: /static/admin/js/nav_sidebar.js
+WARNING 2025-08-15 15:36:58,545 basehttp 43308 28740 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+WARNING 2025-08-15 15:36:58,577 log 43308 28740 Not Found: /@vite/client
+WARNING 2025-08-15 15:36:58,578 basehttp 43308 28740 "GET /@vite/client HTTP/1.1" 404 179
+INFO 2025-08-15 15:38:08,137 autoreload 47216 49416 Watching for file changes with StatReloader
+INFO 2025-08-15 15:38:14,366 basehttp 47216 47876 "GET /admin/?ide_webview_request_time=1755243494275 HTTP/1.1" 302 0
+INFO 2025-08-15 15:38:14,394 basehttp 47216 47876 "GET /admin/login/?next=/admin/%3Fide_webview_request_time%3D1755243494275 HTTP/1.1" 200 4277
+INFO 2025-08-15 15:38:15,617 basehttp 47216 17024 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-08-15 15:38:15,618 basehttp 47216 47876 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+INFO 2025-08-15 15:38:15,622 basehttp 47216 17024 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-08-15 15:38:15,646 basehttp 47216 38908 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+INFO 2025-08-15 15:38:15,647 basehttp 47216 45388 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-08-15 15:38:15,648 basehttp 47216 44388 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2025-08-15 15:38:15,652 basehttp 47216 42016 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+WARNING 2025-08-15 15:38:15,732 log 47216 42016 Not Found: /@vite/client
+WARNING 2025-08-15 15:38:15,732 basehttp 47216 42016 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-15 15:38:22,136 basehttp 47216 42016 "GET /admin/?ide_webview_request_time=1755243502131 HTTP/1.1" 302 0
+INFO 2025-08-15 15:38:22,142 basehttp 47216 42016 "GET /admin/login/?next=/admin/%3Fide_webview_request_time%3D1755243502131 HTTP/1.1" 200 4277
+WARNING 2025-08-15 15:38:22,312 log 47216 42016 Not Found: /@vite/client
+WARNING 2025-08-15 15:38:22,313 basehttp 47216 42016 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-15 15:38:42,712 basehttp 47216 42016 "POST /admin/login/?next=/admin/%3Fide_webview_request_time%3D1755243502131 HTTP/1.1" 200 4420
+WARNING 2025-08-15 15:38:42,752 log 47216 42016 Not Found: /@vite/client
+WARNING 2025-08-15 15:38:42,753 basehttp 47216 42016 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-15 15:42:11,574 basehttp 47216 42016 "POST /admin/login/?next=/admin/%3Fide_webview_request_time%3D1755243502131 HTTP/1.1" 302 0
+INFO 2025-08-15 15:42:11,606 basehttp 47216 42016 "GET /admin/?ide_webview_request_time=1755243502131 HTTP/1.1" 200 14567
+INFO 2025-08-15 15:42:11,616 basehttp 47216 42016 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-08-15 15:42:11,626 basehttp 47216 44388 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-08-15 15:42:11,627 basehttp 47216 42016 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+WARNING 2025-08-15 15:42:11,670 log 47216 42016 Not Found: /@vite/client
+WARNING 2025-08-15 15:42:11,670 basehttp 47216 42016 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-15 15:42:23,319 basehttp 47216 42016 "GET /admin/creative_lab/post/ HTTP/1.1" 200 16414
+INFO 2025-08-15 15:42:23,335 basehttp 47216 38908 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-08-15 15:42:23,335 basehttp 47216 42016 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+INFO 2025-08-15 15:42:23,335 basehttp 47216 47876 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO 2025-08-15 15:42:23,336 basehttp 47216 17024 "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO 2025-08-15 15:42:23,344 basehttp 47216 44388 "GET /admin/jsi18n/ HTTP/1.1" 200 8560
+INFO 2025-08-15 15:42:23,345 basehttp 47216 38908 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-08-15 15:42:23,345 basehttp 47216 42016 "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO 2025-08-15 15:42:23,345 basehttp 47216 47876 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-08-15 15:42:23,348 basehttp 47216 44388 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-08-15 15:42:23,349 basehttp 47216 17024 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO 2025-08-15 15:42:23,350 basehttp 47216 45388 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO 2025-08-15 15:42:23,357 basehttp 47216 44388 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-08-15 15:42:23,383 basehttp 47216 44388 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+WARNING 2025-08-15 15:42:23,430 log 47216 44388 Not Found: /@vite/client
+WARNING 2025-08-15 15:42:23,431 basehttp 47216 44388 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-15 15:42:30,197 basehttp 47216 44388 "GET /admin/creative_lab/post/add/ HTTP/1.1" 200 27110
+INFO 2025-08-15 15:42:30,209 basehttp 47216 47876 "GET /static/admin/js/collapse.js HTTP/1.1" 200 1803
+INFO 2025-08-15 15:42:30,211 basehttp 47216 44388 "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+INFO 2025-08-15 15:42:30,211 basehttp 47216 17024 "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+INFO 2025-08-15 15:42:30,212 basehttp 47216 38908 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-08-15 15:42:30,213 basehttp 47216 42016 "GET /static/admin/js/inlines.js HTTP/1.1" 200 15526
+INFO 2025-08-15 15:42:30,217 basehttp 47216 45388 "GET /admin/jsi18n/ HTTP/1.1" 200 8560
+INFO 2025-08-15 15:42:30,218 basehttp 47216 47876 "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2025-08-15 15:42:30,219 basehttp 47216 44388 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15292
+INFO 2025-08-15 15:42:30,220 basehttp 47216 17024 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+INFO 2025-08-15 15:42:30,220 basehttp 47216 38908 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-08-15 15:42:30,220 basehttp 47216 42016 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-08-15 15:42:30,226 basehttp 47216 42016 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-08-15 15:42:30,284 basehttp 47216 42016 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-08-15 15:42:30,285 basehttp 47216 38908 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2025-08-15 15:42:30,285 basehttp 47216 17024 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+INFO 2025-08-15 15:42:30,285 basehttp 47216 44388 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO 2025-08-15 15:42:30,285 basehttp 47216 47876 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+WARNING 2025-08-15 15:42:30,333 log 47216 47876 Not Found: /@vite/client
+WARNING 2025-08-15 15:42:30,333 basehttp 47216 47876 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-15 15:42:42,019 basehttp 47216 47876 "GET /admin/login/?next=/admin/%3Fide_webview_request_time%3D1755243494275 HTTP/1.1" 302 0
+INFO 2025-08-15 15:42:42,036 basehttp 47216 47876 "GET /admin/ HTTP/1.1" 200 14567
+WARNING 2025-08-15 15:42:42,264 log 47216 47876 Not Found: /@vite/client
+WARNING 2025-08-15 15:42:42,264 basehttp 47216 47876 "GET /@vite/client HTTP/1.1" 404 3654
+INFO 2025-08-15 22:35:49,261 basehttp 47216 45388 - Broken pipe from ('127.0.0.1', 8161)
+INFO 2025-08-15 22:35:49,276 basehttp 47216 42016 - Broken pipe from ('127.0.0.1', 8158)
+INFO 2025-08-15 22:35:49,256 basehttp 47216 47876 - Broken pipe from ('127.0.0.1', 8156)
+INFO 2025-08-15 22:35:49,279 basehttp 47216 17024 - Broken pipe from ('127.0.0.1', 8157)
+INFO 2025-08-15 22:35:49,280 basehttp 47216 38908 - Broken pipe from ('127.0.0.1', 8160)
+INFO 2025-08-15 22:35:49,282 basehttp 47216 44388 - Broken pipe from ('127.0.0.1', 8159)
+INFO 2025-08-16 00:45:54,824 autoreload 49160 19368 Watching for file changes with StatReloader
