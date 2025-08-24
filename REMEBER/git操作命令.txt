@@ -117,7 +117,12 @@ cd /www/wwwroot/learningtree.fun/frontend
 cd frontend
 npm install
 npm run dev
+# 正确的服务器构建流程
+npm run build          # 构建生产版本
+npm run preview        # 预览构建结果（可选）
 
+# 或者直接使用我们的部署脚本
+./deploy_all_in_one.sh init  
 
 # 创建并切换到新分支
 git checkout -b main-stable
@@ -133,3 +138,11 @@ npm install
 依赖已安装完成，现在执行生产构建。
 
 npm run build
+
+
+[root@Valrandy learningtree.fun]# find / -name "deploy_all_in_one.sh" 2>/dev/null
+/usr/local/bin/deploy_all_in_one.sh
+/usr/local/bin/deploy_all_in_one.sh full
+
+cd /www/wwwroot/learningtree.fun/backend
+source venv/bin/activate

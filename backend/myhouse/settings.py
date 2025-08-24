@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # 安全设置
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+ALLOWED_HOSTS = ['learningtree.fun', 'www.learningtree.fun', 'localhost', '127.0.0.1', '0.0.0.0', '39.105.10.216']
 
 # 应用定义
 DJANGO_APPS = [
@@ -131,15 +131,27 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# 静态文件设置
-# 静态文件设置
+# 静态文件配置 (修复Admin CSS问题)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# 生产环境静态文件配置
+# 开发环境静态文件目录 - 明确排除STATIC_ROOT路径
+STATICFILES_DIRS = [
+    # 使用与STATIC_ROOT完全不同的目录
+    os.path.join(BASE_DIR, 'assets'),
+]
+
+# 确保静态文件目录存在
+os.makedirs(STATIC_ROOT, exist_ok=True)
+os.makedirs(os.path.join(BASE_DIR, 'staticfiles'), exist_ok=True)
+
+# 生产环境静态文件存储配置
 if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    
+    # 确保静态文件目录存在
+    if not os.path.exists(STATIC_ROOT):
+        os.makedirs(STATIC_ROOT, exist_ok=True)
 
 # 媒体文件设置
 MEDIA_URL = '/media/'
@@ -201,6 +213,28 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default='noreply@example.com')
 
+# 安全中间件配置
+SECURE_SSL_REDIRECT = False
+SECURE_HSTS_SECONDS = 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_FRAME_DENY = False
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_BROWSER_XSS_FILTER = False
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+USE_X_FORWARDED_HOST = True
+USE_X_FORWARDED_PORT = True
+
+# CSRF和Host验证
+CSRF_TRUSTED_ORIGINS = [
+    'http://learningtree.fun',
+    'https://learningtree.fun',
+    'http://www.learningtree.fun',
+    'https://www.learningtree.fun',
+    'http://localhost:3000',
+    'https://localhost:3000',
+]
+
 # 日志配置
 LOGGING = {
     'version': 1,
@@ -217,12 +251,12 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
         },
         'file': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'logs/django.log'),
             'formatter': 'verbose',
@@ -231,7 +265,12 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console', 'file'],
-            'level': 'INFO',
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.security': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
             'propagate': True,
         },
     },

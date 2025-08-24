@@ -89,7 +89,7 @@ cd backend
 
 # 创建虚拟环境
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source /www/wwwroot/learningtree.fun/backend/venv/bin/activate  # 使用指定的虚拟环境
 
 # 安装依赖
 pip install -r requirements.txt
