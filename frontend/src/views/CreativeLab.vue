@@ -561,14 +561,53 @@ export default {
   mounted() {
     this.initializePerformanceOptimizations();
     this.startAutoPlay();
+    
+    // 初始应用重叠隐藏效果
+    setTimeout(() => {
+      this.applyOverlapHideEffect();
+    }, 500);
+    
+    // 监听窗口大小变化，重新检测重叠
+    const debouncedApplyOverlap = this.debounce(this.applyOverlapHideEffect.bind(this), 100);
+    window.addEventListener('resize', this.applyOverlapHideEffect.bind(this));
+    window.addEventListener('scroll', debouncedApplyOverlap);
+    
+    // 保存防抖函数的引用以便清理
+    this._debouncedApplyOverlap = debouncedApplyOverlap;
   },
 
   beforeUnmount() {
     this.stopAutoPlay();
     this.cleanupPerformanceOptimizations();
+    
+    // 清理事件监听器
+    window.removeEventListener('resize', this.applyOverlapHideEffect);
+    if (this._debouncedApplyOverlap) {
+      window.removeEventListener('scroll', this._debouncedApplyOverlap);
+    }
+  },
+
+  computed: {
+    // 防抖函数作为计算属性
+    debouncedApplyOverlapHide() {
+      return this.debounce(this.applyOverlapHideEffect, 100);
+    }
   },
 
   methods: {
+    // 防抖函数
+    debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    },
+
     setActiveCategory(categoryId) {
       this.activeCategory = categoryId;
     },
@@ -798,11 +837,87 @@ export default {
             }
           });
         });
-        this.performanceObserver.observe({ entryTypes: ['measure'] });
       }
     },
 
+    // 跑马灯重叠隐藏效果方法
+    hideMarqueeEffect(element, hide = true) {
+      if (!element) return;
+      
+      if (hide) {
+        element.classList.add('marquee-overlap-hidden');
+        element.style.setProperty('--marquee-opacity', '0');
+      } else {
+        element.classList.remove('marquee-overlap-hidden');
+        element.style.removeProperty('--marquee-opacity');
+      }
+    },
+
+    // 检测元素重叠
+    checkOverlap(element1, element2) {
+      if (!element1 || !element2) return false;
+      
+      const rect1 = element1.getBoundingClientRect();
+      const rect2 = element2.getBoundingClientRect();
+      
+      return !(rect1.right < rect2.left || 
+               rect1.left > rect2.right || 
+               rect1.bottom < rect2.top || 
+               rect1.top > rect2.bottom);
+    },
+
+    // 应用重叠隐藏效果
+    applyOverlapHideEffect() {
+      this.$nextTick(() => {
+        const marqueeElements = this.$el.querySelectorAll('.neon-marquee-demo');
+        
+        marqueeElements.forEach(marquee => {
+          // 获取所有可能与跑马灯重叠的元素
+          const overlappingElements = this.getOverlappingElements(marquee);
+          
+          // 添加调试信息
+          console.log('跑马灯重叠检测:', {
+            marquee: marquee,
+            overlappingCount: overlappingElements.length,
+            overlappingElements: overlappingElements
+          });
+          
+          if (overlappingElements.length > 0) {
+            this.hideMarqueeEffect(marquee, true);
+          } else {
+            this.hideMarqueeEffect(marquee, false);
+          }
+        });
+      });
+    },
+
+    // 获取与跑马灯重叠的元素（只检测相邻的展示项）
+    getOverlappingElements(marqueeElement) {
+      const marqueeRect = marqueeElement.getBoundingClientRect();
+      const showcaseItems = this.$el.querySelectorAll('.showcase-item');
+      
+      return Array.from(showcaseItems).filter(item => {
+        if (item.contains(marqueeElement) || !item.offsetParent) return false;
+        
+        const itemRect = item.getBoundingClientRect();
+        
+        // 检测是否有实际重叠（允许小间隙）
+        const overlapThreshold = 10; // 像素阈值
+        const hasOverlap = !(
+          marqueeRect.right < itemRect.left + overlapThreshold || 
+          marqueeRect.left > itemRect.right - overlapThreshold || 
+          marqueeRect.bottom < itemRect.top + overlapThreshold || 
+          marqueeRect.top > itemRect.bottom - overlapThreshold
+        );
+        
+        return hasOverlap;
+      });
+    },
+
     loadAnimation(type) {
+      this.selectedAnimation = type;
+      this.playAnimation(type);
+      
       if (this.animationStates[type] && !this.animationStates[type].loaded) {
         this.animationStates[type].loaded = true;
         this.animationStates[type].visible = true;
@@ -3108,6 +3223,26 @@ export default {
     transform: rotate(var(--angle, 0deg)) translateX(80px) scale(0); 
     opacity: 0; 
   }
+}
+
+/* 跑马灯重叠隐藏效果 */
+.marquee-overlap-hidden {
+  position: relative;
+}
+
+.marquee-overlap-hidden::before,
+.marquee-overlap-hidden::after {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  animation: none !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.marquee-overlap-hidden .marquee-content {
+  opacity: 0.3 !important;
+  text-shadow: none !important;
+  animation: none !important;
+  transition: opacity 0.3s ease;
 }
 
 /* 霓虹跑马灯展示 */
