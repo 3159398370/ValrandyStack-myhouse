@@ -395,3 +395,6 @@ docs/_build/
 # 保留文档
 !docs/
 !*.md
+
+# 忽略敏感文件
+BILIBILI_API_INTEGRATION_GUIDE.md
