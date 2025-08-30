@@ -350,15 +350,27 @@
           <a href="https://github.com/3159398370" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://space.bilibili.com/" target="_blank" rel="noopener noreferrer" aria-label="Bilibili">
+          <a href="https://space.bilibili.com/505984286?spm_id_from=333.1007.0.0" target="_blank" rel="noopener noreferrer" aria-label="Bilibili">
             <i class="fab fa-bilibili"></i>
           </a>
-          <a href="https://www.douyin.com/" target="_blank" rel="noopener noreferrer" aria-label="抖音">
+          <a @click="showDouyinQRCode" aria-label="抖音">
             <i class="fab fa-tiktok"></i>
           </a>
         </div>
       </div>
     </section>
+    
+    <!-- 抖音二维码弹窗 -->
+    <div v-if="showDouyinQR" class="qr-code-overlay" @click="closeDouyinQR">
+      <div class="qr-code-modal" @click.stop>
+        <div class="qr-code-content">
+          <h3>我的抖音二维码</h3>
+          <img src="/src/assets/images/tx.png" alt="抖音二维码" class="qr-code-image" />
+          <p>扫码关注我的抖音</p>
+          <button class="close-btn" @click="closeDouyinQR">关闭</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -372,6 +384,7 @@ export default {
       typewriterIndex: 0,
       showCursor: true,
       typewriterSpeed: 150,
+      showDouyinQR: false
     };
   },
   mounted() {
@@ -417,6 +430,16 @@ export default {
       const animateElements = this.$el.querySelectorAll('.skill-category, .tool-item, .contact-item');
       animateElements.forEach((el) => observer.observe(el));
     },
+    
+    // 显示抖音二维码
+    showDouyinQRCode() {
+      this.showDouyinQR = true;
+    },
+    
+    // 关闭抖音二维码
+    closeDouyinQR() {
+      this.showDouyinQR = false;
+    }
   },
 };
 </script>
@@ -1100,6 +1123,103 @@ export default {
 
   .tool-logo {
     margin-bottom: 1rem;
+  }
+}
+
+/* 二维码弹窗样式 */
+.qr-code-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.qr-code-modal {
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 320px;
+  width: 90%;
+  animation: slideIn 0.3s ease;
+}
+
+.qr-code-content {
+  text-align: center;
+}
+
+.qr-code-content h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.qr-code-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.qr-code-content p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.qr-code-content .close-btn {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.qr-code-content .close-btn:hover {
+  background-color: #ee5253;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .qr-code-modal {
+    max-width: 90%;
+    padding: 15px;
+  }
+  
+  .qr-code-content h3 {
+    font-size: 1.3rem;
   }
 }
 </style>
