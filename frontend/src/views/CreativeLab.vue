@@ -54,12 +54,43 @@
         <div class="showcase-main">
           <!-- 视频展示区 -->
           <div v-if="activeCategory === 'video'" class="video-showcase">
-            <div class="development-notice">
-              <div class="notice-icon">
-                <i class="fas fa-tools"></i>
+            <h2 class="section-title">
+              <i class="fas fa-video"></i>
+              <span>我的B站视频作品</span>
+            </h2>
+            
+            <!-- 加载状态 -->
+            <div v-if="loadingVideos" class="loading">
+              <div class="spinner"></div>
+              <p>正在加载视频...</p>
+            </div>
+            
+            <!-- 视频网格 -->
+            <div v-else-if="videos.length > 0" class="video-grid">
+              <div v-for="video in videos" :key="video.bvid" class="video-card">
+                <div class="video-thumbnail" @click="openVideoModal(video)">
+                  <img :src="video.cover" :alt="video.title" />
+                  <div class="play-overlay">
+                    <i class="fas fa-play"></i>
+                  </div>
+                  <div class="video-duration">{{ formatDuration(video.duration) }}</div>
+                </div>
+                <div class="video-info">
+                  <h3 class="video-title" @click="openVideoModal(video)">{{ video.title }}</h3>
+                  <p class="video-description">{{ video.description }}</p>
+                  <div class="video-meta">
+                    <span>{{ video.viewCount }} 播放</span>
+                    <span>{{ formatDate(video.publishDate) }}</span>
+                  </div>
+                </div>
               </div>
-              <h3 class="notice-title">功能开发中</h3>
-              <p class="notice-description">视频作品展示功能正在开发中，敬请期待...</p>
+            </div>
+            
+            <!-- 无视频状态 -->
+            <div v-else class="no-results">
+              <i class="fas fa-video-slash"></i>
+              <h3>暂无视频作品</h3>
+              <p>视频数据加载失败或暂无视频作品</p>
             </div>
           </div>
 
@@ -503,12 +534,27 @@
         </div>
       </div>
     </div>
+  
+  <!-- 视频弹窗组件 -->
+  <VideoModal 
+    :show="showVideoModal" 
+    :video="currentVideo"
+    @close="handleVideoModalClose"
+  />
   </div>
 </template>
 
-<script>
+  <script>
+import api from '@/utils/api.js';
+import VideoModal from '@/components/VideoModal.vue';
+// 直接导入视频封面图片
+import videoCover1 from '@/assets/images/【我想吃掉你的胰脏】生命是有光的，至少在我熄灭之后，能照亮你一点也是我所能做的了…….jpg';
+import videoCover2 from '@/assets/images/估计只有真正喜欢国家队的才能刷到这个视频吧~.jpg';
 export default {
   name: 'CreativeLab',
+  components: {
+    VideoModal
+  },
   data() {
     return {
       activeCategory: 'video',
@@ -523,6 +569,7 @@ export default {
         { id: 'design', name: '设计作品', icon: 'fas fa-palette', count: 10 }
       ],
       videos: [],
+      loadingVideos: false,
       animations: [],
       models: [],
       showMoreAnimations: false,
@@ -532,7 +579,7 @@ export default {
       comboCount: 0,
       currentColor: '#ff6b6b',
       resetTimer: null,
-      animations: {
+      animationEffects: {
         card3d: false,
         particles: false,
         neon: false,
@@ -555,12 +602,25 @@ export default {
       lazyLoadObserver: null,
       performanceMode: true,
       // 彼岸花选中状态
-    selectedAnimation: null
+      selectedAnimation: null,
+      // 视频弹窗相关
+      showVideoModal: false,
+      currentVideo: null
     };
   },
+    
+    computed: {
+      // 防抖函数作为计算属性
+      debouncedApplyOverlapHide() {
+        return this.debounce(this.applyOverlapHideEffect, 100);
+      }
+    },
   mounted() {
     this.initializePerformanceOptimizations();
     this.startAutoPlay();
+    
+    // 初始加载视频数据
+    this.loadVideos();
     
     // 初始应用重叠隐藏效果
     setTimeout(() => {
@@ -625,7 +685,82 @@ export default {
     },
     
     pauseAnimation(type) {
-      this.animations[type] = false;
+      this.animationEffects[type] = false;
+    },
+    
+    // 加载B站视频数据
+    async loadVideos() {
+      try {
+        this.loadingVideos = true;
+        
+        // 添加日志以便调试
+        console.log('开始加载视频数据');
+        
+        // 模拟API请求延迟
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // 使用导入的图片引用
+        this.videos = [
+          {
+            bvid: 'BV1Ei4y1w7R7',
+            title: '【我想吃掉你的胰脏】生命是有光的，至少在我熄灭之后，能照亮你一点也是我所能做的了……',
+            description: '早期作品，仅供展示，实际观感不佳，请谨慎选择观看',
+            cover: videoCover1,
+            duration: 235,
+            viewCount: '4353',
+            publishDate: '2020-12-26'
+          },
+          {
+            bvid: 'BV1d54y167NB',
+            title: '估计只有真正喜欢国家队的才能刷到这个视频吧~',
+            description: '早期作品，仅供展示，实际观感不佳，请谨慎选择观看',
+            cover: videoCover2,
+            duration: 216,
+            viewCount: '1.2万',
+            publishDate: '2020-10-22'
+          }
+        ];
+        
+        console.log('视频数据加载成功:', this.videos);
+        
+      } catch (error) {
+        console.error('加载视频失败:', error);
+        // 添加错误提示
+        this.$message.error('加载视频失败，请刷新页面重试');
+      } finally {
+        this.loadingVideos = false;
+      }
+    },
+    
+    // 打开视频弹窗
+    openVideoModal(video) {
+      this.currentVideo = video;
+      this.showVideoModal = true;
+    },
+    
+    // 处理视频弹窗关闭
+    handleVideoModalClose() {
+      this.showVideoModal = false;
+      // 延迟清空视频数据，避免动画时出现白屏
+      setTimeout(() => {
+        this.currentVideo = null;
+      }, 300);
+    },
+    
+    // 格式化视频时长
+    formatDuration(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = Math.floor(seconds % 60);
+      return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    },
+    
+    // 格式化日期
+    formatDate(dateString) {
+      const date = new Date(dateString);
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
     },
 
     startAutoPlay() {
@@ -939,11 +1074,11 @@ export default {
       
       // 使用 requestAnimationFrame 优化动画触发
       requestAnimationFrame(() => {
-        this.animations[type] = true;
+        this.animationEffects[type] = true;
         
         // 自动停止动画，避免资源浪费
         setTimeout(() => {
-          this.animations[type] = false;
+          this.animationEffects[type] = false;
         }, 2000);
       });
     },
@@ -1590,7 +1725,6 @@ export default {
   margin-bottom: 15px;
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1862,7 +1996,6 @@ export default {
   line-height: 1.4;
   transition: color 0.3s ease;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -3318,5 +3451,247 @@ export default {
 
 .neon-marquee-demo.playing::after {
   opacity: 1;
+}
+
+/* 视频弹窗样式 */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.video-modal {
+  background: #fff;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.4s ease;
+}
+
+.video-modal-header {
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2d3748;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 20px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #718096;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #2d3748;
+}
+
+.video-modal-content {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.video-player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-placeholder {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #f0f0f0;
+}
+
+.modal-video-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-icon-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.video-placeholder:hover .play-icon-overlay {
+  opacity: 1;
+}
+
+.play-icon-overlay i {
+  color: white;
+  font-size: 2rem;
+  margin-left: 5px;
+}
+
+.video-duration-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.video-description {
+  margin-bottom: 15px;
+  color: #4a5568;
+  line-height: 1.6;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.video-meta-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.video-modal-footer {
+  padding: 20px;
+  background: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.view-original-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.view-original-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.close-modal-btn {
+  background: #e2e8f0;
+  color: #4a5568;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.close-modal-btn:hover {
+  background: #cbd5e0;
+  transform: translateY(-2px);
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .video-modal {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .video-meta-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .video-modal-footer {
+    flex-direction: column;
+  }
+  
+  .view-original-btn,
+  .close-modal-btn {
+    justify-content: center;
+    width: 100%;
+  }
 }
 </style>
