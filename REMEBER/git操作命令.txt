@@ -140,9 +140,3 @@ npm install
 npm run build
 
 
-[root@Valrandy learningtree.fun]# find / -name "deploy_all_in_one.sh" 2>/dev/null
-/usr/local/bin/deploy_all_in_one.sh
-/usr/local/bin/deploy_all_in_one.sh full
-
-cd /www/wwwroot/learningtree.fun/backend
-source venv/bin/activate
