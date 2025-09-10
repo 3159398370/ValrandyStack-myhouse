@@ -146,15 +146,7 @@ docker-compose logs -f
 docker-compose down
 ```
 
-### 生产环境
 
-```bash
-# 使用一体化部署脚本
-chmod +x deploy_all_in_one.sh
-./deploy_all_in_one.sh deploy --server-ip YOUR_SERVER_IP
-```
-
-## 测试与验证
 
 ### 本地测试
 
