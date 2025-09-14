@@ -89,7 +89,7 @@ cd backend
 
 # 创建虚拟环境
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source /www/wwwroot/learningtree.fun/backend/venv/bin/activate  # 使用指定的虚拟环境
 
 # 安装依赖
 pip install -r requirements.txt
@@ -146,15 +146,7 @@ docker-compose logs -f
 docker-compose down
 ```
 
-### 生产环境
 
-```bash
-# 使用一体化部署脚本
-chmod +x deploy_all_in_one.sh
-./deploy_all_in_one.sh deploy --server-ip YOUR_SERVER_IP
-```
-
-## 测试与验证
 
 ### 本地测试
 

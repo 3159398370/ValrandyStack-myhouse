@@ -379,6 +379,9 @@ docs/_build/
 # 问题归档（保留在git中）
 # issues-archive/
 
+# 忽略特定文档文件
+BILIBILI_API_INTEGRATION_GUIDE.md
+
 # ==================== 例外规则 ====================
 # 保留某些重要文件
 !.gitignore
