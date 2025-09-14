@@ -3,7 +3,7 @@
     <!-- B站风格头图 -->
     <div class="bilibili-header">
       <div class="header-background">
-        <img src="/【哲风壁纸】椿-鸣潮.png" alt="头图背景" class="bg-image" />
+        <img src="/【哲风壁纸】椿-鸣潮.png" alt="头图背景" class="bg-image"/>
         <div class="header-overlay"></div>
       </div>
       <div class="header-content">
@@ -36,12 +36,12 @@
         <!-- 分类导航 -->
         <div class="category-nav">
           <div class="nav-container">
-            <button 
-              v-for="category in categories" 
-              :key="category.id"
-              class="category-btn"
-              :class="{ active: activeCategory === category.id }"
-              @click="setActiveCategory(category.id)"
+            <button
+                v-for="category in categories"
+                :key="category.id"
+                class="category-btn"
+                :class="{ active: activeCategory === category.id }"
+                @click="setActiveCategory(category.id)"
             >
               <i :class="category.icon"></i>
               <span>{{ category.name }}</span>
@@ -58,18 +58,18 @@
               <i class="fas fa-video"></i>
               <span>我的B站视频作品</span>
             </h2>
-            
+
             <!-- 加载状态 -->
             <div v-if="loadingVideos" class="loading">
               <div class="spinner"></div>
               <p>正在加载视频...</p>
             </div>
-            
+
             <!-- 视频网格 -->
             <div v-else-if="videos.length > 0" class="video-grid">
               <div v-for="video in videos" :key="video.bvid" class="video-card">
                 <div class="video-thumbnail" @click="openVideoModal(video)">
-                  <img :src="video.cover" :alt="video.title" />
+                  <img :src="video.cover" :alt="video.title"/>
                   <div class="play-overlay">
                     <i class="fas fa-play"></i>
                   </div>
@@ -85,7 +85,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- 无视频状态 -->
             <div v-else class="no-results">
               <i class="fas fa-video-slash"></i>
@@ -94,30 +94,30 @@
             </div>
           </div>
 
-           <!-- CSS动画展示区 -->
-           <div v-if="activeCategory === 'animation'" class="animation-showcase">
-             <div class="css-showcase-container">
-               <div class="showcase-header">
-                 <h1 class="title-glitch">CSS动画展示台</h1>
-                 <p class="subtitle">视觉展示</p>
-               </div>
+          <!-- CSS动画展示区 -->
+          <div v-if="activeCategory === 'animation'" class="animation-showcase">
+            <div class="css-showcase-container">
+              <div class="showcase-header">
+                <h1 class="title-glitch">CSS动画展示台</h1>
+                <p class="subtitle">视觉展示</p>
+              </div>
 
-               <div class="showcase-grid" :class="{ 'expanded': showMoreAnimations }">
-                 <!-- 3D旋转卡片 -->
-                <div 
-                  class="showcase-item" 
-                  :class="{ 'selected': selectedAnimation === 'card3d' }"
-                  data-animation-type="card3d" 
-                  @mouseenter="playAnimation('card3d')" 
-                  @mouseleave="pauseAnimation('card3d')" 
-                  @click="playAnimation('card3d')"
+              <div class="showcase-grid" :class="{ 'expanded': showMoreAnimations }">
+                <!-- 3D旋转卡片 -->
+                <div
+                    class="showcase-item"
+                    :class="{ 'selected': selectedAnimation === 'card3d' }"
+                    data-animation-type="card3d"
+                    @mouseenter="playAnimation('card3d')"
+                    @mouseleave="pauseAnimation('card3d')"
+                    @click="playAnimation('card3d')"
                 >
                   <div class="lily-petals" v-if="selectedAnimation === 'card3d'">
-                    <div 
-                      v-for="n in 8" 
-                      :key="n"
-                      class="petal"
-                      :style="{
+                    <div
+                        v-for="n in 8"
+                        :key="n"
+                        class="petal"
+                        :style="{
                         '--x': `${Math.cos((n * 45 * Math.PI) / 180) * 60}px`,
                         '--y': `${Math.sin((n * 45 * Math.PI) / 180) * 60}px`,
                         '--r': `${n * 45}deg`,
@@ -125,31 +125,31 @@
                       }"
                     ></div>
                   </div>
-                   <div class="card-3d" :class="{ 'playing': animations.card3d }">
-                     <div class="card-face front">3D卡片</div>
-                     <div class="card-face back">悬停查看</div>
-                   </div>
-                   <div class="item-info">
-                     <h3>3D翻转卡片</h3>
-                     <p>鼠标悬停触发3D翻转效果</p>
-                   </div>
-                 </div>
+                  <div class="card-3d" :class="{ 'playing': animations.card3d }">
+                    <div class="card-face front">3D卡片</div>
+                    <div class="card-face back">悬停查看</div>
+                  </div>
+                  <div class="item-info">
+                    <h3>3D翻转卡片</h3>
+                    <p>鼠标悬停触发3D翻转效果</p>
+                  </div>
+                </div>
 
-                 <!-- 粒子系统 -->
-                <div 
-                  class="showcase-item" 
-                  :class="{ 'selected': selectedAnimation === 'particles' }"
-                  data-animation-type="particles" 
-                  @mouseenter="playAnimation('particles')" 
-                  @mouseleave="pauseAnimation('particles')" 
-                  @click="playAnimation('particles')"
+                <!-- 粒子系统 -->
+                <div
+                    class="showcase-item"
+                    :class="{ 'selected': selectedAnimation === 'particles' }"
+                    data-animation-type="particles"
+                    @mouseenter="playAnimation('particles')"
+                    @mouseleave="pauseAnimation('particles')"
+                    @click="playAnimation('particles')"
                 >
                   <div class="lily-petals" v-if="selectedAnimation === 'particles'">
-                    <div 
-                      v-for="n in 8" 
-                      :key="n"
-                      class="petal"
-                      :style="{
+                    <div
+                        v-for="n in 8"
+                        :key="n"
+                        class="petal"
+                        :style="{
                         '--x': `${Math.cos((n * 45 * Math.PI) / 180) * 60}px`,
                         '--y': `${Math.sin((n * 45 * Math.PI) / 180) * 60}px`,
                         '--r': `${n * 45}deg`,
@@ -157,28 +157,28 @@
                       }"
                     ></div>
                   </div>
-                   <div class="particle-container" :class="{ 'playing': animations.particles }">
-                     <div v-for="n in 50" :key="n" class="particle" :style="getParticleStyle(n)"></div>
-                     <div v-for="n in 30" :key="'glow-'+n" class="particle-glow" :style="getParticleStyle(n + 50)"></div>
-                   </div>
-                   <div class="item-info">
-                     <h3>粒子动画</h3>
-                     <p>华丽粒子漂浮效果</p>
-                   </div>
-                 </div>
+                  <div class="particle-container" :class="{ 'playing': animations.particles }">
+                    <div v-for="n in 50" :key="n" class="particle" :style="getParticleStyle(n)"></div>
+                    <div v-for="n in 30" :key="'glow-'+n" class="particle-glow" :style="getParticleStyle(n + 50)"></div>
+                  </div>
+                  <div class="item-info">
+                    <h3>粒子动画</h3>
+                    <p>华丽粒子漂浮效果</p>
+                  </div>
+                </div>
 
-                 <!-- 霓虹文字 -->
-                  <div 
-                    class="showcase-item" 
+                <!-- 霓虹文字 -->
+                <div
+                    class="showcase-item"
                     :class="{ 'selected': selectedAnimation === 'neon' }"
-                    data-animation-type="neon" 
-                    @mouseenter="playAnimation('neon')" 
-                    @mouseleave="pauseAnimation('neon')" 
+                    data-animation-type="neon"
+                    @mouseenter="playAnimation('neon')"
+                    @mouseleave="pauseAnimation('neon')"
                     @click="playAnimation('neon')"
-                  >
-                    <div class="lily-petals" v-if="selectedAnimation === 'neon'">
-                      <div 
-                        v-for="n in 8" 
+                >
+                  <div class="lily-petals" v-if="selectedAnimation === 'neon'">
+                    <div
+                        v-for="n in 8"
                         :key="n"
                         class="petal"
                         :style="{
@@ -187,21 +187,22 @@
                           '--r': `${n * 45}deg`,
                           'animation-delay': `${n * 0.2}s`
                         }"
-                      ></div>
-                    </div>
-                   <div class="neon-text" :class="{ 'playing': animations.neon }">
-                     <span class="neon-glow">NEON</span>
-                   </div>
-                   <div class="item-info">
-                     <h3>霓虹发光</h3>
-                     <p>炫酷的发光文字效果</p>
-                   </div>
-                 </div>
+                    ></div>
+                  </div>
+                  <div class="neon-text" :class="{ 'playing': animations.neon }">
+                    <span class="neon-glow">NEON</span>
+                  </div>
+                  <div class="item-info">
+                    <h3>霓虹发光</h3>
+                    <p>炫酷的发光文字效果</p>
+                  </div>
+                </div>
 
-                 <!-- 可变大小的震撼连点器 -->
+                <!-- 可变大小的震撼连点器 -->
                 <div class="showcase-item" @click="handleClickCounter">
-                  
-                  <div class="click-counter-container" :class="{ 'clicked': clickCount > 0 }" :style="{ transform: `scale(${ballSize})`, background: currentColor }">
+
+                  <div class="click-counter-container" :class="{ 'clicked': clickCount > 0 }"
+                       :style="{ transform: `scale(${ballSize})`, background: currentColor }">
                     <div class="counter-display">{{ clickCount }}</div>
                   </div>
                   <div class="item-info">
@@ -210,350 +211,357 @@
                   </div>
                 </div>
 
-                 <!-- 更多效果（默认隐藏） -->
-                 <template v-if="showMoreAnimations">
-                   <!-- 星空背景 -->
-          <div 
-            class="showcase-item" 
-            :class="{ 'selected': selectedAnimation === 'starry' }"
-            data-animation-type="starry" 
-            @mouseenter="playAnimation('starry')" 
-            @mouseleave="pauseAnimation('starry')" 
-            @click="playAnimation('starry')"
-          >
-            <div class="lily-petals" v-if="selectedAnimation === 'starry'">
-              <div 
-                v-for="n in 8" 
-                :key="n"
-                class="petal"
-                :style="{
+                <!-- 更多效果（默认隐藏） -->
+                <template v-if="showMoreAnimations">
+                  <!-- 星空背景 -->
+                  <div
+                      class="showcase-item"
+                      :class="{ 'selected': selectedAnimation === 'starry' }"
+                      data-animation-type="starry"
+                      @mouseenter="playAnimation('starry')"
+                      @mouseleave="pauseAnimation('starry')"
+                      @click="playAnimation('starry')"
+                  >
+                    <div class="lily-petals" v-if="selectedAnimation === 'starry'">
+                      <div
+                          v-for="n in 8"
+                          :key="n"
+                          class="petal"
+                          :style="{
                   '--x': `${Math.cos((n * 45 * Math.PI) / 180) * 60}px`,
                   '--y': `${Math.sin((n * 45 * Math.PI) / 180) * 60}px`,
                   '--r': `${n * 45}deg`,
                   'animation-delay': `${n * 0.2}s`
                 }"
-              ></div>
-            </div>
-            <div class="starry-sky" :class="{ 'playing': animations.starry }">
-              <div v-for="star in 120" :key="star" class="star" :style="getStarStyle(star)"></div>
-              <div v-for="star in 20" :key="'bright-'+star" class="star bright" :style="getStarStyle(star + 120)"></div>
-            </div>
-            <div class="item-info">
-              <h3>星空动画</h3>
-              <p>华丽星空闪烁效果</p>
-            </div>
-          </div>
+                      ></div>
+                    </div>
+                    <div class="starry-sky" :class="{ 'playing': animations.starry }">
+                      <div v-for="star in 120" :key="star" class="star" :style="getStarStyle(star)"></div>
+                      <div v-for="star in 20" :key="'bright-'+star" class="star bright"
+                           :style="getStarStyle(star + 120)"></div>
+                    </div>
+                    <div class="item-info">
+                      <h3>星空动画</h3>
+                      <p>华丽星空闪烁效果</p>
+                    </div>
+                  </div>
 
-                 <!-- 进度环 -->
-                 <div 
-                   class="showcase-item" 
-                   :class="{ 'selected': selectedAnimation === 'progress' }"
-                   data-animation-type="progress" 
-                   @mouseenter="playAnimation('progress')" 
-                   @mouseleave="pauseAnimation('progress')" 
-                   @click="playAnimation('progress')"
-                 >
-                   <div class="lily-petals" v-if="selectedAnimation === 'progress'">
-                     <div 
-                       v-for="n in 8" 
-                       :key="n"
-                       class="petal"
-                       :style="{
+                  <!-- 进度环 -->
+                  <div
+                      class="showcase-item"
+                      :class="{ 'selected': selectedAnimation === 'progress' }"
+                      data-animation-type="progress"
+                      @mouseenter="playAnimation('progress')"
+                      @mouseleave="pauseAnimation('progress')"
+                      @click="playAnimation('progress')"
+                  >
+                    <div class="lily-petals" v-if="selectedAnimation === 'progress'">
+                      <div
+                          v-for="n in 8"
+                          :key="n"
+                          class="petal"
+                          :style="{
                          '--x': `${Math.cos((n * 45 * Math.PI) / 180) * 60}px`,
                          '--y': `${Math.sin((n * 45 * Math.PI) / 180) * 60}px`,
                          '--r': `${n * 45}deg`,
                          'animation-delay': `${n * 0.2}s`
                        }"
-                     ></div>
-                   </div>
-                   <div class="progress-ring" :class="{ 'playing': animations.progress }">
-                     <svg class="progress-svg" viewBox="0 0 100 100">
-                       <circle class="progress-bg" cx="50" cy="50" r="45"></circle>
-                       <circle class="progress-bar" cx="50" cy="50" r="45"></circle>
-                     </svg>
-                     <div class="progress-text">75%</div>
-                   </div>
-                   <div class="item-info">
-                     <h3>环形进度</h3>
-                     <p>动态进度指示器</p>
-                   </div>
-                 </div>
+                      ></div>
+                    </div>
+                    <div class="progress-ring" :class="{ 'playing': animations.progress }">
+                      <svg class="progress-svg" viewBox="0 0 100 100">
+                        <circle class="progress-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="progress-bar" cx="50" cy="50" r="45"></circle>
+                      </svg>
+                      <div class="progress-text">75%</div>
+                    </div>
+                    <div class="item-info">
+                      <h3>环形进度</h3>
+                      <p>动态进度指示器</p>
+                    </div>
+                  </div>
 
-                 <!-- 故障效果 -->
-                 <div 
-                   class="showcase-item" 
-                   :class="{ 'selected': selectedAnimation === 'glitch' }"
-                   data-animation-type="glitch" 
-                   @mouseenter="playAnimation('glitch')" 
-                   @mouseleave="pauseAnimation('glitch')" 
-                   @click="playAnimation('glitch')"
-                 >
-                   <div class="lily-petals" v-if="selectedAnimation === 'glitch'">
-                     <div 
-                       v-for="n in 8" 
-                       :key="n"
-                       class="petal"
-                       :style="{
+                  <!-- 故障效果 -->
+                  <div
+                      class="showcase-item"
+                      :class="{ 'selected': selectedAnimation === 'glitch' }"
+                      data-animation-type="glitch"
+                      @mouseenter="playAnimation('glitch')"
+                      @mouseleave="pauseAnimation('glitch')"
+                      @click="playAnimation('glitch')"
+                  >
+                    <div class="lily-petals" v-if="selectedAnimation === 'glitch'">
+                      <div
+                          v-for="n in 8"
+                          :key="n"
+                          class="petal"
+                          :style="{
                          '--x': `${Math.cos((n * 45 * Math.PI) / 180) * 60}px`,
                          '--y': `${Math.sin((n * 45 * Math.PI) / 180) * 60}px`,
                          '--r': `${n * 45}deg`,
                          'animation-delay': `${n * 0.2}s`
                        }"
-                     ></div>
-                   </div>
-                   <div class="glitch-text" :class="{ 'playing': animations.glitch }">
-                     <span class="glitch-main">GLITCH</span>
-                     <span class="glitch-overlay" aria-hidden="true">GLITCH</span>
-                     <span class="glitch-overlay-2" aria-hidden="true">GLITCH</span>
-                   </div>
-                   <div class="item-info">
-                     <h3>故障艺术</h3>
-                     <p>数字故障视觉效果</p>
-                   </div>
-                 </div>
+                      ></div>
+                    </div>
+                    <div class="glitch-text" :class="{ 'playing': animations.glitch }">
+                      <span class="glitch-main">GLITCH</span>
+                      <span class="glitch-overlay" aria-hidden="true">GLITCH</span>
+                      <span class="glitch-overlay-2" aria-hidden="true">GLITCH</span>
+                    </div>
+                    <div class="item-info">
+                      <h3>故障艺术</h3>
+                      <p>数字故障视觉效果</p>
+                    </div>
+                  </div>
 
-                 <!-- 波浪动画 -->
-                 <div 
-                   class="showcase-item" 
-                   :class="{ 'selected': selectedAnimation === 'wave' }"
-                   data-animation-type="wave" 
-                   @mouseenter="playAnimation('wave')" 
-                   @mouseleave="pauseAnimation('wave')" 
-                   @click="playAnimation('wave')"
-                 >
-                   <div class="lily-petals" v-if="selectedAnimation === 'wave'">
-                     <div 
-                       v-for="n in 8" 
-                       :key="n"
-                       class="petal"
-                       :style="{
+                  <!-- 波浪动画 -->
+                  <div
+                      class="showcase-item"
+                      :class="{ 'selected': selectedAnimation === 'wave' }"
+                      data-animation-type="wave"
+                      @mouseenter="playAnimation('wave')"
+                      @mouseleave="pauseAnimation('wave')"
+                      @click="playAnimation('wave')"
+                  >
+                    <div class="lily-petals" v-if="selectedAnimation === 'wave'">
+                      <div
+                          v-for="n in 8"
+                          :key="n"
+                          class="petal"
+                          :style="{
                          '--x': `${Math.cos((n * 45 * Math.PI) / 180) * 60}px`,
                          '--y': `${Math.sin((n * 45 * Math.PI) / 180) * 60}px`,
                          '--r': `${n * 45}deg`,
                          'animation-delay': `${n * 0.2}s`
                        }"
-                     ></div>
-                   </div>
-                   <div class="wave-container" :class="{ 'playing': animations.wave }">
-                     <div class="wave wave-1"></div>
-                     <div class="wave wave-2"></div>
-                     <div class="wave wave-3"></div>
-                   </div>
-                   <div class="item-info">
-                     <h3>波浪动画</h3>
-                     <p>流畅的波浪效果</p>
-                   </div>
-                 </div>
+                      ></div>
+                    </div>
+                    <div class="wave-container" :class="{ 'playing': animations.wave }">
+                      <div class="wave wave-1"></div>
+                      <div class="wave wave-2"></div>
+                      <div class="wave wave-3"></div>
+                    </div>
+                    <div class="item-info">
+                      <h3>波浪动画</h3>
+                      <p>流畅的波浪效果</p>
+                    </div>
+                  </div>
 
-                 <!-- 脉冲按钮 -->
-                 <div 
-                   class="showcase-item" 
-                   :class="{ 'selected': selectedAnimation === 'pulse' }"
-                   data-animation-type="pulse" 
-                   @mouseenter="playAnimation('pulse')" 
-                   @mouseleave="pauseAnimation('pulse')" 
-                   @click="playAnimation('pulse')"
-                 >
-                   <div class="lily-petals" v-if="selectedAnimation === 'pulse'">
-                     <div 
-                       v-for="n in 8" 
-                       :key="n"
-                       class="petal"
-                       :style="{
+                  <!-- 脉冲按钮 -->
+                  <div
+                      class="showcase-item"
+                      :class="{ 'selected': selectedAnimation === 'pulse' }"
+                      data-animation-type="pulse"
+                      @mouseenter="playAnimation('pulse')"
+                      @mouseleave="pauseAnimation('pulse')"
+                      @click="playAnimation('pulse')"
+                  >
+                    <div class="lily-petals" v-if="selectedAnimation === 'pulse'">
+                      <div
+                          v-for="n in 8"
+                          :key="n"
+                          class="petal"
+                          :style="{
                          '--x': `${Math.cos((n * 45 * Math.PI) / 180) * 60}px`,
                          '--y': `${Math.sin((n * 45 * Math.PI) / 180) * 60}px`,
                          '--r': `${n * 45}deg`,
                          'animation-delay': `${n * 0.2}s`
                        }"
-                     ></div>
-                   </div>
-                   <div class="pulse-button" :class="{ 'playing': animations.pulse }">
-                     <div class="pulse-core"></div>
-                     <div class="pulse-ring ring-1"></div>
-                     <div class="pulse-ring ring-2"></div>
-                     <div class="pulse-ring ring-3"></div>
-                   </div>
-                   <div class="item-info">
-                     <h3>脉冲效果</h3>
-                     <p>多层脉冲扩散动画</p>
-                   </div>
-                 </div>
+                      ></div>
+                    </div>
+                    <div class="pulse-button" :class="{ 'playing': animations.pulse }">
+                      <div class="pulse-core"></div>
+                      <div class="pulse-ring ring-1"></div>
+                      <div class="pulse-ring ring-2"></div>
+                      <div class="pulse-ring ring-3"></div>
+                    </div>
+                    <div class="item-info">
+                      <h3>脉冲效果</h3>
+                      <p>多层脉冲扩散动画</p>
+                    </div>
+                  </div>
 
-                 <!-- 旋转魔方 -->
-                 <div 
-                   class="showcase-item" 
-                   :class="{ 'selected': selectedAnimation === 'cube' }"
-                   data-animation-type="cube" 
-                   @mouseenter="playAnimation('cube')" 
-                   @mouseleave="pauseAnimation('cube')" 
-                   @click="playAnimation('cube')"
-                 >
-                   <div class="lily-petals" v-if="selectedAnimation === 'cube'">
-                     <div 
-                       v-for="n in 8" 
-                       :key="n"
-                       class="petal"
-                       :style="{
+                  <!-- 旋转魔方 -->
+                  <div
+                      class="showcase-item"
+                      :class="{ 'selected': selectedAnimation === 'cube' }"
+                      data-animation-type="cube"
+                      @mouseenter="playAnimation('cube')"
+                      @mouseleave="pauseAnimation('cube')"
+                      @click="playAnimation('cube')"
+                  >
+                    <div class="lily-petals" v-if="selectedAnimation === 'cube'">
+                      <div
+                          v-for="n in 8"
+                          :key="n"
+                          class="petal"
+                          :style="{
                          '--x': `${Math.cos((n * 45 * Math.PI) / 180) * 60}px`,
                          '--y': `${Math.sin((n * 45 * Math.PI) / 180) * 60}px`,
                          '--r': `${n * 45}deg`,
                          'animation-delay': `${n * 0.2}s`
                        }"
-                     ></div>
-                   </div>
-                   <div class="cube-container" :class="{ 'playing': animations.cube }">
-                     <div class="cube">
-                       <div class="cube-face front">前</div>
-                       <div class="cube-face back">后</div>
-                       <div class="cube-face left">左</div>
-                       <div class="cube-face right">右</div>
-                       <div class="cube-face top">上</div>
-                       <div class="cube-face bottom">下</div>
-                     </div>
-                   </div>
-                   <div class="item-info">
-                     <h3>3D魔方</h3>
-                     <p>立体旋转立方体</p>
-                   </div>
-                 </div>
+                      ></div>
+                    </div>
+                    <div class="cube-container" :class="{ 'playing': animations.cube }">
+                      <div class="cube">
+                        <div class="cube-face front">前</div>
+                        <div class="cube-face back">后</div>
+                        <div class="cube-face left">左</div>
+                        <div class="cube-face right">右</div>
+                        <div class="cube-face top">上</div>
+                        <div class="cube-face bottom">下</div>
+                      </div>
+                    </div>
+                    <div class="item-info">
+                      <h3>3D魔方</h3>
+                      <p>立体旋转立方体</p>
+                    </div>
+                  </div>
 
-                 <!-- 打字机效果 -->
-                 <div class="showcase-item" data-animation-type="typewriter" @mouseenter="playAnimation('typewriter')" @mouseleave="pauseAnimation('typewriter')" @click="playAnimation('typewriter')">
-                   <div class="typewriter-container" :class="{ 'playing': animations.typewriter }">
-                     <div class="typewriter-text">Hello World!</div>
-                     <div class="typewriter-cursor"></div>
-                   </div>
-                   <div class="item-info">
-                     <h3>打字机</h3>
-                     <p>逐字显示动画效果</p>
-                   </div>
-                 </div>
+                  <!-- 打字机效果 -->
+                  <div class="showcase-item" data-animation-type="typewriter" @mouseenter="playAnimation('typewriter')"
+                       @mouseleave="pauseAnimation('typewriter')" @click="playAnimation('typewriter')">
+                    <div class="typewriter-container" :class="{ 'playing': animations.typewriter }">
+                      <div class="typewriter-text">Hello World!</div>
+                      <div class="typewriter-cursor"></div>
+                    </div>
+                    <div class="item-info">
+                      <h3>打字机</h3>
+                      <p>逐字显示动画效果</p>
+                    </div>
+                  </div>
 
-                 <!-- 渐变边框 -->
-                 <div class="showcase-item" data-animation-type="border" @mouseenter="playAnimation('border')" @mouseleave="pauseAnimation('border')" @click="playAnimation('border')">
-                   <div class="gradient-border" :class="{ 'playing': animations.border }">
-                     <div class="border-content">渐变边框</div>
-                   </div>
-                   <div class="item-info">
-                     <h3>渐变边框</h3>
-                     <p>流动的彩虹边框</p>
-                   </div>
-                 </div>
+                  <!-- 渐变边框 -->
+                  <div class="showcase-item" data-animation-type="border" @mouseenter="playAnimation('border')"
+                       @mouseleave="pauseAnimation('border')" @click="playAnimation('border')">
+                    <div class="gradient-border" :class="{ 'playing': animations.border }">
+                      <div class="border-content">渐变边框</div>
+                    </div>
+                    <div class="item-info">
+                      <h3>渐变边框</h3>
+                      <p>流动的彩虹边框</p>
+                    </div>
+                  </div>
 
-                 <!-- 粒子爆炸 -->
-                 <div class="showcase-item" data-animation-type="explosion" @mouseenter="playAnimation('explosion')" @mouseleave="pauseAnimation('explosion')" @click="playAnimation('explosion')">
-                   <div class="explosion-container" :class="{ 'playing': animations.explosion }">
-                     <div class="explosion-center"></div>
-                     <div v-for="n in 12" :key="n" class="explosion-particle" :style="getExplosionStyle(n)"></div>
-                   </div>
-                   <div class="item-info">
-                     <h3>粒子爆炸</h3>
-                     <p>中心爆炸粒子效果</p>
-                   </div>
-                 </div>
+                  <!-- 粒子爆炸 -->
+                  <div class="showcase-item" data-animation-type="explosion" @mouseenter="playAnimation('explosion')"
+                       @mouseleave="pauseAnimation('explosion')" @click="playAnimation('explosion')">
+                    <div class="explosion-container" :class="{ 'playing': animations.explosion }">
+                      <div class="explosion-center"></div>
+                      <div v-for="n in 12" :key="n" class="explosion-particle" :style="getExplosionStyle(n)"></div>
+                    </div>
+                    <div class="item-info">
+                      <h3>粒子爆炸</h3>
+                      <p>中心爆炸粒子效果</p>
+                    </div>
+                  </div>
 
-                 <!-- 霓虹跑马灯 -->
-                 <div 
-                   class="showcase-item" 
-                   :class="{ 'selected': selectedAnimation === 'neonMarquee' }"
-                   data-animation-type="neonMarquee" 
-                   @mouseenter="playAnimation('neonMarquee')" 
-                   @mouseleave="pauseAnimation('neonMarquee')" 
-                   @click="playAnimation('neonMarquee')"
-                 >
-                   <div class="lily-petals" v-if="selectedAnimation === 'neonMarquee'">
-                     <div 
-                       v-for="n in 8" 
-                       :key="n"
-                       class="petal"
-                       :style="{
+                  <!-- 霓虹跑马灯 -->
+                  <div
+                      class="showcase-item"
+                      :class="{ 'selected': selectedAnimation === 'neonMarquee' }"
+                      data-animation-type="neonMarquee"
+                      @mouseenter="playAnimation('neonMarquee')"
+                      @mouseleave="pauseAnimation('neonMarquee')"
+                      @click="playAnimation('neonMarquee')"
+                  >
+                    <div class="lily-petals" v-if="selectedAnimation === 'neonMarquee'">
+                      <div
+                          v-for="n in 8"
+                          :key="n"
+                          class="petal"
+                          :style="{
                          '--x': `${Math.cos((n * 45 * Math.PI) / 180) * 60}px`,
                          '--y': `${Math.sin((n * 45 * Math.PI) / 180) * 60}px`,
                          '--r': `${n * 45}deg`,
                          'animation-delay': `${n * 0.2}s`
                        }"
-                     ></div>
-                   </div>
-                   <div class="neon-marquee-demo" :class="{ 'playing': animations.neonMarquee }">
-                     <div class="marquee-content">霓虹跑马灯</div>
-                   </div>
-                   <div class="item-info">
-                     <h3>霓虹跑马灯</h3>
-                     <p>赛博朋克流动霓虹边框</p>
-                   </div>
-                 </div>
-                 </template>
-               </div>
+                      ></div>
+                    </div>
+                    <div class="neon-marquee-demo" :class="{ 'playing': animations.neonMarquee }">
+                      <div class="marquee-content">霓虹跑马灯</div>
+                    </div>
+                    <div class="item-info">
+                      <h3>霓虹跑马灯</h3>
+                      <p>赛博朋克流动霓虹边框</p>
+                    </div>
+                  </div>
+                </template>
+              </div>
 
-               <div class="showcase-controls">
-                 <button class="show-more-btn" @click="toggleShowMoreAnimations" :class="{ 'expanded': showMoreAnimations }">
-                   <span class="btn-text">{{ showMoreAnimations ? '收起项目' : '展开更多项目' }}</span>
-                   <span class="btn-icon">
+              <div class="showcase-controls">
+                <button class="show-more-btn" @click="toggleShowMoreAnimations"
+                        :class="{ 'expanded': showMoreAnimations }">
+                  <span class="btn-text">{{ showMoreAnimations ? '收起项目' : '展开更多项目' }}</span>
+                  <span class="btn-icon">
                      <svg class="arrow-icon" :class="{ 'rotated': showMoreAnimations }" viewBox="0 0 24 24">
                        <path d="M7 10l5 5 5-5z"/>
                      </svg>
                    </span>
-                 </button>
-               </div>
-             </div>
-           </div>
+                </button>
+              </div>
+            </div>
+          </div>
 
-           <!-- 3D建模展示区 -->
-           <div v-if="activeCategory === 'modeling'" class="modeling-showcase">
-             <div class="development-notice">
-               <div class="notice-icon">
-                 <i class="fas fa-tools"></i>
-               </div>
-               <h3 class="notice-title">功能开发中</h3>
-               <p class="notice-description">3D建模作品展示功能正在开发中，敬请期待...</p>
-             </div>
-           </div>
+          <!-- 3D建模展示区 -->
+          <div v-if="activeCategory === 'modeling'" class="modeling-showcase">
+            <div class="development-notice">
+              <div class="notice-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3 class="notice-title">功能开发中</h3>
+              <p class="notice-description">3D建模作品展示功能正在开发中，敬请期待...</p>
+            </div>
+          </div>
 
-           <!-- 编程项目展示区 -->
-           <div v-if="activeCategory === 'coding'" class="coding-showcase">
-             <div class="development-notice">
-               <div class="notice-icon">
-                 <i class="fas fa-tools"></i>
-               </div>
-               <h3 class="notice-title">功能开发中</h3>
-               <p class="notice-description">编程项目展示功能正在开发中，敬请期待...</p>
-             </div>
-           </div>
+          <!-- 编程项目展示区 -->
+          <div v-if="activeCategory === 'coding'" class="coding-showcase">
+            <div class="development-notice">
+              <div class="notice-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3 class="notice-title">功能开发中</h3>
+              <p class="notice-description">编程项目展示功能正在开发中，敬请期待...</p>
+            </div>
+          </div>
 
-           <!-- 设计作品展示区 -->
-           <div v-if="activeCategory === 'design'" class="design-showcase">
-             <div class="development-notice">
-               <div class="notice-icon">
-                 <i class="fas fa-tools"></i>
-               </div>
-               <h3 class="notice-title">功能开发中</h3>
-               <p class="notice-description">设计作品展示功能正在开发中，敬请期待...</p>
-             </div>
-           </div>
+          <!-- 设计作品展示区 -->
+          <div v-if="activeCategory === 'design'" class="design-showcase">
+            <div class="development-notice">
+              <div class="notice-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <h3 class="notice-title">功能开发中</h3>
+              <p class="notice-description">设计作品展示功能正在开发中，敬请期待...</p>
+            </div>
+          </div>
 
         </div>
       </div>
     </div>
-  
-  <!-- 视频弹窗组件 -->
-  <VideoModal 
-    :show="showVideoModal" 
-    :video="currentVideo"
-    @close="handleVideoModalClose"
-  />
+
+    <!-- 视频弹窗组件 -->
+    <VideoModal
+        :show="showVideoModal"
+        :video="currentVideo"
+        @close="handleVideoModalClose"
+    />
   </div>
 </template>
 
-  <script>
+<script>
 import api from '@/utils/api.js';
 import VideoModal from '@/components/VideoModal.vue';
 // 直接导入视频封面图片
-import videoCover1 from '@/assets/images/【我想吃掉你的胰脏】生命是有光的，至少在我熄灭之后，能照亮你一点也是我所能做的了…….jpg';
+import videoCover1
+  from '@/assets/images/【我想吃掉你的胰脏】生命是有光的，至少在我熄灭之后，能照亮你一点也是我所能做的了…….jpg';
 import videoCover2 from '@/assets/images/估计只有真正喜欢国家队的才能刷到这个视频吧~.jpg';
+
 export default {
   name: 'CreativeLab',
   components: {
-    VideoModal
+    VideoModal,
   },
   data() {
     return {
@@ -562,11 +570,21 @@ export default {
       totalSkills: 15,
       totalWorks: 48,
       categories: [
-        { id: 'video', name: '视频剪辑', icon: 'fas fa-video', count: 12 },
-        { id: 'animation', name: 'CSS动画', icon: 'fas fa-magic', count: 18 },
-        { id: 'modeling', name: '3D建模', icon: 'fas fa-cube', count: 8 },
-        { id: 'coding', name: '编程项目', icon: 'fas fa-code', count: 15 },
-        { id: 'design', name: '设计作品', icon: 'fas fa-palette', count: 10 }
+        {
+          id: 'video', name: '视频剪辑', icon: 'fas fa-video', count: 12,
+        },
+        {
+          id: 'animation', name: 'CSS动画', icon: 'fas fa-magic', count: 18,
+        },
+        {
+          id: 'modeling', name: '3D建模', icon: 'fas fa-cube', count: 8,
+        },
+        {
+          id: 'coding', name: '编程项目', icon: 'fas fa-code', count: 15,
+        },
+        {
+          id: 'design', name: '设计作品', icon: 'fas fa-palette', count: 10,
+        },
       ],
       videos: [],
       loadingVideos: false,
@@ -593,7 +611,7 @@ export default {
         typewriter: false,
         border: false,
         explosion: false,
-        neonMarquee: false
+        neonMarquee: false,
       },
       // 性能优化相关
       isPreloaded: false,
@@ -605,33 +623,33 @@ export default {
       selectedAnimation: null,
       // 视频弹窗相关
       showVideoModal: false,
-      currentVideo: null
+      currentVideo: null,
     };
   },
-    
-    computed: {
-      // 防抖函数作为计算属性
-      debouncedApplyOverlapHide() {
-        return this.debounce(this.applyOverlapHideEffect, 100);
-      }
+
+  computed: {
+    // 防抖函数作为计算属性
+    debouncedApplyOverlapHide() {
+      return this.debounce(this.applyOverlapHideEffect, 100);
     },
+  },
   mounted() {
     this.initializePerformanceOptimizations();
     this.startAutoPlay();
-    
+
     // 初始加载视频数据
     this.loadVideos();
-    
+
     // 初始应用重叠隐藏效果
     setTimeout(() => {
       this.applyOverlapHideEffect();
     }, 500);
-    
+
     // 监听窗口大小变化，重新检测重叠
     const debouncedApplyOverlap = this.debounce(this.applyOverlapHideEffect.bind(this), 100);
     window.addEventListener('resize', this.applyOverlapHideEffect.bind(this));
     window.addEventListener('scroll', debouncedApplyOverlap);
-    
+
     // 保存防抖函数的引用以便清理
     this._debouncedApplyOverlap = debouncedApplyOverlap;
   },
@@ -639,7 +657,7 @@ export default {
   beforeUnmount() {
     this.stopAutoPlay();
     this.cleanupPerformanceOptimizations();
-    
+
     // 清理事件监听器
     window.removeEventListener('resize', this.applyOverlapHideEffect);
     if (this._debouncedApplyOverlap) {
@@ -651,7 +669,7 @@ export default {
     // 防抖函数作为计算属性
     debouncedApplyOverlapHide() {
       return this.debounce(this.applyOverlapHideEffect, 100);
-    }
+    },
   },
 
   methods: {
@@ -671,34 +689,34 @@ export default {
     setActiveCategory(categoryId) {
       this.activeCategory = categoryId;
     },
-    
+
     toggleShowMoreAnimations() {
       this.showMoreAnimations = !this.showMoreAnimations;
-      
+
       // 移除强制滚动，保持用户当前位置
       // 让展开/收回动画在当前视口内自然完成
     },
-    
+
     playAnimation(type) {
       this.playAnimationOptimized(type);
       this.selectAnimation(type);
     },
-    
+
     pauseAnimation(type) {
       this.animationEffects[type] = false;
     },
-    
+
     // 加载B站视频数据
     async loadVideos() {
       try {
         this.loadingVideos = true;
-        
+
         // 添加日志以便调试
         console.log('开始加载视频数据');
-        
+
         // 模拟API请求延迟
-        await new Promise(resolve => setTimeout(resolve, 500));
-        
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
         // 使用导入的图片引用
         this.videos = [
           {
@@ -708,7 +726,7 @@ export default {
             cover: videoCover1,
             duration: 235,
             viewCount: '4353',
-            publishDate: '2020-12-26'
+            publishDate: '2020-12-26',
           },
           {
             bvid: 'BV1d54y167NB',
@@ -717,12 +735,11 @@ export default {
             cover: videoCover2,
             duration: 216,
             viewCount: '1.2万',
-            publishDate: '2020-10-22'
-          }
+            publishDate: '2020-10-22',
+          },
         ];
-        
+
         console.log('视频数据加载成功:', this.videos);
-        
       } catch (error) {
         console.error('加载视频失败:', error);
         // 添加错误提示
@@ -731,13 +748,13 @@ export default {
         this.loadingVideos = false;
       }
     },
-    
+
     // 打开视频弹窗
     openVideoModal(video) {
       this.currentVideo = video;
       this.showVideoModal = true;
     },
-    
+
     // 处理视频弹窗关闭
     handleVideoModalClose() {
       this.showVideoModal = false;
@@ -746,14 +763,14 @@ export default {
         this.currentVideo = null;
       }, 300);
     },
-    
+
     // 格式化视频时长
     formatDuration(seconds) {
       const minutes = Math.floor(seconds / 60);
       const remainingSeconds = Math.floor(seconds % 60);
       return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     },
-    
+
     // 格式化日期
     formatDate(dateString) {
       const date = new Date(dateString);
@@ -768,7 +785,7 @@ export default {
       this.autoPlayInterval = setInterval(() => {
         this.playAllAnimationsOptimized();
       }, 5000); // 延长到5秒，减少频率
-      
+
       // 延迟播放第一次，确保页面完全加载
       setTimeout(() => {
         this.playAllAnimationsOptimized();
@@ -784,7 +801,7 @@ export default {
     playAllAnimations() {
       this.playAllAnimationsOptimized();
     },
-    
+
     selectAnimation(type) {
       // 切换选中状态
       if (this.selectedAnimation === type) {
@@ -798,22 +815,22 @@ export default {
       this.clickCount++;
       this.comboCount++;
       this.multiplier = Math.min(Math.floor(this.comboCount / 5) + 1, 10);
-      
+
       // 随机变色
       const colors = [
         '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7',
-        '#dda0dd', '#98d8c8', '#f7dc6f', '#bb8fce', '#85c1e9'
+        '#dda0dd', '#98d8c8', '#f7dc6f', '#bb8fce', '#85c1e9',
       ];
       this.currentColor = colors[Math.floor(Math.random() * colors.length)];
-      
+
       // 温和的变大效果
       this.ballSize = 1.1;
-      
+
       // 150毫秒后回弹到原始大小
       setTimeout(() => {
         this.ballSize = 1;
       }, 150);
-      
+
       // 重置5秒计时器
       if (this.resetTimer) {
         clearTimeout(this.resetTimer);
@@ -824,9 +841,7 @@ export default {
         this.currentColor = '#ff6b6b';
       }, 5000);
     },
-    
-    
-    
+
     getClickMessage() {
       if (this.clickCount === 0) return '点击开始震撼之旅！';
       if (this.clickCount <= 5) return '继续点击，威力在积累！';
@@ -836,7 +851,7 @@ export default {
       if (this.clickCount <= 80) return '🔥🔥🔥 传说级点击大师！🔥🔥🔥';
       return `💥💥💥 宇宙级点击霸主！球已变大${this.ballSize.toFixed(1)}倍！💥💥💥`;
     },
-    
+
     getParticleStyle(n) {
       const angle = (n / 80) * Math.PI * 2;
       const radius = 20 + Math.random() * 80;
@@ -844,41 +859,41 @@ export default {
       const y = 50 + Math.sin(angle) * radius;
       const delay = Math.random() * 2.5;
       const size = 2 + Math.random() * 4;
-      
+
       return {
         left: `${x}%`,
         top: `${y}%`,
         animationDelay: `${delay}s`,
         width: `${size}px`,
-        height: `${size}px`
+        height: `${size}px`,
       };
     },
-    
+
     getStarStyle(star) {
       const x = Math.random() * 100;
       const y = Math.random() * 100;
       const delay = Math.random() * 1.8;
       const duration = 1.5 + Math.random() * 1.5;
       const size = star > 120 ? 3 : 2;
-      
+
       return {
         left: `${x}%`,
         top: `${y}%`,
         animationDelay: `${delay}s`,
         animationDuration: `${duration}s`,
         width: `${size}px`,
-        height: `${size}px`
+        height: `${size}px`,
       };
     },
-    
+
     getExplosionStyle(index) {
       const angle = (index * 30) * Math.PI / 180;
       const distance = 50 + Math.random() * 30;
       const delay = Math.random() * 0.5;
-      
+
       return {
         transform: `rotate(${angle}rad) translateX(${distance}px)`,
-        animationDelay: `${delay}s`
+        animationDelay: `${delay}s`,
       };
     },
 
@@ -886,13 +901,13 @@ export default {
     initializePerformanceOptimizations() {
       // 1. 预加载关键CSS
       this.preloadCriticalStyles();
-      
+
       // 2. 设置懒加载观察器
       this.setupLazyLoading();
-      
+
       // 3. 初始化动画状态缓存
       this.initializeAnimationStates();
-      
+
       // 4. 设置性能监控
       this.setupPerformanceMonitoring();
     },
@@ -909,25 +924,25 @@ export default {
     preloadCriticalStyles() {
       // 预加载关键动画样式
       const criticalAnimations = ['card3d', 'particles', 'neon', 'ripple'];
-      criticalAnimations.forEach(type => {
+      criticalAnimations.forEach((type) => {
         this.animationStates[type] = { loaded: true, visible: false };
       });
-      
+
       // 延迟加载非关键动画
       setTimeout(() => {
         const lazyAnimations = ['starry', 'progress', 'glitch', 'wave', 'pulse', 'cube', 'typewriter', 'border', 'explosion'];
-        lazyAnimations.forEach(type => {
+        lazyAnimations.forEach((type) => {
           this.animationStates[type] = { loaded: false, visible: false };
         });
       }, 100);
-      
+
       this.isPreloaded = true;
     },
 
     setupLazyLoading() {
       if ('IntersectionObserver' in window) {
         this.lazyLoadObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const animationType = entry.target.dataset.animationType;
               if (animationType) {
@@ -938,13 +953,13 @@ export default {
           });
         }, {
           rootMargin: '50px 0px',
-          threshold: 0.1
+          threshold: 0.1,
         });
-        
+
         // 观察所有动画元素
         this.$nextTick(() => {
           const animationElements = this.$el.querySelectorAll('[data-animation-type]');
-          animationElements.forEach(el => {
+          animationElements.forEach((el) => {
             this.lazyLoadObserver.observe(el);
           });
         });
@@ -953,11 +968,11 @@ export default {
 
     initializeAnimationStates() {
       // 存储动画运行状态，避免重复计算
-      Object.keys(this.animations).forEach(key => {
+      Object.keys(this.animations).forEach((key) => {
         this.animationStates[key] = {
           lastPlayed: 0,
           playCount: 0,
-          cachedStyles: null
+          cachedStyles: null,
         };
       });
     },
@@ -966,7 +981,7 @@ export default {
       if ('PerformanceObserver' in window) {
         this.performanceObserver = new PerformanceObserver((list) => {
           const entries = list.getEntries();
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.duration > 16.67) { // 超过60fps
               console.warn(`动画性能警告: ${entry.name} 耗时 ${entry.duration}ms`);
             }
@@ -978,7 +993,7 @@ export default {
     // 跑马灯重叠隐藏效果方法
     hideMarqueeEffect(element, hide = true) {
       if (!element) return;
-      
+
       if (hide) {
         element.classList.add('marquee-overlap-hidden');
         element.style.setProperty('--marquee-opacity', '0');
@@ -991,32 +1006,32 @@ export default {
     // 检测元素重叠
     checkOverlap(element1, element2) {
       if (!element1 || !element2) return false;
-      
+
       const rect1 = element1.getBoundingClientRect();
       const rect2 = element2.getBoundingClientRect();
-      
-      return !(rect1.right < rect2.left || 
-               rect1.left > rect2.right || 
-               rect1.bottom < rect2.top || 
-               rect1.top > rect2.bottom);
+
+      return !(rect1.right < rect2.left
+          || rect1.left > rect2.right
+          || rect1.bottom < rect2.top
+          || rect1.top > rect2.bottom);
     },
 
     // 应用重叠隐藏效果
     applyOverlapHideEffect() {
       this.$nextTick(() => {
         const marqueeElements = this.$el.querySelectorAll('.neon-marquee-demo');
-        
-        marqueeElements.forEach(marquee => {
+
+        marqueeElements.forEach((marquee) => {
           // 获取所有可能与跑马灯重叠的元素
           const overlappingElements = this.getOverlappingElements(marquee);
-          
+
           // 添加调试信息
           console.log('跑马灯重叠检测:', {
-            marquee: marquee,
+            marquee,
             overlappingCount: overlappingElements.length,
-            overlappingElements: overlappingElements
+            overlappingElements,
           });
-          
+
           if (overlappingElements.length > 0) {
             this.hideMarqueeEffect(marquee, true);
           } else {
@@ -1030,21 +1045,21 @@ export default {
     getOverlappingElements(marqueeElement) {
       const marqueeRect = marqueeElement.getBoundingClientRect();
       const showcaseItems = this.$el.querySelectorAll('.showcase-item');
-      
-      return Array.from(showcaseItems).filter(item => {
+
+      return Array.from(showcaseItems).filter((item) => {
         if (item.contains(marqueeElement) || !item.offsetParent) return false;
-        
+
         const itemRect = item.getBoundingClientRect();
-        
+
         // 检测是否有实际重叠（允许小间隙）
         const overlapThreshold = 10; // 像素阈值
         const hasOverlap = !(
-          marqueeRect.right < itemRect.left + overlapThreshold || 
-          marqueeRect.left > itemRect.right - overlapThreshold || 
-          marqueeRect.bottom < itemRect.top + overlapThreshold || 
-          marqueeRect.top > itemRect.bottom - overlapThreshold
+          marqueeRect.right < itemRect.left + overlapThreshold
+            || marqueeRect.left > itemRect.right - overlapThreshold
+            || marqueeRect.bottom < itemRect.top + overlapThreshold
+            || marqueeRect.top > itemRect.bottom - overlapThreshold
         );
-        
+
         return hasOverlap;
       });
     },
@@ -1052,7 +1067,7 @@ export default {
     loadAnimation(type) {
       this.selectedAnimation = type;
       this.playAnimation(type);
-      
+
       if (this.animationStates[type] && !this.animationStates[type].loaded) {
         this.animationStates[type].loaded = true;
         this.animationStates[type].visible = true;
@@ -1063,19 +1078,19 @@ export default {
     playAnimationOptimized(type) {
       const now = Date.now();
       const state = this.animationStates[type];
-      
+
       // 节流控制：防止频繁触发
       if (now - state.lastPlayed < 100) {
         return;
       }
-      
+
       state.lastPlayed = now;
       state.playCount++;
-      
+
       // 使用 requestAnimationFrame 优化动画触发
       requestAnimationFrame(() => {
         this.animationEffects[type] = true;
-        
+
         // 自动停止动画，避免资源浪费
         setTimeout(() => {
           this.animationEffects[type] = false;
@@ -1086,18 +1101,18 @@ export default {
     // 批量动画播放优化
     playAllAnimationsOptimized() {
       const types = ['card3d', 'particles', 'neon', 'ripple', 'starry', 'progress', 'glitch', 'wave'];
-      
+
       // 分批播放，避免同时触发过多动画
       const batchSize = 3;
       const batches = [];
-      
+
       for (let i = 0; i < types.length; i += batchSize) {
         batches.push(types.slice(i, i + batchSize));
       }
-      
+
       batches.forEach((batch, batchIndex) => {
         setTimeout(() => {
-          batch.forEach(type => {
+          batch.forEach((type) => {
             if (this.visibleAnimations.has(type)) {
               this.playAnimationOptimized(type);
             }
@@ -1111,7 +1126,7 @@ export default {
       if (this.animationStates[type]) {
         this.animationStates[type].cachedStyles = null;
       }
-    }
+    },
 
   },
 };
@@ -2063,7 +2078,9 @@ export default {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .error i, .no-results i {
@@ -2159,7 +2176,7 @@ export default {
     text-align: center;
     gap: 40px;
   }
-  
+
   .character-container {
     width: 300px;
     height: 300px;
@@ -2170,38 +2187,38 @@ export default {
   .anime-hero-section {
     min-height: 80vh;
   }
-  
+
   .title-main {
     font-size: 2.5rem;
   }
-  
+
   .hero-description {
     font-size: 1.1rem;
   }
-  
+
   .hero-stats {
     justify-content: center;
     gap: 30px;
   }
-  
+
   .category-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .category-btn {
     width: 100%;
     max-width: 300px;
     justify-content: center;
   }
-  
+
   .works-grid,
   .video-grid,
   .animation-grid,
   .modeling-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .section-title {
     font-size: 1.5rem;
   }
@@ -2211,16 +2228,16 @@ export default {
   .anime-hero-section {
     min-height: 70vh;
   }
-  
+
   .title-main {
     font-size: 2rem;
   }
-  
+
   .hero-stats {
     flex-direction: column;
     gap: 20px;
   }
-  
+
   .category-nav,
   .work-card,
   .video-card,
@@ -2228,7 +2245,7 @@ export default {
   .model-card {
     margin: 0 15px;
   }
-  
+
   .work-info,
   .video-info,
   .animation-info,
@@ -2270,9 +2287,15 @@ export default {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* 加载和错误状态 */
@@ -2457,9 +2480,9 @@ export default {
   bottom: -8px;
   border-radius: 19px;
   padding: 3px;
-  background: linear-gradient(90deg, 
-    #00ffff, #0080ff, #8000ff, #ff00ff, 
-    #00ffff, #0080ff, #8000ff, #ff00ff);
+  background: linear-gradient(90deg,
+  #00ffff, #0080ff, #8000ff, #ff00ff,
+  #00ffff, #0080ff, #8000ff, #ff00ff);
   background-size: 300% 100%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: subtract;
@@ -2476,10 +2499,10 @@ export default {
   left: -12px;
   right: -12px;
   bottom: -12px;
-  background: linear-gradient(90deg, 
-    rgba(0, 255, 255, 0.4), rgba(0, 128, 255, 0.3), 
-    rgba(128, 0, 255, 0.4), rgba(255, 0, 255, 0.3), 
-    rgba(0, 255, 255, 0.4));
+  background: linear-gradient(90deg,
+  rgba(0, 255, 255, 0.4), rgba(0, 128, 255, 0.3),
+  rgba(128, 0, 255, 0.4), rgba(255, 0, 255, 0.3),
+  rgba(0, 255, 255, 0.4));
   background-size: 200% 100%;
   border-radius: 23px;
   z-index: -11;
@@ -2574,19 +2597,39 @@ export default {
 }
 
 @keyframes card-rotate {
-  0% { transform: rotateY(0deg); }
-  25% { transform: rotateY(180deg); }
-  50% { transform: rotateY(0deg); }
-  75% { transform: rotateY(-180deg); }
-  100% { transform: rotateY(0deg); }
+  0% {
+    transform: rotateY(0deg);
+  }
+  25% {
+    transform: rotateY(180deg);
+  }
+  50% {
+    transform: rotateY(0deg);
+  }
+  75% {
+    transform: rotateY(-180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
 }
 
 @keyframes card-rotate-back {
-  0% { transform: rotateY(180deg); }
-  25% { transform: rotateY(0deg); }
-  50% { transform: rotateY(180deg); }
-  75% { transform: rotateY(360deg); }
-  100% { transform: rotateY(180deg); }
+  0% {
+    transform: rotateY(180deg);
+  }
+  25% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  75% {
+    transform: rotateY(360deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
 }
 
 /* 粒子动画 */
@@ -2628,10 +2671,22 @@ export default {
 }
 
 @keyframes particle-float {
-  0% { transform: translateY(120px) translateX(0px) scale(0.5); opacity: 0; }
-  20% { opacity: 1; transform: scale(1); }
-  80% { opacity: 1; transform: scale(1); }
-  100% { transform: translateY(-30px) translateX(60px) scale(0.3); opacity: 0; }
+  0% {
+    transform: translateY(120px) translateX(0px) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    transform: translateY(-30px) translateX(60px) scale(0.3);
+    opacity: 0;
+  }
 }
 
 /* 霓虹文字 */
@@ -2668,27 +2723,54 @@ export default {
 }
 
 @keyframes neon-pulse {
-  0%, 100% { opacity: 0.3; }
-  15% { opacity: 0.6; }
-  30% { opacity: 0.9; }
-  45% { opacity: 1; }
-  60% { opacity: 0.8; }
-  75% { opacity: 0.7; }
-  90% { opacity: 0.5; }
+  0%, 100% {
+    opacity: 0.3;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  45% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.5;
+  }
 }
 
 @keyframes neon-text-glow {
-  0%, 100% { text-shadow: 0 0 10px rgba(102, 126, 234, 0.5); }
-  15% { text-shadow: 0 0 12px rgba(102, 126, 234, 0.7), 0 0 15px rgba(116, 185, 255, 0.5); }
-  30% { text-shadow: 0 0 15px rgba(102, 126, 234, 0.9), 0 0 20px rgba(116, 185, 255, 0.7); }
-  45% { text-shadow: 0 0 20px rgba(102, 126, 234, 1), 0 0 30px rgba(116, 185, 255, 0.8), 0 0 40px rgba(102, 126, 234, 0.6); }
-  60% { text-shadow: 0 0 25px rgba(102, 126, 234, 0.9), 0 0 35px rgba(116, 185, 255, 0.7); }
-  75% { text-shadow: 0 0 20px rgba(102, 126, 234, 0.8), 0 0 30px rgba(116, 185, 255, 0.6); }
-  90% { text-shadow: 0 0 15px rgba(102, 126, 234, 0.7), 0 0 20px rgba(116, 185, 255, 0.5); }
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+  }
+  15% {
+    text-shadow: 0 0 12px rgba(102, 126, 234, 0.7), 0 0 15px rgba(116, 185, 255, 0.5);
+  }
+  30% {
+    text-shadow: 0 0 15px rgba(102, 126, 234, 0.9), 0 0 20px rgba(116, 185, 255, 0.7);
+  }
+  45% {
+    text-shadow: 0 0 20px rgba(102, 126, 234, 1), 0 0 30px rgba(116, 185, 255, 0.8), 0 0 40px rgba(102, 126, 234, 0.6);
+  }
+  60% {
+    text-shadow: 0 0 25px rgba(102, 126, 234, 0.9), 0 0 35px rgba(116, 185, 255, 0.7);
+  }
+  75% {
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.8), 0 0 30px rgba(116, 185, 255, 0.6);
+  }
+  90% {
+    text-shadow: 0 0 15px rgba(102, 126, 234, 0.7), 0 0 20px rgba(116, 185, 255, 0.5);
+  }
 }
 
 /* 连点器效果 */
-
 
 .score-item {
   display: flex;
@@ -2706,9 +2788,17 @@ export default {
 }
 
 @keyframes score-pop {
-  0% { transform: scale(0.6); opacity: 0; }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .click-counter-container {
@@ -2749,9 +2839,15 @@ export default {
 }
 
 @keyframes counter-bounce {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* 星空背景 */
@@ -2789,13 +2885,25 @@ export default {
 }
 
 @keyframes star-twinkle {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.5); }
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
 }
 
 @keyframes star-twinkle-bright {
-  0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
-  50% { opacity: 1; transform: scale(2.5) rotate(180deg); }
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(2.5) rotate(180deg);
+  }
 }
 
 /* 进度环 */
@@ -2833,9 +2941,15 @@ export default {
 }
 
 @keyframes progress-fill {
-  0% { stroke-dashoffset: 283; }
-  50% { stroke-dashoffset: 70; }
-  100% { stroke-dashoffset: 283; }
+  0% {
+    stroke-dashoffset: 283;
+  }
+  50% {
+    stroke-dashoffset: 70;
+  }
+  100% {
+    stroke-dashoffset: 283;
+  }
 }
 
 .progress-text {
@@ -2885,19 +2999,49 @@ export default {
 }
 
 @keyframes glitch-1 {
-  0%, 100% { transform: translate(0); opacity: 0; }
-  20% { transform: translate(-2px, 2px); opacity: 1; }
-  40% { transform: translate(-2px, -2px); opacity: 1; }
-  60% { transform: translate(2px, 2px); opacity: 1; }
-  80% { transform: translate(2px, -2px); opacity: 1; }
+  0%, 100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(2px, 2px);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(2px, -2px);
+    opacity: 1;
+  }
 }
 
 @keyframes glitch-2 {
-  0%, 100% { transform: translate(0); opacity: 0; }
-  20% { transform: translate(2px, -2px); opacity: 1; }
-  40% { transform: translate(-2px, 2px); opacity: 1; }
-  60% { transform: translate(2px, 2px); opacity: 1; }
-  80% { transform: translate(-2px, -2px); opacity: 1; }
+  0%, 100% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translate(2px, -2px);
+    opacity: 1;
+  }
+  40% {
+    transform: translate(-2px, 2px);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(2px, 2px);
+    opacity: 1;
+  }
+  80% {
+    transform: translate(-2px, -2px);
+    opacity: 1;
+  }
 }
 
 /* 波浪动画 */
@@ -2940,8 +3084,12 @@ export default {
 }
 
 @keyframes wave-move {
-  0% { transform: translate(-50%, 0) rotateZ(0deg); }
-  100% { transform: translate(-50%, -50%) rotateZ(360deg); }
+  0% {
+    transform: translate(-50%, 0) rotateZ(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
 }
 
 .showcase-controls {
@@ -3038,20 +3186,20 @@ export default {
   .showcase-title {
     font-size: 2rem;
   }
-  
+
   .showcase-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .showcase-item {
     padding: 20px;
   }
-  
+
   .animation-container {
     height: 150px;
   }
-  
+
   .show-more-btn {
     padding: 12px 24px;
     font-size: 1rem;
@@ -3080,9 +3228,18 @@ export default {
 }
 
 @keyframes shimmer {
-  0% { opacity: 0.3; transform: translateX(-50%) scaleX(0.3); }
-  50% { opacity: 1; transform: translateX(-50%) scaleX(1); }
-  100% { opacity: 0.3; transform: translateX(-50%) scaleX(0.3); }
+  0% {
+    opacity: 0.3;
+    transform: translateX(-50%) scaleX(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateX(-50%) scaleX(0.3);
+  }
 }
 
 /* 为按钮添加点击波纹效果 */
@@ -3158,13 +3315,27 @@ export default {
   animation: pulse-expand 2s infinite ease-out;
 }
 
-.pulse-button.playing .ring-1 { animation-delay: 0s; }
-.pulse-button.playing .ring-2 { animation-delay: 0.2s; }
-.pulse-button.playing .ring-3 { animation-delay: 0.4s; }
+.pulse-button.playing .ring-1 {
+  animation-delay: 0s;
+}
+
+.pulse-button.playing .ring-2 {
+  animation-delay: 0.2s;
+}
+
+.pulse-button.playing .ring-3 {
+  animation-delay: 0.4s;
+}
 
 @keyframes pulse-expand {
-  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
 }
 
 /* 3D魔方 */
@@ -3199,20 +3370,41 @@ export default {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.cube-face.front { transform: translateZ(50px); }
-.cube-face.back { transform: rotateY(180deg) translateZ(50px); }
-.cube-face.left { transform: rotateY(-90deg) translateZ(50px); }
-.cube-face.right { transform: rotateY(90deg) translateZ(50px); }
-.cube-face.top { transform: rotateX(90deg) translateZ(50px); }
-.cube-face.bottom { transform: rotateX(-90deg) translateZ(50px); }
+.cube-face.front {
+  transform: translateZ(50px);
+}
+
+.cube-face.back {
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.cube-face.left {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.cube-face.right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.cube-face.top {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.cube-face.bottom {
+  transform: rotateX(-90deg) translateZ(50px);
+}
 
 .cube-container.playing .cube {
   animation: cube-rotate 3s infinite linear;
 }
 
 @keyframes cube-rotate {
-  0% { transform: rotateX(-15deg) rotateY(15deg); }
-  100% { transform: rotateX(-15deg) rotateY(375deg); }
+  0% {
+    transform: rotateX(-15deg) rotateY(15deg);
+  }
+  100% {
+    transform: rotateX(-15deg) rotateY(375deg);
+  }
 }
 
 /* 打字机效果 */
@@ -3247,13 +3439,21 @@ export default {
 }
 
 @keyframes typing {
-  0% { width: 0; }
-  100% { width: 120px; }
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 120px;
+  }
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
 }
 
 /* 渐变边框 */
@@ -3297,9 +3497,15 @@ export default {
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* 粒子爆炸 */
@@ -3343,18 +3549,24 @@ export default {
 }
 
 @keyframes center-explode {
-  0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
 
 @keyframes particle-explode {
-  0% { 
-    transform: rotate(0deg) translateX(0px) scale(1); 
-    opacity: 1; 
+  0% {
+    transform: rotate(0deg) translateX(0px) scale(1);
+    opacity: 1;
   }
-  100% { 
-    transform: rotate(var(--angle, 0deg)) translateX(80px) scale(0); 
-    opacity: 0; 
+  100% {
+    transform: rotate(var(--angle, 0deg)) translateX(80px) scale(0);
+    opacity: 0;
   }
 }
 
@@ -3399,12 +3611,12 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(0, 255, 255, 0.1) 25%, 
-    rgba(0, 128, 255, 0.2) 50%, 
-    rgba(255, 0, 255, 0.1) 75%, 
-    transparent 100%
+  background: linear-gradient(90deg,
+  transparent 0%,
+  rgba(0, 255, 255, 0.1) 25%,
+  rgba(0, 128, 255, 0.2) 50%,
+  rgba(255, 0, 255, 0.1) 75%,
+  transparent 100%
   );
   background-size: 200% 100%;
   animation: neon-marquee-flow 3s linear infinite;
@@ -3418,10 +3630,9 @@ export default {
   color: #fff;
   font-size: 1.2rem;
   font-weight: bold;
-  text-shadow: 
-    0 0 5px rgba(0, 255, 255, 0.8),
-    0 0 10px rgba(0, 255, 255, 0.6),
-    0 0 15px rgba(0, 255, 255, 0.4);
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.8),
+  0 0 10px rgba(0, 255, 255, 0.6),
+  0 0 15px rgba(0, 255, 255, 0.4);
   z-index: 1;
   position: relative;
   letter-spacing: 2px;
@@ -3438,9 +3649,9 @@ export default {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(90deg, 
-    #00ffff, #0080ff, #8000ff, #ff00ff, 
-    #00ffff, #0080ff, #8000ff, #ff00ff
+  background: linear-gradient(90deg,
+  #00ffff, #0080ff, #8000ff, #ff00ff,
+  #00ffff, #0080ff, #8000ff, #ff00ff
   );
   background-size: 300% 100%;
   border-radius: 12px;
@@ -3677,17 +3888,17 @@ export default {
     width: 95%;
     margin: 10px;
   }
-  
+
   .video-meta-info {
     flex-direction: column;
     align-items: center;
     gap: 10px;
   }
-  
+
   .video-modal-footer {
     flex-direction: column;
   }
-  
+
   .view-original-btn,
   .close-modal-btn {
     justify-content: center;

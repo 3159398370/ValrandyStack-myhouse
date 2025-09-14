@@ -139,10 +139,21 @@ npm install
 
 npm run build
 
+echo 请在Linux服务器上以root权限执行以下命令：
 
-[root@Valrandy learningtree.fun]# find / -name "deploy_all_in_one.sh" 2>/dev/null
-/usr/local/bin/deploy_all_in_one.sh
-/usr/local/bin/deploy_all_in_one.sh full
+# 1. 切换到root用户
+sudo su -
 
-cd /www/wwwroot/learningtree.fun/backend
-source venv/bin/activate
+# 2. 进入前端目录所在路径
+cd /www/wwwroot/learningtree.fun
+
+# 3. 设置前端目录为只读
+chmod -R a-w frontend && chmod -R a+rx frontend
+
+# 4. 验证权限设置
+ls -la frontend
+
+# 完成后，前端目录中的文件将只能被读取，无法被修改、删除或移动
+
+# 如需恢复写入权限，请执行：
+# chmod -R a+w frontend
