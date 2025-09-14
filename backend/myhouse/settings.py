@@ -104,6 +104,9 @@ DATABASES = {
         'PORT': env('DB_PORT', default='3306'),
         'OPTIONS': {
             'charset': 'utf8mb4',
+            # MySQL 8.0 兼容配置
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES', default_storage_engine=INNODB",
+            'autocommit': True,
         },
     }
 }
@@ -144,6 +147,7 @@ STATICFILES_DIRS = [
 # 确保静态文件目录存在
 os.makedirs(STATIC_ROOT, exist_ok=True)
 os.makedirs(os.path.join(BASE_DIR, 'staticfiles'), exist_ok=True)
+os.makedirs(os.path.join(BASE_DIR, 'assets'), exist_ok=True)
 
 # 生产环境静态文件存储配置
 if not DEBUG:
